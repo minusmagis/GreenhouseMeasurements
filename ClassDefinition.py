@@ -1,5 +1,7 @@
 import serial
 import time
+import datetime
+import os
 import sys
 import glob
 import pandas as pd
@@ -62,17 +64,16 @@ class Load(classHardware_):
         
         self.list_resistance = np.logspace(math.log10(res_min), math.log10(res_max), num=resistance_nb_step, base=10)
         print(self.list_resistance)
-        #self.list_resistance = [*range(res_min, res_max + resistance_step, resistance_step)]
         for res in self.list_resistance:
             self.send_resistance_to_load(res)
             result = self.receive_result()
             current_list.append(result[0])
             voltage_list.append(result[1])
         return voltage_list, current_list
-        
 
 class Cell():
-    def __init__(self):
+    def __init__(self, ref):
+        self.ref = ref
         self.isc = None
         self.voc = None
         self.ff = None
@@ -95,6 +96,7 @@ class Cell():
         self.get_isc()
         self.get_voc()
         self.get_fill_factor()
+        self.get_pce()
 
     def get_isc(self):
         self.isc = self.df_iv['Current (A)'][self.df_iv.index[0]]
@@ -118,8 +120,56 @@ class Cell():
     def mpp_tracking(self, oload):
         oload.send_resistance_to_load(oload.list_resistance[self.idx_mpp])
 
-class Main():
+class Data_file():
     def __init__(self):
+        self.timestamp = None
+        self.date = None
+        self.df_iv = None
+        self.df_params = None
+
+    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp, path, ref):
+        self.get_data(df_iv, isc, voc, ff, pce, mpp)
+        self.save_dfs_to_files(path, ref)
+
+    def get_data(self, df_iv, isc, voc, ff, pce, mpp):
+        self.df_iv = df_iv.round(3)
+        self.get_timestamp()
+        self.df_params = pd.DataFrame({'Date_Timestamp':self.date, 'UNIX_Timestamp(s)':self.timestamp, 'Isc':[isc], 'Voc':[voc], 'FF':[ff], 'PCE':[pce], 'MPP voltage': mpp}).round(3)
+
+    def get_timestamp(self):
+        self.timestamp = round(time.time())
+        self.date = datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y-%m-%d %H:%M:%S')
+
+    def save_dfs_to_files(self, path, ref):
+        path_cell = f'{path}/Cell{ref}'
+        self.create_save_directory(path_cell)
+        path_summary = f'{path}/Summary'
+        self.create_save_directory(path_summary)
+        date = self.date.replace(" ", "_")
+        date = date.replace(":", "-")
+        filename='Cell' + str(ref)
+        self.df_iv.to_csv(path_cell + '/' + filename + '_IV_' + date +'.txt', index=None, sep='\t')
+        if os.path.isfile(path_cell + '/' + filename + '_param.txt'):
+            self.update_params_file(path_summary, path_cell, filename)
+        else:
+            self.df_params.to_csv(path_cell + '/' + filename + '_param.txt',index=None, sep='\t')
+            self.df_params.to_csv(path_summary + '/' + filename + '_param.txt',index=None, sep='\t')
+
+    def update_params_file(self, path_summary, path_cell, filename):
+        df_open = pd.read_csv(path_cell + '/' + filename + '_param.txt', delimiter = "\t")
+        df=pd.concat([df_open, self.df_params])
+        df.to_csv(path_cell + '/' + filename + '_param.txt',index=None, sep='\t')
+        df.to_csv(path_summary + '/' + filename + '_param.txt',index=None, sep='\t')
+
+    def create_save_directory(self, path):
+        try:
+            os.makedirs(path)
+        except FileExistsError:
+            pass
+
+class Main():
+    def __init__(self, path):
+        self.path = path
         self.list_port = self.serial_ports()
         print('go')
         self.load_dict = self.get_load_dict()
@@ -155,20 +205,26 @@ class Main():
 
     def get_load_dict(self):
         load_dict = {}
+        i = 1
         for port in self.list_port:
-            load_dict[port] = {'load':Load(port), 'cell':Cell()}
+            load_dict[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':Data_file()}
+            i += 1
         return load_dict
 
     def measure_cells(self):
         for port in self.load_dict:
-            self.load_dict[port]['cell'].measure_cell(self.load_dict[port]['load'], 0.05, 100, 20)
-            self.load_dict[port]['cell'].mpp_tracking(self.load_dict[port]['load'])
+            cell = self.load_dict[port]['cell']
+            load = self.load_dict[port]['load']
+            data_file = self.load_dict[port]['data_file']
+            cell.measure_cell(load, 0.05, 150, 20)
+            cell.mpp_tracking(load)
             print(self.load_dict[port]['cell'].df_iv)
+            data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, self.path, cell.ref)
 
 
 
 if __name__ == '__main__':
-    f = Main()
+    f = Main('C:/Users/jules/Documents/test')
     f.measure_cells()
 
 # -------------------Load test---------------------------------

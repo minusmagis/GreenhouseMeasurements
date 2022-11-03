@@ -15,9 +15,9 @@ import USBComs
 #  (if you get cocky make an http request to get the
 #irradiance on that day to calculate efficiency
 
-# Save the JV Curves in a separate folder with timestamp
+# Save the JV Curves in a separate folder with timestamp : Done
 
-# Save an MPPT graph for the day as well as the data in a txt file
+# Save an MPPT graph for the day as well as the data in a txt file : Done
 
 # Append all the data into a combined file and plot it on real time
 
