@@ -190,9 +190,10 @@ class Data_file():
     def update_params_file(self, path_summary, path_cell, filename):
         df_open = pd.read_csv(path_cell + '/' + filename + '_param.txt', delimiter = "\t")
         df = pd.concat([df_open, self.df_params])
-        df.to_csv(path_cell + '/' + filename + '_param.txt',index=None, sep='\t')
-        df.to_csv(path_summary + '/' + filename + '_param.txt',index=None, sep='\t')
+        df.to_csv(path_cell + '/' + filename + '_param.txt', index=None, sep='\t')
+        df.to_csv(path_summary + '/' + filename + '_param.txt', index=None, sep='\t')
 
+    # Create save directory
     def create_save_directory(self, path):
         try:
             os.makedirs(path)
