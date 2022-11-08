@@ -168,8 +168,8 @@ class Data_file():
 
     def get_df_full_params(self):
         path_summary = f'{self.path}/Summary'
-        if os.path.exists(path_summary):
-            filename = f'Cell{self.ref}_param.txt'
+        filename = f'Cell{self.ref}_param.txt'
+        if os.path.exists(path_summary) and os.path.exists(path_summary + '/' + filename):
             return pd.read_csv(path_summary + '/' + filename, delimiter = "\t")
         else:
             return pd.DataFrame()
@@ -352,7 +352,7 @@ class GUI(QMainWindow):
             cell = self.comboBox_cell_list.currentText()
             self.trigger_worker(cell)
 
-    def cycle_measurement(self, worker_ref, cell, remaining_time):
+    def cycle_measurement(self, worker_ref, cell, remaining_time = None):
         loop_bool=self.radioButton_cycle.isChecked()
         cycle = 1
         delay=int(self.lineEdit_delay.text())
@@ -361,13 +361,19 @@ class GUI(QMainWindow):
         i = 0
         while (i<cycle or loop_bool) and not self.worker[0].checkstop:
             time_s=time.time()
-            remaining_time.emit('measuring')
+            if remaining_time != None:
+                remaining_time.emit('measuring')
             self.measurement(cell)
             time_f=time.time()
             i=i+1
             if i<cycle or loop_bool:
-                self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
-        remaining_time.emit('not measuring')
+                if remaining_time != None:
+                    self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
+                else:
+                    while self.label_remaining_time.text() != 'Measuring...':
+                        pass
+        if remaining_time != None:
+            remaining_time.emit('not measuring')
         self.worker[worker_ref].running = False
 
     def trigger_worker(self, cell):
