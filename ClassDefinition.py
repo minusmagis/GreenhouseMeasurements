@@ -370,8 +370,9 @@ class GUI(QMainWindow):
                 if remaining_time != None:
                     self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
                 else:
-                    while self.label_remaining_time.text() != 'Measuring...':
-                        pass
+                    time.sleep(1)
+                    while (self.label_remaining_time.text() != 'Measuring...') and not self.worker[0].checkstop:
+                        time.sleep(0.1)
         if remaining_time != None:
             remaining_time.emit('not measuring')
         self.worker[worker_ref].running = False
