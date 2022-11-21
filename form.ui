@@ -227,7 +227,7 @@ QPushButton:pressed {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="JVCurvesStack">
        <layout class="QGridLayout" name="gridLayout_2" rowstretch="50,50">
@@ -1706,44 +1706,6 @@ QPushButton:pressed {
        </layout>
       </widget>
       <widget class="QWidget" name="Settings">
-       <widget class="QPushButton" name="PauseMeasurementsButton">
-        <property name="geometry">
-         <rect>
-          <x>900</x>
-          <y>680</y>
-          <width>301</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Bahnschrift</family>
-          <pointsize>20</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background-color: rgb(255, 130, 132);
-color: rgb(100, 79, 79);
-	border: none
-}
-QPushButton:hover {
-background-color: rgb(255, 100, 100);
-color: rgb(100, 79, 79);
-	border: none
-}
-QPushButton:pressed {
-background-color: rgb(255, 80, 80);
-color: rgb(100, 79, 79);
-	border: none
-}
-
-</string>
-        </property>
-        <property name="text">
-         <string>Pause Measurements</string>
-        </property>
-       </widget>
        <widget class="QDoubleSpinBox" name="TimeBetweenJV">
         <property name="geometry">
          <rect>
@@ -1848,6 +1810,7 @@ color: rgb(100, 79, 79);
          <font>
           <family>Bahnschrift</family>
           <pointsize>20</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -2017,6 +1980,7 @@ color: rgb(100, 79, 79);
          <font>
           <family>Bahnschrift</family>
           <pointsize>20</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -2167,6 +2131,91 @@ color: rgb(100, 79, 79);
         <property name="flat">
          <bool>false</bool>
         </property>
+       </widget>
+       <widget class="QStackedWidget" name="stackedWidget_MeasurementTriggers">
+        <property name="geometry">
+         <rect>
+          <x>870</x>
+          <y>670</y>
+          <width>271</width>
+          <height>45</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="page_3">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="StartMeasurementsButton">
+            <property name="font">
+             <font>
+              <family>Bahnschrift</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(255, 130, 132);
+color: rgb(100, 79, 79);
+	border: none
+}
+QPushButton:hover {
+background-color: rgb(255, 100, 100);
+color: rgb(100, 79, 79);
+	border: none
+}
+QPushButton:pressed {
+background-color: rgb(255, 80, 80);
+color: rgb(100, 79, 79);
+	border: none
+}
+
+</string>
+            </property>
+            <property name="text">
+             <string>Start Measurements</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_4">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPushButton" name="PauseMeasurementsButton">
+            <property name="font">
+             <font>
+              <family>Bahnschrift</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(255, 130, 132);
+color: rgb(100, 79, 79);
+	border: none
+}
+QPushButton:hover {
+background-color: rgb(255, 100, 100);
+color: rgb(100, 79, 79);
+	border: none
+}
+QPushButton:pressed {
+background-color: rgb(255, 80, 80);
+color: rgb(100, 79, 79);
+	border: none
+}
+
+</string>
+            </property>
+            <property name="text">
+             <string>Pause Measurements</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="DashBoardStack">

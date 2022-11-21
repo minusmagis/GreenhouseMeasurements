@@ -7,11 +7,12 @@ import glob
 import pandas as pd
 import numpy as np
 import math
-from PyQt5.uic import loadUi
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from PyQt5 import sip
+from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
+# from PySide6 import shiboken
+from ui_form import Ui_MainWindow
 import matplotlib
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
@@ -293,39 +294,55 @@ class Main():
 class GUI(QMainWindow):
     def __init__(self):
         super().__init__()
-        loadUi('main.ui', self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
         self.main = Main('C:/Users/jules/Documents/test')
         self.worker = []
         self.threadpool = QThreadPool()
         self.gui_cell = {}
         self.init_triggers()
-        self.update_gui()
+        #self.update_gui()
 
     # Define all the triggers and link them to an action in the back end
     def init_triggers(self):
-        self.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
-        self.pushButton_measure_cell.clicked.connect(self.trigger_measure_one_cell)
-        self.pushButton_measure_all.clicked.connect(self.trigger_measure_all_cells)
-        self.pushButton_stop.clicked.connect(self.stop_worker)
+        self.ui.DashboardButton.clicked.connect(self.switch_menu)
+        self.ui.JVCurvesButton.clicked.connect(self.switch_menu)
+        self.ui.HistoricalDataButton.clicked.connect(self.switch_menu)
+        self.ui.SettingsButton.clicked.connect(self.switch_menu)
+        self.ui.StartMeasurementsButton.clicked.connect(self.trigger_measure_all_cells)
+        # self.ui.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
+        # self.ui.pushButton_measure_cell.clicked.connect(self.trigger_measure_one_cell)
+        # self.ui.pushButton_measure_all.clicked.connect(self.trigger_measure_all_cells)
+        # self.ui.pushButton_stop.clicked.connect(self.stop_worker)
+
+    def switch_menu(self):
+        if self.sender().objectName() == 'DashboardButton':
+            self.ui.stackedWidget.setCurrentIndex(3)
+        if self.sender().objectName() == 'JVCurvesButton':
+            self.ui.stackedWidget.setCurrentIndex(0)
+        if self.sender().objectName() == 'HistoricalDataButton':
+            self.ui.stackedWidget.setCurrentIndex(1)
+        if self.sender().objectName() == 'SettingsButton':
+            self.ui.stackedWidget.setCurrentIndex(2)
 
     # Switch cell GUI subroutine that plots the selected cell data
     def switch_cell(self):
-        combo = self.comboBox_cell_list
+        combo = self.ui.comboBox_cell_list
         cell_nb = combo.currentText()
         if not cell_nb in ['']:
-            self.stackedWidget_cells_plot.setCurrentWidget(self.gui_cell[cell_nb].widget_plot)
+            self.ui.stackedWidget_cells_plot.setCurrentWidget(self.gui_cell[cell_nb].widget_plot)
 
 
     def update_gui(self, cell = None):
-        comboBox = self.comboBox_cell_list
+        comboBox = self.ui.comboBox_cell_list
         if comboBox.currentText() == '':
             comboBox.clear()
-            for w in range(0, self.stackedWidget_cells_plot.count(), -1):
-                wid = self.stackedWidget_cells_plot.widget(w)
-                self.stackedWidget_materials_plot.removeWidget(wid)
+            for w in range(0, self.ui.stackedWidget_cells_plot.count(), -1):
+                wid = self.ui.stackedWidget_cells_plot.widget(w)
+                self.ui.stackedWidget_materials_plot.removeWidget(wid)
                 wid.deleteLater()
             for k in self.main.cells_package.keys():
-                self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.stackedWidget_cells_plot)
+                self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.ui.stackedWidget_cells_plot)
                 self.gui_cell[k].build_tabs()
                 comboBox.addItem(k)
             self.switch_cell()
@@ -356,13 +373,13 @@ class GUI(QMainWindow):
                 break
         if check:
             self.worker = []
-            cell = self.comboBox_cell_list.currentText()
+            cell = self.ui.comboBox_cell_list.currentText()
             self.trigger_worker(cell)
 
     def cycle_measurement(self, worker_ref, cell, remaining_time = None):
-        loop_bool=self.radioButton_cycle.isChecked()
+        loop_bool=self.ui.radioButton_cycle.isChecked()
         cycle = 1
-        delay=int(self.lineEdit_delay.text())
+        delay=int(self.ui.lineEdit_delay.text())
         if delay == None:
             delay = 0
         i = 0
@@ -378,7 +395,7 @@ class GUI(QMainWindow):
                     self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
                 else:
                     time.sleep(1)
-                    while (self.label_remaining_time.text() != 'Measuring...') and not self.worker[0].checkstop:
+                    while (self.ui.label_remaining_time.text() != 'Measuring...') and not self.worker[0].checkstop:
                         time.sleep(0.1)
         if remaining_time != None:
             remaining_time.emit('not measuring')
@@ -426,11 +443,11 @@ class GUI(QMainWindow):
 
     def show_remaining_time(self, time_remaining_str):
         if time_remaining_str == 'measuring':
-            self.label_remaining_time.setText(f'Measuring...')
+            self.ui.label_remaining_time.setText(f'Measuring...')
         elif time_remaining_str == 'not measuring':
-            self.label_remaining_time.setText(f'Not Measuring')
+            self.ui.label_remaining_time.setText(f'Not Measuring')
         else:
-            self.label_remaining_time.setText(f'Remaining time: {time_remaining_str}')
+            self.ui.label_remaining_time.setText(f'Remaining time: {time_remaining_str}')
 
     def stop_worker(self):
         if self.worker != None:
@@ -573,16 +590,16 @@ class GUI_Cell_tabs():
         if not self.cell_package['data_file'].df_iv.empty:
             self.fig_iv.axes.plot(self.cell_package['data_file'].df_iv['Voltage (V)'], self.cell_package['data_file'].df_iv['Current (A)'], linewidth=2)
 
-    def deleteLayout(self, cur_lay):
-        if cur_lay is not None:
-            while cur_lay.count():
-                item = cur_lay.takeAt(0)
-                widget = item.widget()
-                if widget is not None:
-                    widget.deleteLater()
-                else:
-                    self.deleteLayout(item.layout())
-            sip.delete(cur_lay)
+    # def deleteLayout(self, cur_lay):
+    #     if cur_lay is not None:
+    #         while cur_lay.count():
+    #             item = cur_lay.takeAt(0)
+    #             widget = item.widget()
+    #             if widget is not None:
+    #                 widget.deleteLater()
+    #             else:
+    #                 self.deleteLayout(item.layout())
+    #         shiboken.delete(cur_lay)
 
 class MplCanvas(FigureCanvasQTAgg):
     def __init__(self, parent=None):
@@ -600,12 +617,11 @@ class Worker(QRunnable):
         self.kwargs = kwargs
         self.signals = WorkerSignals()
 
-    @pyqtSlot()
     def run(self):
         self.fn(*self.args, **self.kwargs)
 
 class WorkerSignals(QObject):
-    remaining_time = pyqtSignal(str)
+    remaining_time = Signal(str)
 
 if __name__ == '__main__':
     app=QApplication(sys.argv)
@@ -616,7 +632,7 @@ if __name__ == '__main__':
     w.setWindowTitle('Stability')
     w.show()
     try:
-        sys.exit(app.exec_())
+        sys.exit(app.exec())
     except:
         gui.stop_worker()
         print('Stopped')
