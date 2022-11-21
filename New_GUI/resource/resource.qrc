@@ -1,0 +1,18 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="icons">
+        <file alias="curves_icon">Curves-Icon.svg</file>
+        <file alias="greenohouse_icon">greenhouse-Icon.svg</file>
+        <file alias="historic_icon">Historic-Icon.svg</file>
+        <file alias="opv_icon">OPV-Icon.svg</file>
+        <file alias="opv_icon_png">OPV-Icon.png</file>
+        <file alias="settings_icon">Settings-Icon.svg</file>
+        <file alias="string_icon">String-Icon.svg</file>
+        <file alias="sun_0">Sun-0.svg</file>
+        <file alias="sun_25">Sun-25.svg</file>
+        <file alias="sun_50">Sun-50.svg</file>
+        <file alias="sun_75">Sun-75.svg</file>
+        <file alias="sun_full">Sun-full-icon.svg</file>
+        <file alias="sun_full_png">Sun-full-icon.png</file>
+    </qresource>
+</RCC>
