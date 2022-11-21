@@ -278,6 +278,8 @@ class Main():
             print(cell.df_iv)
             data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
 
+
+    # same as measure_all_cells but for a single cell
     def measure_cell(self, port):
         cell = self.cells_package[port]['cell']
         load = self.cells_package[port]['load']
@@ -286,6 +288,8 @@ class Main():
         cell.mpp_tracking(load)
         data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
 
+
+# Class that defines the main GUI window and all its methods to interact with the user
 class GUI(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -297,17 +301,20 @@ class GUI(QMainWindow):
         self.init_triggers()
         self.update_gui()
 
+    # Define all the triggers and link them to an action in the back end
     def init_triggers(self):
         self.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
         self.pushButton_measure_cell.clicked.connect(self.trigger_measure_one_cell)
         self.pushButton_measure_all.clicked.connect(self.trigger_measure_all_cells)
         self.pushButton_stop.clicked.connect(self.stop_worker)
 
+    # Switch cell GUI subroutine that plots the selected cell data
     def switch_cell(self):
         combo = self.comboBox_cell_list
         cell_nb = combo.currentText()
         if not cell_nb in ['']:
             self.stackedWidget_cells_plot.setCurrentWidget(self.gui_cell[cell_nb].widget_plot)
+
 
     def update_gui(self, cell = None):
         comboBox = self.comboBox_cell_list
@@ -431,6 +438,7 @@ class GUI(QMainWindow):
                 work.checkstop = True
                 #work.terminate()
 
+
 class GUI_Cell():
     def __init__(self, cell_package, stackedWidget_materials_plot):
         self.cell_package = cell_package
@@ -452,6 +460,7 @@ class GUI_Cell():
     def build_tabs(self):
         self.tabs = GUI_Cell_tabs(self.cell_package, self.tabWidget_plot)
         self.tabs.build_all()
+
 
 class GUI_Cell_tabs():
     def __init__(self, cell_package, tabWidget_plot):
