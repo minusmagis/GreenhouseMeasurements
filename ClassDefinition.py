@@ -103,6 +103,7 @@ class Cell():
         self.voc = None
         self.ff = None
         self.pce = None
+        self.power = None
         self.voltage_mpp = None
         self.idx_mpp = None
         self.df_iv = pd.DataFrame()
@@ -141,6 +142,7 @@ class Cell():
         self.df_iv['Power (W)'] = self.df_iv['Voltage (V)'] * self.df_iv['Current (A)']
         self.idx_mpp = self.df_iv['Power (W)'].idxmax()
         self.voltage_mpp = self.df_iv['Voltage (V)'][self.idx_mpp]
+        self.power = self.df_iv['Power (W)'][self.idx_mpp]
         impp = self.df_iv['Current (A)'][self.idx_mpp]
         if self.isc * self.voc != 0:
             self.ff = (impp * self.voltage_mpp) / (self.isc * self.voc)
@@ -289,6 +291,12 @@ class Main():
         cell.mpp_tracking(load)
         data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
 
+    def get_power(self):
+        power = 0
+        for port in self.cells_package:
+            power += round(self.cells_package[port]['cell'].power, 1)
+        return power
+
 
 # Class that defines the main GUI window and all its methods to interact with the user
 class GUI(QMainWindow):
@@ -301,7 +309,7 @@ class GUI(QMainWindow):
         self.threadpool = QThreadPool()
         self.gui_cell = {}
         self.init_triggers()
-        #self.update_gui()
+        self.update_gui()
 
     # Define all the triggers and link them to an action in the back end
     def init_triggers(self):
@@ -310,10 +318,8 @@ class GUI(QMainWindow):
         self.ui.HistoricalDataButton.clicked.connect(self.switch_menu)
         self.ui.SettingsButton.clicked.connect(self.switch_menu)
         self.ui.StartMeasurementsButton.clicked.connect(self.trigger_measure_all_cells)
-        # self.ui.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
-        # self.ui.pushButton_measure_cell.clicked.connect(self.trigger_measure_one_cell)
-        # self.ui.pushButton_measure_all.clicked.connect(self.trigger_measure_all_cells)
-        # self.ui.pushButton_stop.clicked.connect(self.stop_worker)
+        self.ui.PauseMeasurementsButton.clicked.connect(self.stop_worker)
+        self.ui.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
 
     def switch_menu(self):
         if self.sender().objectName() == 'DashboardButton':
@@ -332,7 +338,6 @@ class GUI(QMainWindow):
         if not cell_nb in ['']:
             self.ui.stackedWidget_cells_plot.setCurrentWidget(self.gui_cell[cell_nb].widget_plot)
 
-
     def update_gui(self, cell = None):
         comboBox = self.ui.comboBox_cell_list
         if comboBox.currentText() == '':
@@ -343,16 +348,31 @@ class GUI(QMainWindow):
                 wid.deleteLater()
             for k in self.main.cells_package.keys():
                 self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.ui.stackedWidget_cells_plot)
-                self.gui_cell[k].build_tabs()
+                self.gui_cell[k].build_all()
                 comboBox.addItem(k)
             self.switch_cell()
         else:
-            self.gui_cell[cell].tabs.update_all()
+            self.gui_cell[cell].update_all()
+            self.update_cell_parameters(cell)
+            self.update_dashboard()
             self.switch_cell()
 
     def measurement(self, cell):
         self.main.measure_cell(cell)
         self.update_gui(cell)
+
+    def update_cell_parameters(self, cell):
+        if cell != None:
+            index = list(self.gui_cell).index(cell)
+            getattr(self.ui, f'JscStr{index+1}').setText(f'{round(self.main.cells_package[cell]["cell"].isc, 3)}')
+            getattr(self.ui, f'VocStr{index+1}').setText(f'{round(self.main.cells_package[cell]["cell"].voc, 3)}')
+            getattr(self.ui, f'FFStr{index+1}').setText(f'{round(self.main.cells_package[cell]["cell"].ff*100, 1)}')
+            getattr(self.ui, f'PCEStr{index+1}').setText(f'{round(self.main.cells_package[cell]["cell"].pce*100, 1)}')
+
+    def update_dashboard(self):
+        power = self.main.get_power()
+        self.ui.CurrentPowerLabel.setText(f'{power} W')
+
 
     def trigger_measure_all_cells(self):
         check = True
@@ -361,6 +381,7 @@ class GUI(QMainWindow):
                 check = False
                 break
         if check:
+            self.ui.stackedWidget_MeasurementTriggers.setCurrentIndex(1)
             self.worker = []
             for cell in self.gui_cell:
                 self.trigger_worker(cell)
@@ -377,9 +398,9 @@ class GUI(QMainWindow):
             self.trigger_worker(cell)
 
     def cycle_measurement(self, worker_ref, cell, remaining_time = None):
-        loop_bool=self.ui.radioButton_cycle.isChecked()
+        loop_bool=True
         cycle = 1
-        delay=int(self.ui.lineEdit_delay.text())
+        delay=int(self.ui.TimeBetweenJV.value()*60)
         if delay == None:
             delay = 0
         i = 0
@@ -395,7 +416,7 @@ class GUI(QMainWindow):
                     self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
                 else:
                     time.sleep(1)
-                    while (self.ui.label_remaining_time.text() != 'Measuring...') and not self.worker[0].checkstop:
+                    while (self.ui.NextMeasurementTimeIntervalLabel.text() != 'Measuring...') and not self.worker[0].checkstop:
                         time.sleep(0.1)
         if remaining_time != None:
             remaining_time.emit('not measuring')
@@ -443,11 +464,12 @@ class GUI(QMainWindow):
 
     def show_remaining_time(self, time_remaining_str):
         if time_remaining_str == 'measuring':
-            self.ui.label_remaining_time.setText(f'Measuring...')
+            self.ui.NextMeasurementTimeIntervalLabel.setText(f'Measuring...')
         elif time_remaining_str == 'not measuring':
-            self.ui.label_remaining_time.setText(f'Not Measuring')
+            self.ui.NextMeasurementTimeIntervalLabel.setText(f'Not Measuring')
+            self.ui.stackedWidget_MeasurementTriggers.setCurrentIndex(0)
         else:
-            self.ui.label_remaining_time.setText(f'Remaining time: {time_remaining_str}')
+            self.ui.NextMeasurementTimeIntervalLabel.setText(f'{time_remaining_str}')
 
     def stop_worker(self):
         if self.worker != None:
@@ -465,18 +487,79 @@ class GUI_Cell():
 
     def init_widget_plot_creation(self):
         self.widget_plot = QWidget()
-        self.gridLayout_plot = QGridLayout(self.widget_plot)
-        self.tabWidget_plot = QTabWidget(self.widget_plot)
-
-        self.gridLayout_plot.setContentsMargins(0, 0, 0, 0)
-        self.tabWidget_plot.setStyleSheet(u"font: 18pt \"MS shell Dlg 2\";")
-        self.gridLayout_plot.addWidget(self.tabWidget_plot, 0, 0, 1, 1)
+        self.Vlayout_plot_stability = QVBoxLayout(self.widget_plot)
 
         self.stackedWidget_cells_plot.addWidget(self.widget_plot)
 
-    def build_tabs(self):
-        self.tabs = GUI_Cell_tabs(self.cell_package, self.tabWidget_plot)
-        self.tabs.build_all()
+    def build_all(self):
+        self.build_tab_stability()
+
+    def update_all(self):
+        self.update_tab_stability()
+
+    def build_tab_stability(self):
+        self.gridLayout_plot_stability = QGridLayout()
+
+        self.Vlayout_stability_isc = QVBoxLayout()
+        self.Vlayout_stability_voc = QVBoxLayout()
+        self.Vlayout_stability_ff = QVBoxLayout()
+        self.Vlayout_stability_pce = QVBoxLayout()
+        self.fig_stability_isc = MplCanvas(self.widget_plot)
+        self.fig_stability_voc = MplCanvas(self.widget_plot)
+        self.fig_stability_ff = MplCanvas(self.widget_plot)
+        self.fig_stability_pce = MplCanvas(self.widget_plot)
+        self.toolbar_fig_stability_isc = NavigationToolbar(self.fig_stability_isc, self.widget_plot)
+        self.toolbar_fig_stability_voc = NavigationToolbar(self.fig_stability_voc, self.widget_plot)
+        self.toolbar_fig_stability_ff = NavigationToolbar(self.fig_stability_ff, self.widget_plot)
+        self.toolbar_fig_stability_pce = NavigationToolbar(self.fig_stability_pce, self.widget_plot)
+
+        self.update_tab_stability()
+
+        self.Vlayout_stability_isc.addWidget(self.toolbar_fig_stability_isc)
+        self.Vlayout_stability_isc.addWidget(self.fig_stability_isc)
+        self.Vlayout_stability_voc.addWidget(self.toolbar_fig_stability_voc)
+        self.Vlayout_stability_voc.addWidget(self.fig_stability_voc)
+        self.Vlayout_stability_ff.addWidget(self.toolbar_fig_stability_ff)
+        self.Vlayout_stability_ff.addWidget(self.fig_stability_ff)
+        self.Vlayout_stability_pce.addWidget(self.toolbar_fig_stability_pce)
+        self.Vlayout_stability_pce.addWidget(self.fig_stability_pce)
+        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_isc, 0, 0)
+        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_voc, 0, 1)
+        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_ff, 1, 0)
+        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_pce, 1, 1)
+        self.Vlayout_plot_stability.addLayout(self.gridLayout_plot_stability)
+
+    def update_tab_stability(self):
+        for param in ['isc', 'voc', 'ff', 'pce']:
+            fig = getattr(self, f'fig_stability_{param}')
+            fig.axes.cla()
+            if param == 'isc':
+                ylabel = 'Isc (A)'
+                df_full_params_column = 'Isc'
+            if param == 'voc':
+                ylabel = 'Voc (V)'
+                df_full_params_column = 'Voc'
+            if param == 'ff':
+                ylabel = 'Fill Factor'
+                df_full_params_column = 'FF'
+            if param == 'pce':
+                ylabel = 'PCE'
+                df_full_params_column = 'PCE'
+            fig.axes.set_ylabel(ylabel, fontsize=20)
+            fig.axes.set_xlabel('Time', fontsize=20)
+            fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.tick_params(which='both', top=True, right=True, width=2)
+            fig.axes.tick_params(which='both', direction="in")
+            fig.axes.tick_params(which='major', length=5, labelsize=16)
+            fig.axes.tick_params(which='minor', length=3)
+            fig.draw_idle()
+            if not self.cell_package['data_file'].df_full_params.empty:
+                fig.axes.plot_date(pd.to_datetime(self.cell_package['data_file'].df_full_params['Date_Timestamp']), self.cell_package['data_file'].df_full_params[df_full_params_column], xdate = True, linestyle ='-', linewidth=2)
+
+    #  def build_tabs(self):
+    #     self.tabs = GUI_Cell_tabs(self.cell_package, self.tabWidget_plot)
+    #     self.tabs.build_all()
 
 
 class GUI_Cell_tabs():
@@ -490,19 +573,13 @@ class GUI_Cell_tabs():
         tabWidget_plot.addTab(self.tab_stability, 'Stability')
         tabWidget_plot.addTab(self.tab_iv, 'IV')
 
-    def get_argument_for_refit(self):
-        property = 'workfunction'
-        method = 'ups'
-        karg = {'smoothing_coef': self.settings.spinbox_param_smoothing_1_1.value()}
-        return property, method, karg
-
     def build_all(self):
-        self.build_tab_iv()
+        #self.build_tab_iv()
         self.build_tab_stability()
 
     def update_all(self):
         self.update_tab_stability()
-        self.update_tab_iv()
+        #self.update_tab_iv()
 
     def build_tab_stability(self):
         self.Vlayout_plot_stability = QVBoxLayout(self.tab_stability)

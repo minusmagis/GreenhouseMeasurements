@@ -298,8 +298,14 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr1.sizePolicy().hasHeightForWidth())
         self.VocStr1.setSizePolicy(sizePolicy)
         self.VocStr1.setMinimumSize(QSize(10, 2))
-        self.VocStr1.setFont(font)
-        self.VocStr1.setStyleSheet(u"color: rgb(85, 170, 255);")
+        font1 = QFont()
+        font1.setFamilies([u"MS Shell Dlg 2"])
+        font1.setPointSize(24)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.VocStr1.setFont(font1)
+        self.VocStr1.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr1.setAlignment(Qt.AlignCenter)
         self.VocStr1.setWordWrap(True)
 
@@ -310,8 +316,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr2.sizePolicy().hasHeightForWidth())
         self.VocStr2.setSizePolicy(sizePolicy)
         self.VocStr2.setMinimumSize(QSize(10, 2))
-        self.VocStr2.setFont(font)
-        self.VocStr2.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr2.setFont(font1)
+        self.VocStr2.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr2.setAlignment(Qt.AlignCenter)
         self.VocStr2.setWordWrap(True)
 
@@ -322,8 +329,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr3.sizePolicy().hasHeightForWidth())
         self.VocStr3.setSizePolicy(sizePolicy)
         self.VocStr3.setMinimumSize(QSize(10, 2))
-        self.VocStr3.setFont(font)
-        self.VocStr3.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr3.setFont(font1)
+        self.VocStr3.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr3.setAlignment(Qt.AlignCenter)
         self.VocStr3.setWordWrap(True)
 
@@ -334,8 +342,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr4.sizePolicy().hasHeightForWidth())
         self.VocStr4.setSizePolicy(sizePolicy)
         self.VocStr4.setMinimumSize(QSize(10, 2))
-        self.VocStr4.setFont(font)
-        self.VocStr4.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr4.setFont(font1)
+        self.VocStr4.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr4.setAlignment(Qt.AlignCenter)
         self.VocStr4.setWordWrap(True)
 
@@ -346,8 +355,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr1.sizePolicy().hasHeightForWidth())
         self.JscStr1.setSizePolicy(sizePolicy)
         self.JscStr1.setMinimumSize(QSize(10, 2))
-        self.JscStr1.setFont(font)
-        self.JscStr1.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr1.setFont(font1)
+        self.JscStr1.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr1.setAlignment(Qt.AlignCenter)
         self.JscStr1.setWordWrap(True)
 
@@ -358,8 +368,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr2.sizePolicy().hasHeightForWidth())
         self.JscStr2.setSizePolicy(sizePolicy)
         self.JscStr2.setMinimumSize(QSize(10, 2))
-        self.JscStr2.setFont(font)
-        self.JscStr2.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr2.setFont(font1)
+        self.JscStr2.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr2.setAlignment(Qt.AlignCenter)
         self.JscStr2.setWordWrap(True)
 
@@ -370,8 +381,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr3.sizePolicy().hasHeightForWidth())
         self.JscStr3.setSizePolicy(sizePolicy)
         self.JscStr3.setMinimumSize(QSize(10, 2))
-        self.JscStr3.setFont(font)
-        self.JscStr3.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr3.setFont(font1)
+        self.JscStr3.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr3.setAlignment(Qt.AlignCenter)
         self.JscStr3.setWordWrap(True)
 
@@ -382,8 +394,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr4.sizePolicy().hasHeightForWidth())
         self.JscStr4.setSizePolicy(sizePolicy)
         self.JscStr4.setMinimumSize(QSize(10, 2))
-        self.JscStr4.setFont(font)
-        self.JscStr4.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr4.setFont(font1)
+        self.JscStr4.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr4.setAlignment(Qt.AlignCenter)
         self.JscStr4.setWordWrap(True)
 
@@ -394,8 +407,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr1.sizePolicy().hasHeightForWidth())
         self.FFStr1.setSizePolicy(sizePolicy)
         self.FFStr1.setMinimumSize(QSize(10, 2))
-        self.FFStr1.setFont(font)
-        self.FFStr1.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr1.setFont(font1)
+        self.FFStr1.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr1.setAlignment(Qt.AlignCenter)
         self.FFStr1.setWordWrap(True)
 
@@ -406,8 +420,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr2.sizePolicy().hasHeightForWidth())
         self.FFStr2.setSizePolicy(sizePolicy)
         self.FFStr2.setMinimumSize(QSize(10, 2))
-        self.FFStr2.setFont(font)
-        self.FFStr2.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr2.setFont(font1)
+        self.FFStr2.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr2.setAlignment(Qt.AlignCenter)
         self.FFStr2.setWordWrap(True)
 
@@ -418,8 +433,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr3.sizePolicy().hasHeightForWidth())
         self.FFStr3.setSizePolicy(sizePolicy)
         self.FFStr3.setMinimumSize(QSize(10, 2))
-        self.FFStr3.setFont(font)
-        self.FFStr3.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr3.setFont(font1)
+        self.FFStr3.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr3.setAlignment(Qt.AlignCenter)
         self.FFStr3.setWordWrap(True)
 
@@ -430,8 +446,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr4.sizePolicy().hasHeightForWidth())
         self.FFStr4.setSizePolicy(sizePolicy)
         self.FFStr4.setMinimumSize(QSize(10, 2))
-        self.FFStr4.setFont(font)
-        self.FFStr4.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr4.setFont(font1)
+        self.FFStr4.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr4.setAlignment(Qt.AlignCenter)
         self.FFStr4.setWordWrap(True)
 
@@ -442,8 +459,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr1.sizePolicy().hasHeightForWidth())
         self.PCEStr1.setSizePolicy(sizePolicy)
         self.PCEStr1.setMinimumSize(QSize(10, 2))
-        self.PCEStr1.setFont(font)
-        self.PCEStr1.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr1.setFont(font1)
+        self.PCEStr1.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr1.setAlignment(Qt.AlignCenter)
         self.PCEStr1.setWordWrap(True)
 
@@ -454,8 +472,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr2.sizePolicy().hasHeightForWidth())
         self.PCEStr2.setSizePolicy(sizePolicy)
         self.PCEStr2.setMinimumSize(QSize(10, 2))
-        self.PCEStr2.setFont(font)
-        self.PCEStr2.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr2.setFont(font1)
+        self.PCEStr2.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr2.setAlignment(Qt.AlignCenter)
         self.PCEStr2.setWordWrap(True)
 
@@ -466,8 +485,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr3.sizePolicy().hasHeightForWidth())
         self.PCEStr3.setSizePolicy(sizePolicy)
         self.PCEStr3.setMinimumSize(QSize(10, 2))
-        self.PCEStr3.setFont(font)
-        self.PCEStr3.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr3.setFont(font1)
+        self.PCEStr3.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr3.setAlignment(Qt.AlignCenter)
         self.PCEStr3.setWordWrap(True)
 
@@ -478,8 +498,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr4.sizePolicy().hasHeightForWidth())
         self.PCEStr4.setSizePolicy(sizePolicy)
         self.PCEStr4.setMinimumSize(QSize(10, 2))
-        self.PCEStr4.setFont(font)
-        self.PCEStr4.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr4.setFont(font1)
+        self.PCEStr4.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr4.setAlignment(Qt.AlignCenter)
         self.PCEStr4.setWordWrap(True)
 
@@ -495,8 +516,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr5.sizePolicy().hasHeightForWidth())
         self.VocStr5.setSizePolicy(sizePolicy)
         self.VocStr5.setMinimumSize(QSize(10, 2))
-        self.VocStr5.setFont(font)
-        self.VocStr5.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr5.setFont(font1)
+        self.VocStr5.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr5.setAlignment(Qt.AlignCenter)
         self.VocStr5.setWordWrap(True)
 
@@ -507,8 +529,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr6.sizePolicy().hasHeightForWidth())
         self.VocStr6.setSizePolicy(sizePolicy)
         self.VocStr6.setMinimumSize(QSize(10, 2))
-        self.VocStr6.setFont(font)
-        self.VocStr6.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr6.setFont(font1)
+        self.VocStr6.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr6.setAlignment(Qt.AlignCenter)
         self.VocStr6.setWordWrap(True)
 
@@ -519,8 +542,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr7.sizePolicy().hasHeightForWidth())
         self.VocStr7.setSizePolicy(sizePolicy)
         self.VocStr7.setMinimumSize(QSize(10, 2))
-        self.VocStr7.setFont(font)
-        self.VocStr7.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr7.setFont(font1)
+        self.VocStr7.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr7.setAlignment(Qt.AlignCenter)
         self.VocStr7.setWordWrap(True)
 
@@ -531,8 +555,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VocStr8.sizePolicy().hasHeightForWidth())
         self.VocStr8.setSizePolicy(sizePolicy)
         self.VocStr8.setMinimumSize(QSize(10, 2))
-        self.VocStr8.setFont(font)
-        self.VocStr8.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.VocStr8.setFont(font1)
+        self.VocStr8.setStyleSheet(u"color: rgb(85, 170, 255);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.VocStr8.setAlignment(Qt.AlignCenter)
         self.VocStr8.setWordWrap(True)
 
@@ -543,8 +568,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr5.sizePolicy().hasHeightForWidth())
         self.JscStr5.setSizePolicy(sizePolicy)
         self.JscStr5.setMinimumSize(QSize(10, 2))
-        self.JscStr5.setFont(font)
-        self.JscStr5.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr5.setFont(font1)
+        self.JscStr5.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr5.setAlignment(Qt.AlignCenter)
         self.JscStr5.setWordWrap(True)
 
@@ -555,8 +581,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr6.sizePolicy().hasHeightForWidth())
         self.JscStr6.setSizePolicy(sizePolicy)
         self.JscStr6.setMinimumSize(QSize(10, 2))
-        self.JscStr6.setFont(font)
-        self.JscStr6.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr6.setFont(font1)
+        self.JscStr6.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr6.setAlignment(Qt.AlignCenter)
         self.JscStr6.setWordWrap(True)
 
@@ -567,8 +594,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr7.sizePolicy().hasHeightForWidth())
         self.JscStr7.setSizePolicy(sizePolicy)
         self.JscStr7.setMinimumSize(QSize(10, 2))
-        self.JscStr7.setFont(font)
-        self.JscStr7.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr7.setFont(font1)
+        self.JscStr7.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr7.setAlignment(Qt.AlignCenter)
         self.JscStr7.setWordWrap(True)
 
@@ -579,8 +607,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.JscStr8.sizePolicy().hasHeightForWidth())
         self.JscStr8.setSizePolicy(sizePolicy)
         self.JscStr8.setMinimumSize(QSize(10, 2))
-        self.JscStr8.setFont(font)
-        self.JscStr8.setStyleSheet(u"  color: rgb(255, 100, 80);")
+        self.JscStr8.setFont(font1)
+        self.JscStr8.setStyleSheet(u"  color: rgb(255, 100, 80);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.JscStr8.setAlignment(Qt.AlignCenter)
         self.JscStr8.setWordWrap(True)
 
@@ -591,8 +620,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr5.sizePolicy().hasHeightForWidth())
         self.FFStr5.setSizePolicy(sizePolicy)
         self.FFStr5.setMinimumSize(QSize(10, 2))
-        self.FFStr5.setFont(font)
-        self.FFStr5.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr5.setFont(font1)
+        self.FFStr5.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr5.setAlignment(Qt.AlignCenter)
         self.FFStr5.setWordWrap(True)
 
@@ -603,8 +633,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr6.sizePolicy().hasHeightForWidth())
         self.FFStr6.setSizePolicy(sizePolicy)
         self.FFStr6.setMinimumSize(QSize(10, 2))
-        self.FFStr6.setFont(font)
-        self.FFStr6.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr6.setFont(font1)
+        self.FFStr6.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr6.setAlignment(Qt.AlignCenter)
         self.FFStr6.setWordWrap(True)
 
@@ -615,8 +646,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr7.sizePolicy().hasHeightForWidth())
         self.FFStr7.setSizePolicy(sizePolicy)
         self.FFStr7.setMinimumSize(QSize(10, 2))
-        self.FFStr7.setFont(font)
-        self.FFStr7.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr7.setFont(font1)
+        self.FFStr7.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr7.setAlignment(Qt.AlignCenter)
         self.FFStr7.setWordWrap(True)
 
@@ -627,8 +659,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FFStr8.sizePolicy().hasHeightForWidth())
         self.FFStr8.setSizePolicy(sizePolicy)
         self.FFStr8.setMinimumSize(QSize(10, 2))
-        self.FFStr8.setFont(font)
-        self.FFStr8.setStyleSheet(u"color: rgb(255, 189, 74);")
+        self.FFStr8.setFont(font1)
+        self.FFStr8.setStyleSheet(u"color: rgb(255, 189, 74);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.FFStr8.setAlignment(Qt.AlignCenter)
         self.FFStr8.setWordWrap(True)
 
@@ -639,8 +672,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr5.sizePolicy().hasHeightForWidth())
         self.PCEStr5.setSizePolicy(sizePolicy)
         self.PCEStr5.setMinimumSize(QSize(10, 2))
-        self.PCEStr5.setFont(font)
-        self.PCEStr5.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr5.setFont(font1)
+        self.PCEStr5.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr5.setAlignment(Qt.AlignCenter)
         self.PCEStr5.setWordWrap(True)
 
@@ -651,8 +685,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr6.sizePolicy().hasHeightForWidth())
         self.PCEStr6.setSizePolicy(sizePolicy)
         self.PCEStr6.setMinimumSize(QSize(10, 2))
-        self.PCEStr6.setFont(font)
-        self.PCEStr6.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr6.setFont(font1)
+        self.PCEStr6.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr6.setAlignment(Qt.AlignCenter)
         self.PCEStr6.setWordWrap(True)
 
@@ -663,8 +698,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr7.sizePolicy().hasHeightForWidth())
         self.PCEStr7.setSizePolicy(sizePolicy)
         self.PCEStr7.setMinimumSize(QSize(10, 2))
-        self.PCEStr7.setFont(font)
-        self.PCEStr7.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr7.setFont(font1)
+        self.PCEStr7.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr7.setAlignment(Qt.AlignCenter)
         self.PCEStr7.setWordWrap(True)
 
@@ -675,8 +711,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.PCEStr8.sizePolicy().hasHeightForWidth())
         self.PCEStr8.setSizePolicy(sizePolicy)
         self.PCEStr8.setMinimumSize(QSize(10, 2))
-        self.PCEStr8.setFont(font)
-        self.PCEStr8.setStyleSheet(u"color: rgb(139, 255, 119);")
+        self.PCEStr8.setFont(font1)
+        self.PCEStr8.setStyleSheet(u"color: rgb(139, 255, 119);\n"
+"font: 24pt \"MS Shell Dlg 2\";")
         self.PCEStr8.setAlignment(Qt.AlignCenter)
         self.PCEStr8.setWordWrap(True)
 
@@ -757,21 +794,24 @@ class Ui_MainWindow(object):
         self.HistoricalData.setObjectName(u"HistoricalData")
         self.verticalLayout_2 = QVBoxLayout(self.HistoricalData)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.comboBox = QComboBox(self.HistoricalData)
-        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox_cell_list = QComboBox(self.HistoricalData)
+        self.comboBox_cell_list.setObjectName(u"comboBox_cell_list")
+        self.comboBox_cell_list.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"font: 14pt \"MS Shell Dlg 2\";")
+        self.comboBox_cell_list.setEditable(False)
 
-        self.verticalLayout_2.addWidget(self.comboBox)
+        self.verticalLayout_2.addWidget(self.comboBox_cell_list)
 
-        self.stackedWidget_2 = QStackedWidget(self.HistoricalData)
-        self.stackedWidget_2.setObjectName(u"stackedWidget_2")
+        self.stackedWidget_cells_plot = QStackedWidget(self.HistoricalData)
+        self.stackedWidget_cells_plot.setObjectName(u"stackedWidget_cells_plot")
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.stackedWidget_2.addWidget(self.page)
+        self.stackedWidget_cells_plot.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.stackedWidget_2.addWidget(self.page_2)
+        self.stackedWidget_cells_plot.addWidget(self.page_2)
 
-        self.verticalLayout_2.addWidget(self.stackedWidget_2)
+        self.verticalLayout_2.addWidget(self.stackedWidget_cells_plot)
 
         self.stackedWidget.addWidget(self.HistoricalData)
         self.Settings = QWidget()
@@ -792,12 +832,12 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush)
         self.TimeBetweenJV.setPalette(palette)
-        font1 = QFont()
-        font1.setFamilies([u"Bahnschrift"])
-        font1.setPointSize(20)
-        font1.setBold(False)
-        font1.setItalic(False)
-        self.TimeBetweenJV.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Bahnschrift"])
+        font2.setPointSize(20)
+        font2.setBold(False)
+        font2.setItalic(False)
+        self.TimeBetweenJV.setFont(font2)
         self.TimeBetweenJV.setStyleSheet(u"font: 20pt \"Bahnschrift\";")
         self.TimeBetweenJV.setWrapping(True)
         self.TimeBetweenJV.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
@@ -805,6 +845,7 @@ class Ui_MainWindow(object):
         self.TimeBetweenJV.setMinimum(0.000000000000000)
         self.TimeBetweenJV.setMaximum(200.000000000000000)
         self.TimeBetweenJV.setSingleStep(1.000000000000000)
+        self.TimeBetweenJV.setValue(10.000000000000000)
         self.TimeBetweenJVCurvesLabel = QLabel(self.Settings)
         self.TimeBetweenJVCurvesLabel.setObjectName(u"TimeBetweenJVCurvesLabel")
         self.TimeBetweenJVCurvesLabel.setGeometry(QRect(10, 160, 361, 33))
@@ -828,7 +869,7 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette1.setBrush(QPalette.Disabled, QPalette.Window, brush)
         self.TimeBetweenPowerMeasurements.setPalette(palette1)
-        self.TimeBetweenPowerMeasurements.setFont(font1)
+        self.TimeBetweenPowerMeasurements.setFont(font2)
         self.TimeBetweenPowerMeasurements.setStyleSheet(u"font: 20pt \"Bahnschrift\";")
         self.TimeBetweenPowerMeasurements.setWrapping(True)
         self.TimeBetweenPowerMeasurements.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
@@ -862,10 +903,10 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.PathToSaveButton.sizePolicy().hasHeightForWidth())
         self.PathToSaveButton.setSizePolicy(sizePolicy1)
-        font2 = QFont()
-        font2.setFamilies([u"Bahnschrift"])
-        font2.setPointSize(20)
-        self.PathToSaveButton.setFont(font2)
+        font3 = QFont()
+        font3.setFamilies([u"Bahnschrift"])
+        font3.setPointSize(20)
+        self.PathToSaveButton.setFont(font3)
         self.PathToSaveButton.setStyleSheet(u"QPushButton{\n"
 "background-color: rgb(255, 170, 0);\n"
 "color: rgb(100, 79, 79);\n"
@@ -894,7 +935,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.StartMeasurementsButton = QPushButton(self.page_3)
         self.StartMeasurementsButton.setObjectName(u"StartMeasurementsButton")
-        self.StartMeasurementsButton.setFont(font2)
+        self.StartMeasurementsButton.setFont(font3)
         self.StartMeasurementsButton.setStyleSheet(u"QPushButton{\n"
 "background-color: rgb(255, 130, 132);\n"
 "color: rgb(100, 79, 79);\n"
@@ -922,7 +963,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.PauseMeasurementsButton = QPushButton(self.page_4)
         self.PauseMeasurementsButton.setObjectName(u"PauseMeasurementsButton")
-        self.PauseMeasurementsButton.setFont(font2)
+        self.PauseMeasurementsButton.setFont(font3)
         self.PauseMeasurementsButton.setStyleSheet(u"QPushButton{\n"
 "background-color: rgb(255, 130, 132);\n"
 "color: rgb(100, 79, 79);\n"
@@ -1006,61 +1047,6 @@ class Ui_MainWindow(object):
         self.EnergyDashboardLayout = QGridLayout()
         self.EnergyDashboardLayout.setObjectName(u"EnergyDashboardLayout")
         self.EnergyDashboardLayout.setVerticalSpacing(30)
-        self.TodaysEnergyVlayout = QVBoxLayout()
-        self.TodaysEnergyVlayout.setObjectName(u"TodaysEnergyVlayout")
-        self.SunPowerLabel_4 = QLabel(self.DashBoardStack)
-        self.SunPowerLabel_4.setObjectName(u"SunPowerLabel_4")
-        sizePolicy.setHeightForWidth(self.SunPowerLabel_4.sizePolicy().hasHeightForWidth())
-        self.SunPowerLabel_4.setSizePolicy(sizePolicy)
-        self.SunPowerLabel_4.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel_4.setFont(font)
-        self.SunPowerLabel_4.setStyleSheet(u"  color: rgb(231, 255, 158);")
-        self.SunPowerLabel_4.setWordWrap(True)
-
-        self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_4)
-
-        self.SunPowerLabel_5 = QLabel(self.DashBoardStack)
-        self.SunPowerLabel_5.setObjectName(u"SunPowerLabel_5")
-        sizePolicy.setHeightForWidth(self.SunPowerLabel_5.sizePolicy().hasHeightForWidth())
-        self.SunPowerLabel_5.setSizePolicy(sizePolicy)
-        self.SunPowerLabel_5.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel_5.setFont(font)
-        self.SunPowerLabel_5.setStyleSheet(u"  color: rgb(195, 255, 17);")
-        self.SunPowerLabel_5.setWordWrap(True)
-
-        self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_5)
-
-
-        self.EnergyDashboardLayout.addLayout(self.TodaysEnergyVlayout, 0, 1, 1, 1)
-
-        self.CurrentSolarPowerVlayout = QVBoxLayout()
-        self.CurrentSolarPowerVlayout.setObjectName(u"CurrentSolarPowerVlayout")
-        self.SunPowerLabel_2 = QLabel(self.DashBoardStack)
-        self.SunPowerLabel_2.setObjectName(u"SunPowerLabel_2")
-        sizePolicy.setHeightForWidth(self.SunPowerLabel_2.sizePolicy().hasHeightForWidth())
-        self.SunPowerLabel_2.setSizePolicy(sizePolicy)
-        self.SunPowerLabel_2.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel_2.setFont(font)
-        self.SunPowerLabel_2.setStyleSheet(u"  color: rgb(255, 200, 136);")
-        self.SunPowerLabel_2.setWordWrap(True)
-
-        self.CurrentSolarPowerVlayout.addWidget(self.SunPowerLabel_2)
-
-        self.SunPowerLabel_3 = QLabel(self.DashBoardStack)
-        self.SunPowerLabel_3.setObjectName(u"SunPowerLabel_3")
-        sizePolicy.setHeightForWidth(self.SunPowerLabel_3.sizePolicy().hasHeightForWidth())
-        self.SunPowerLabel_3.setSizePolicy(sizePolicy)
-        self.SunPowerLabel_3.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel_3.setFont(font)
-        self.SunPowerLabel_3.setStyleSheet(u"  color: rgb(255, 152, 30);")
-        self.SunPowerLabel_3.setAlignment(Qt.AlignCenter)
-        self.SunPowerLabel_3.setWordWrap(True)
-
-        self.CurrentSolarPowerVlayout.addWidget(self.SunPowerLabel_3)
-
-
-        self.EnergyDashboardLayout.addLayout(self.CurrentSolarPowerVlayout, 0, 0, 1, 1)
-
         self.GeneratedNeedsVlayout = QVBoxLayout()
         self.GeneratedNeedsVlayout.setObjectName(u"GeneratedNeedsVlayout")
         self.horizontalLayout = QHBoxLayout()
@@ -1102,25 +1088,99 @@ class Ui_MainWindow(object):
         self.GeneratedNeedsVlayout.addWidget(self.SunPowerLabel_7)
 
 
-        self.EnergyDashboardLayout.addLayout(self.GeneratedNeedsVlayout, 1, 1, 1, 1)
+        self.EnergyDashboardLayout.addLayout(self.GeneratedNeedsVlayout, 2, 1, 1, 1)
+
+        self.TodaysEnergyVlayout = QVBoxLayout()
+        self.TodaysEnergyVlayout.setObjectName(u"TodaysEnergyVlayout")
+        self.SunPowerLabel_4 = QLabel(self.DashBoardStack)
+        self.SunPowerLabel_4.setObjectName(u"SunPowerLabel_4")
+        sizePolicy.setHeightForWidth(self.SunPowerLabel_4.sizePolicy().hasHeightForWidth())
+        self.SunPowerLabel_4.setSizePolicy(sizePolicy)
+        self.SunPowerLabel_4.setMinimumSize(QSize(10, 2))
+        self.SunPowerLabel_4.setFont(font)
+        self.SunPowerLabel_4.setStyleSheet(u"  color: rgb(231, 255, 158);")
+        self.SunPowerLabel_4.setWordWrap(True)
+
+        self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_4)
+
+        self.SunPowerLabel_5 = QLabel(self.DashBoardStack)
+        self.SunPowerLabel_5.setObjectName(u"SunPowerLabel_5")
+        sizePolicy.setHeightForWidth(self.SunPowerLabel_5.sizePolicy().hasHeightForWidth())
+        self.SunPowerLabel_5.setSizePolicy(sizePolicy)
+        self.SunPowerLabel_5.setMinimumSize(QSize(10, 2))
+        self.SunPowerLabel_5.setFont(font)
+        self.SunPowerLabel_5.setStyleSheet(u"  color: rgb(195, 255, 17);")
+        self.SunPowerLabel_5.setWordWrap(True)
+
+        self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_5)
+
+
+        self.EnergyDashboardLayout.addLayout(self.TodaysEnergyVlayout, 0, 1, 1, 1)
 
         self.NextMeasTimeVlayout = QVBoxLayout()
         self.NextMeasTimeVlayout.setObjectName(u"NextMeasTimeVlayout")
         self.NextMeasurementInLabel = QLabel(self.DashBoardStack)
         self.NextMeasurementInLabel.setObjectName(u"NextMeasurementInLabel")
-        self.NextMeasurementInLabel.setFont(font)
+        font4 = QFont()
+        font4.setFamilies([u"MS Shell Dlg 2"])
+        font4.setPointSize(18)
+        font4.setBold(False)
+        font4.setItalic(False)
+        self.NextMeasurementInLabel.setFont(font4)
+        self.NextMeasurementInLabel.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+        self.NextMeasurementInLabel.setAlignment(Qt.AlignCenter)
 
         self.NextMeasTimeVlayout.addWidget(self.NextMeasurementInLabel)
 
         self.NextMeasurementTimeIntervalLabel = QLabel(self.DashBoardStack)
         self.NextMeasurementTimeIntervalLabel.setObjectName(u"NextMeasurementTimeIntervalLabel")
+        self.NextMeasurementTimeIntervalLabel.setStyleSheet(u"font: 22pt \"MS Shell Dlg 2\";")
+        self.NextMeasurementTimeIntervalLabel.setAlignment(Qt.AlignCenter)
 
         self.NextMeasTimeVlayout.addWidget(self.NextMeasurementTimeIntervalLabel)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.NextMeasTimeVlayout.addItem(self.verticalSpacer)
 
         self.NextMeasTimeVlayout.setStretch(0, 30)
         self.NextMeasTimeVlayout.setStretch(1, 70)
 
-        self.EnergyDashboardLayout.addLayout(self.NextMeasTimeVlayout, 1, 0, 1, 1)
+        self.EnergyDashboardLayout.addLayout(self.NextMeasTimeVlayout, 2, 0, 1, 1)
+
+        self.CurrentSolarPowerVlayout = QVBoxLayout()
+        self.CurrentSolarPowerVlayout.setObjectName(u"CurrentSolarPowerVlayout")
+        self.CurrentSolarPowerLabel = QLabel(self.DashBoardStack)
+        self.CurrentSolarPowerLabel.setObjectName(u"CurrentSolarPowerLabel")
+        sizePolicy.setHeightForWidth(self.CurrentSolarPowerLabel.sizePolicy().hasHeightForWidth())
+        self.CurrentSolarPowerLabel.setSizePolicy(sizePolicy)
+        self.CurrentSolarPowerLabel.setMinimumSize(QSize(10, 2))
+        self.CurrentSolarPowerLabel.setFont(font)
+        self.CurrentSolarPowerLabel.setStyleSheet(u"  color: rgb(255, 200, 136);")
+        self.CurrentSolarPowerLabel.setWordWrap(True)
+
+        self.CurrentSolarPowerVlayout.addWidget(self.CurrentSolarPowerLabel)
+
+        self.CurrentPowerLabel = QLabel(self.DashBoardStack)
+        self.CurrentPowerLabel.setObjectName(u"CurrentPowerLabel")
+        sizePolicy.setHeightForWidth(self.CurrentPowerLabel.sizePolicy().hasHeightForWidth())
+        self.CurrentPowerLabel.setSizePolicy(sizePolicy)
+        self.CurrentPowerLabel.setMinimumSize(QSize(10, 2))
+        font5 = QFont()
+        font5.setFamilies([u"MS Shell Dlg 2"])
+        font5.setPointSize(36)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.CurrentPowerLabel.setFont(font5)
+        self.CurrentPowerLabel.setStyleSheet(u"  color: rgb(255, 152, 30);\n"
+"font: 36pt \"MS Shell Dlg 2\";")
+        self.CurrentPowerLabel.setAlignment(Qt.AlignCenter)
+        self.CurrentPowerLabel.setWordWrap(True)
+
+        self.CurrentSolarPowerVlayout.addWidget(self.CurrentPowerLabel)
+
+
+        self.EnergyDashboardLayout.addLayout(self.CurrentSolarPowerVlayout, 0, 0, 1, 1)
 
 
         self.DashboardTopLayout.addLayout(self.EnergyDashboardLayout)
@@ -1167,9 +1227,9 @@ class Ui_MainWindow(object):
 
         self.MinPowerLabel = QLabel(self.DashBoardStack)
         self.MinPowerLabel.setObjectName(u"MinPowerLabel")
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        self.MinPowerLabel.setFont(font3)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        self.MinPowerLabel.setFont(font6)
         self.MinPowerLabel.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.PowerMeterYaxisLayout.addWidget(self.MinPowerLabel)
@@ -1185,7 +1245,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String1Label.sizePolicy().hasHeightForWidth())
         self.String1Label.setSizePolicy(sizePolicy)
         self.String1Label.setMinimumSize(QSize(10, 2))
-        self.String1Label.setFont(font3)
+        self.String1Label.setFont(font6)
         self.String1Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String1Label.setAlignment(Qt.AlignCenter)
 
@@ -1196,7 +1256,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String2Label.sizePolicy().hasHeightForWidth())
         self.String2Label.setSizePolicy(sizePolicy)
         self.String2Label.setMinimumSize(QSize(10, 2))
-        self.String2Label.setFont(font3)
+        self.String2Label.setFont(font6)
         self.String2Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String2Label.setAlignment(Qt.AlignCenter)
 
@@ -1207,7 +1267,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String3Label.sizePolicy().hasHeightForWidth())
         self.String3Label.setSizePolicy(sizePolicy)
         self.String3Label.setMinimumSize(QSize(10, 2))
-        self.String3Label.setFont(font3)
+        self.String3Label.setFont(font6)
         self.String3Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String3Label.setAlignment(Qt.AlignCenter)
 
@@ -1218,7 +1278,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String4Label.sizePolicy().hasHeightForWidth())
         self.String4Label.setSizePolicy(sizePolicy)
         self.String4Label.setMinimumSize(QSize(10, 2))
-        self.String4Label.setFont(font3)
+        self.String4Label.setFont(font6)
         self.String4Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String4Label.setAlignment(Qt.AlignCenter)
 
@@ -1232,7 +1292,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.StringNumberString.sizePolicy().hasHeightForWidth())
         self.StringNumberString.setSizePolicy(sizePolicy)
         self.StringNumberString.setMinimumSize(QSize(10, 2))
-        self.StringNumberString.setFont(font3)
+        self.StringNumberString.setFont(font6)
         self.StringNumberString.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.StringNumberLabelLayout.addWidget(self.StringNumberString)
@@ -1242,7 +1302,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.StringNumberNumber.sizePolicy().hasHeightForWidth())
         self.StringNumberNumber.setSizePolicy(sizePolicy)
         self.StringNumberNumber.setMinimumSize(QSize(10, 2))
-        self.StringNumberNumber.setFont(font3)
+        self.StringNumberNumber.setFont(font6)
         self.StringNumberNumber.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.StringNumberLabelLayout.addWidget(self.StringNumberNumber)
@@ -1255,7 +1315,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String5Label.sizePolicy().hasHeightForWidth())
         self.String5Label.setSizePolicy(sizePolicy)
         self.String5Label.setMinimumSize(QSize(10, 2))
-        self.String5Label.setFont(font3)
+        self.String5Label.setFont(font6)
         self.String5Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String5Label.setScaledContents(False)
         self.String5Label.setAlignment(Qt.AlignCenter)
@@ -1268,7 +1328,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String6Label.sizePolicy().hasHeightForWidth())
         self.String6Label.setSizePolicy(sizePolicy)
         self.String6Label.setMinimumSize(QSize(10, 2))
-        self.String6Label.setFont(font3)
+        self.String6Label.setFont(font6)
         self.String6Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String6Label.setAlignment(Qt.AlignCenter)
 
@@ -1279,7 +1339,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String7Label.sizePolicy().hasHeightForWidth())
         self.String7Label.setSizePolicy(sizePolicy)
         self.String7Label.setMinimumSize(QSize(10, 2))
-        self.String7Label.setFont(font3)
+        self.String7Label.setFont(font6)
         self.String7Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String7Label.setAlignment(Qt.AlignCenter)
 
@@ -1290,7 +1350,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String8Label.sizePolicy().hasHeightForWidth())
         self.String8Label.setSizePolicy(sizePolicy)
         self.String8Label.setMinimumSize(QSize(10, 2))
-        self.String8Label.setFont(font3)
+        self.String8Label.setFont(font6)
         self.String8Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String8Label.setAlignment(Qt.AlignCenter)
 
@@ -1376,7 +1436,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(3)
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget_cells_plot.setCurrentIndex(1)
         self.stackedWidget_MeasurementTriggers.setCurrentIndex(0)
 
 
@@ -1402,42 +1462,44 @@ class Ui_MainWindow(object):
         self.JscLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">J</span><span style=\" font-size:28pt; vertical-align:sub;\">sc</span></p></body></html>", None))
         self.FFLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">FF</span></p></body></html>", None))
         self.PCELabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">PCE</span></p></body></html>", None))
-        self.VocStr1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.JscStr1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.FFStr1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.PCEStr1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.VocStr5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.VocStr8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">41.2</span></p></body></html>", None))
-        self.JscStr5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.JscStr8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">1.01</span></p></body></html>", None))
-        self.FFStr5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.FFStr8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">74</span></p></body></html>", None))
-        self.PCEStr5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
-        self.PCEStr8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">2.1</span></p></body></html>", None))
+        self.VocStr1.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr2.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr3.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr4.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr1.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr2.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr3.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr4.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr1.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr2.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr3.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr4.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr1.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr2.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr3.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr4.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr5.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr6.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr7.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.VocStr8.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr5.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr6.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr7.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.JscStr8.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr5.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr6.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr7.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.FFStr8.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr5.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr6.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr7.setText(QCoreApplication.translate("MainWindow", u"None", None))
+        self.PCEStr8.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.VoltsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">V</span></p></body></html>", None))
         self.am2Label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">A m</span><span style=\" font-size:28pt; vertical-align:super;\">-2</span></p></body></html>", None))
         self.pecentagelabelff.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">%</span></p></body></html>", None))
         self.percentageLabelPCE.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">%</span></p></body></html>", None))
+        self.comboBox_cell_list.setCurrentText("")
+        self.comboBox_cell_list.setPlaceholderText("")
         self.TimeBetweenJV.setSuffix(QCoreApplication.translate("MainWindow", u" min", None))
         self.TimeBetweenJVCurvesLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">Time Between JV Curves</span></p></body></html>", None))
         self.TimeBetweenPowerMeasurements.setSuffix(QCoreApplication.translate("MainWindow", u" s", None))
@@ -1449,20 +1511,20 @@ class Ui_MainWindow(object):
         self.label.setText("")
         self.SunPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:30pt;\">864</span></p></body></html>", None))
         self.SunPowerUnitsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">W m</span><span style=\" font-size:11pt; vertical-align:super;\">-2</span></p></body></html>", None))
+        self.SunPowerLabel_8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:25pt;\">Generated</span></p></body></html>", None))
+        self.SunPowerLabel_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">15%</span></p></body></html>", None))
+        self.SunPowerLabel_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">of today's greenhouse energy needs</span></p></body></html>", None))
         self.SunPowerLabel_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">Today's Solar Energy</span></p></body></html>", None))
         self.SunPowerLabel_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">2547 kWh</span></p></body></html>", None))
-        self.SunPowerLabel_2.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.NextMeasurementInLabel.setText(QCoreApplication.translate("MainWindow", u"Next Measurement in:", None))
+        self.NextMeasurementTimeIntervalLabel.setText(QCoreApplication.translate("MainWindow", u"Not Measuring", None))
+        self.CurrentSolarPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
 "</style></head><body style=\" font-family:'Bahnschrift'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Current Solar Power</span></p></body></html>", None))
-        self.SunPowerLabel_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">1251 W</span></p></body></html>", None))
-        self.SunPowerLabel_8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:25pt;\">Generated</span></p></body></html>", None))
-        self.SunPowerLabel_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">15%</span></p></body></html>", None))
-        self.SunPowerLabel_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">of today's greenhouse energy needs</span></p></body></html>", None))
-        self.NextMeasurementInLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Next Measurement in:</span></p></body></html>", None))
-        self.NextMeasurementTimeIntervalLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">2.3 mKr (305 s)</span></p></body></html>", None))
+        self.CurrentPowerLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.MaxPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">200</span></p></body></html>", None))
         self.PowerWLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Power (W)</span></p></body></html>", None))
         self.MinPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">0</span></p></body></html>", None))
