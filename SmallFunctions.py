@@ -11,12 +11,13 @@ def custom_resistance_list(min,max,point_number,mid_value,spread=10):
     scale_factor_bot = (mid_value - min) ** (2 / point_number)
 
     for i in range(half_point_number):
-        resistance_list_top.append(mid_value + scale_factor_top ** i)
+        resistance_list_top.append(mid_value - 1 + scale_factor_top ** i)
 
     resistance_list_top.append(max)
+    resistance_list_top.pop(0)
 
     for i in range(half_point_number):
-        resistance_list_bot.append(mid_value - scale_factor_bot ** i)
+        resistance_list_bot.append(mid_value + 1 - scale_factor_bot ** i)
 
     resistance_list_bot.append(min)
     resistance_list_bot.reverse()
