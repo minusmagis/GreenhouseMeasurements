@@ -1,7 +1,7 @@
 import numpy as np
 
 # Function that returns a list with non-uniformly distributed values, with a higher density in the center.
-def custom_resistance_list(min,max,point_number,mid_value,spread=10):
+def custom_resistance_list(min,max,point_number,mid_value):
 
     resistance_list_top = list()
     resistance_list_bot = list()
