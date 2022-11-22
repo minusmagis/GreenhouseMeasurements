@@ -57,6 +57,7 @@ class Load(classHardware_):
     def __init__(self, port):
         super().__init__(port)
         self.list_resistance = None
+        self.mpp_resistance = 10
 
     # Read the current and the voltage from the load and return it as a list
     def receive_result(self):
@@ -81,12 +82,45 @@ class Load(classHardware_):
         time.sleep(0.5)
         self.close_door()
 
+    def custom_resistance_list(self, min, max, point_number):
+
+        resistance_list_top = list()
+        resistance_list_bot = list()
+        half_point_number = int(point_number / 2)
+
+        scale_factor_top = (max - self.mpp_resistance) ** (2 / point_number)
+        scale_factor_bot = (self.mpp_resistance - min) ** (2 / point_number)
+
+        for i in range(half_point_number):
+            resistance_list_top.append(self.mpp_resistance - 1 + scale_factor_top ** i)
+
+        resistance_list_top.append(max)
+        resistance_list_top.pop(0)
+
+        for i in range(half_point_number):
+            resistance_list_bot.append(self.mpp_resistance + 1 - scale_factor_bot ** i)
+
+        resistance_list_bot.append(min)
+        resistance_list_bot.reverse()
+
+        # print(resistance_list_top)
+        # print(resistance_list_bot)
+
+        resistance_list = resistance_list_bot + resistance_list_top
+
+        # print(resistance_list)
+
+        return resistance_list
+
+
     # Create a logarithmic numspace within two limit resistance values. Measure voltage and current for each of
     # the resistance values and return it as two lists, in the shape of an IV Curve.
     def sweep_measurement(self, res_min, res_max, resistance_nb_step):
         voltage_list = []
         current_list = []
-        self.list_resistance = np.logspace(math.log10(res_max), math.log10(res_min), num=resistance_nb_step, base=10)
+        print(self.mpp_resistance)
+        self.list_resistance = self.custom_resistance_list(res_min, res_max, resistance_nb_step)
+        #self.list_resistance = np.logspace(math.log10(res_max), math.log10(res_min), num=resistance_nb_step, base=10)
         for res in self.list_resistance:
             self.send_resistance_to_load(res)
             result = self.receive_result()
@@ -155,7 +189,10 @@ class Cell():
 
     # Set the resistance of the load to the mpp equivalent resistance
     def mpp_tracking(self, oload):
-        oload.send_resistance_to_load(oload.list_resistance[self.idx_mpp])
+        oload.mpp_resistance = oload.list_resistance[self.idx_mpp]
+        print(oload.mpp_resistance)
+        oload.send_resistance_to_load(oload.mpp_resistance)
+        
 
 
 # Classes should be CamelCased? i propose to change to DataFile :D------------------------------------------------------------------------------- Read this :D
