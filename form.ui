@@ -227,31 +227,14 @@ QPushButton:pressed {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="JVCurvesStack">
-       <layout class="QGridLayout" name="gridLayout_2" rowstretch="50,50">
-        <item row="0" column="0">
-         <widget class="QFrame" name="JVGraphEastFrame">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,1">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2"/>
         </item>
-        <item row="0" column="1">
-         <widget class="QFrame" name="JVGraphWestFrame">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="2">
+        <item>
          <widget class="QFrame" name="JVParametersFrame">
           <property name="styleSheet">
            <string notr="true">background-color: rgb(48, 52, 46);</string>
