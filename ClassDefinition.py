@@ -82,6 +82,7 @@ class Load(classHardware_):
         time.sleep(0.5)
         self.close_door()
 
+    # Create a resistance list that has a higher concentration of points in the center than on the edges
     def custom_resistance_list(self, min, max, point_number):
 
         resistance_list_top = list()
@@ -196,6 +197,7 @@ class Cell():
 
 
 # Classes should be CamelCased? i propose to change to DataFile :D------------------------------------------------------------------------------- Read this :D
+# Data File class to store all the timestamps, the calculated parameters and the IV curves.
 class Data_file():
     def __init__(self, path, ref):
         self.path = path
@@ -206,6 +208,7 @@ class Data_file():
         self.df_iv = self.get_last_iv()
         self.df_full_params = self.get_df_full_params()
 
+    # Read the summary dataframe from the project path. If it does not exist create an emtpy dataframe
     def get_df_full_params(self):
         path_summary = f'{self.path}/Summary'
         filename = f'Cell{self.ref}_param.txt'
@@ -214,6 +217,7 @@ class Data_file():
         else:
             return pd.DataFrame()
 
+    # Get the last IV curve dataframe from the cell folder, and if it does not exist create an empty dataframe
     def get_last_iv(self):
         path_cell = f'{self.path}/Cell{self.ref}'
         if os.path.exists(path_cell):
@@ -319,7 +323,7 @@ class Main():
             data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
 
 
-    # same as measure_all_cells but for a single cell
+    # Same as measure_all_cells but for a single cell
     def measure_cell(self, port):
         cell = self.cells_package[port]['cell']
         load = self.cells_package[port]['load']
@@ -328,6 +332,7 @@ class Main():
         cell.mpp_tracking(load)
         data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
 
+    # Measure the total power for all the strings
     def get_power(self):
         power = 0
         for port in self.cells_package:
@@ -358,6 +363,8 @@ class GUI(QMainWindow):
         self.ui.PauseMeasurementsButton.clicked.connect(self.stop_worker)
         self.ui.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
 
+    # Function that evaluates the sender object to decide which button was clicked and sets the stack widget
+    # for the main menu accordingly
     def switch_menu(self):
         if self.sender().objectName() == 'DashboardButton':
             self.ui.stackedWidget.setCurrentIndex(3)
@@ -374,6 +381,7 @@ class GUI(QMainWindow):
         cell_nb = combo.currentText()
         if not cell_nb in ['']:
             self.ui.stackedWidget_cells_plot.setCurrentWidget(self.gui_cell[cell_nb].widget_plot)
+
 
     def update_gui(self, cell = None):
         comboBox = self.ui.comboBox_cell_list
