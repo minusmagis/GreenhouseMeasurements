@@ -15,6 +15,8 @@ def get_last_day_data(param_summary_file):
         row_date = row['Date_Timestamp'].split(' ')[0]
         if row_date != today: remove_index_list.append(index)
 
+    df = df[df['Date_Timestamp'].isin
+
     today_data = param_summary_df.drop(remove_index_list)
 
     # print(today_data.to_string())
@@ -31,7 +33,7 @@ def day_power_integrate(today_data):
     today_energy = 0
     previous_timestamp = -1
     first_it = True
-
+ #use apply!!
     # Iterate through every row and multiply the power by the time difference to obtain the generated energy
     for index, row in today_data.iterrows():
         if first_it:
@@ -40,6 +42,7 @@ def day_power_integrate(today_data):
 
         else:
             time_difference = row['UNIX_Timestamp(s)']-previous_timestamp
+            previous_timestamp = row['UNIX_Timestamp(s)']
             today_energy += ( row['Power'] * time_difference / 3600)
 
     return today_energy
