@@ -1,0 +1,76 @@
+Data package:  
+Light Intensity 1 (in lux): 44108.33 
+Light Intensity 2 (in lux): 43918.33 
+Temperature (in *C): 24.94 
+Humidity (in %): 48.56 
+
+Data package:  
+Light Intensity 1 (in lux): 44192.50 
+Light Intensity 2 (in lux): 43968.33 
+Temperature (in *C): 24.98 
+Humidity (in %): 48.41 
+
+Data package:  
+Light Intensity 1 (in lux): 44176.66 
+Light Intensity 2 (in lux): 43920.83 
+Temperature (in *C): 25.07 
+Humidity (in %): 48.28 
+
+Data package:  
+Light Intensity 1 (in lux): 44092.50 
+Light Intensity 2 (in lux): 43811.66 
+Temperature (in *C): 25.10 
+Humidity (in %): 48.18 
+
+Data package:  
+Light Intensity 1 (in lux): 44120.83 
+Light Intensity 2 (in lux): 43852.50 
+Temperature (in *C): 25.11 
+Humidity (in %): 48.09 
+
+Data package:  
+Light Intensity 1 (in lux): 44190.83 
+Light Intensity 2 (in lux): 43840.00 
+Temperature (in *C): 25.14 
+Humidity (in %): 47.95 
+
+Data package:  
+Light Intensity 1 (in lux): 44104.16 
+Light Intensity 2 (in lux): 43742.50 
+Temperature (in *C): 25.18 
+Humidity (in %): 47.86 
+
+Data package:  
+Light Intensity 1 (in lux): 44190.83 
+Light Intensity 2 (in lux): 43814.16
+
+
+Light Intensity 1 (in lux): 22146.67 
+Light Intensity 2 (in lux): 23187.50 
+Temperature (in *C): 25.58 
+Humidity (in %): 46.93 
+
+Data package:  
+Light Intensity 1 (in lux): 22296.67 
+Light Intensity 2 (in lux): 23061.67 
+Temperature (in *C): 25.59 
+Humidity (in %): 46.78 
+
+Data package:  
+Light Intensity 1 (in lux): 22345.83 
+Light Intensity 2 (in lux): 22987.50 
+Temperature (in *C): 25.61 
+Humidity (in %): 46.83 
+
+Data package:  
+Light Intensity 1 (in lux): 22450.83 
+Light Intensity 2 (in lux): 23005.00 
+Temperature (in *C): 24.55 
+Humidity (in %): 46.84 
+
+Data package:  
+Light Intensity 1 (in lux): 22425.83 
+Light Intensity 2 (in lux): 22821.67 
+Temperature (in *C): 24.30 
+Humidity (in %): 47.39 
+
