@@ -52,7 +52,7 @@ class Main():
             cell = self.cells_package[port]['cell']
             load = self.cells_package[port]['load']
             data_file = self.cells_package[port]['data_file']
-            cell.measure_cell(load, 0.05, 500, 40)
+            cell.measure_cell(load, 0.05, 500, 200)
             cell.mpp_tracking(load)
             data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power)
 
