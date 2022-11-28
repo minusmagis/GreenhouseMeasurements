@@ -19,7 +19,7 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLayout,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
+    QStackedWidget, QTabWidget, QVBoxLayout, QWidget)
 import resource.resource_rc
 
 class Ui_MainWindow(object):
@@ -167,21 +167,12 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.JVCurvesStack = QWidget()
         self.JVCurvesStack.setObjectName(u"JVCurvesStack")
-        self.gridLayout_2 = QGridLayout(self.JVCurvesStack)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.JVGraphEastFrame = QFrame(self.JVCurvesStack)
-        self.JVGraphEastFrame.setObjectName(u"JVGraphEastFrame")
-        self.JVGraphEastFrame.setFrameShape(QFrame.StyledPanel)
-        self.JVGraphEastFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.JVCurvesStack)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.HLayout_iv_plot = QHBoxLayout()
+        self.HLayout_iv_plot.setObjectName(u"HLayout_iv_plot")
 
-        self.gridLayout_2.addWidget(self.JVGraphEastFrame, 0, 0, 1, 1)
-
-        self.JVGraphWestFrame = QFrame(self.JVCurvesStack)
-        self.JVGraphWestFrame.setObjectName(u"JVGraphWestFrame")
-        self.JVGraphWestFrame.setFrameShape(QFrame.StyledPanel)
-        self.JVGraphWestFrame.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_2.addWidget(self.JVGraphWestFrame, 0, 1, 1, 1)
+        self.verticalLayout_5.addLayout(self.HLayout_iv_plot)
 
         self.JVParametersFrame = QFrame(self.JVCurvesStack)
         self.JVParametersFrame.setObjectName(u"JVParametersFrame")
@@ -785,10 +776,10 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addLayout(self.gridLayout_4, 0, 0, 1, 1)
 
 
-        self.gridLayout_2.addWidget(self.JVParametersFrame, 1, 0, 1, 2)
+        self.verticalLayout_5.addWidget(self.JVParametersFrame)
 
-        self.gridLayout_2.setRowStretch(0, 50)
-        self.gridLayout_2.setRowStretch(1, 50)
+        self.verticalLayout_5.setStretch(0, 1)
+        self.verticalLayout_5.setStretch(1, 1)
         self.stackedWidget.addWidget(self.JVCurvesStack)
         self.HistoricalData = QWidget()
         self.HistoricalData.setObjectName(u"HistoricalData")
@@ -1410,15 +1401,38 @@ class Ui_MainWindow(object):
 
         self.DashboardBotLayout.addLayout(self.StringPowerWidgetLayout)
 
-        self.HistoricalGraphHolder = QFrame(self.DashBoardStack)
-        self.HistoricalGraphHolder.setObjectName(u"HistoricalGraphHolder")
-        self.HistoricalGraphHolder.setFrameShape(QFrame.StyledPanel)
-        self.HistoricalGraphHolder.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.tabWidget_power = QTabWidget(self.DashBoardStack)
+        self.tabWidget_power.setObjectName(u"tabWidget_power")
+        self.tabWidget_power.setAutoFillBackground(False)
+        self.tabWidget_power.setStyleSheet(u"font: 16pt \"MS Shell Dlg 2\";")
+        self.tabWidget_power.setTabPosition(QTabWidget.North)
+        self.tabWidget_power.setTabShape(QTabWidget.Rounded)
+        self.tabWidget_power.setIconSize(QSize(16, 16))
+        self.tabWidget_power.setElideMode(Qt.ElideNone)
+        self.tab_power_over_time = QWidget()
+        self.tab_power_over_time.setObjectName(u"tab_power_over_time")
+        self.gridLayout_3 = QGridLayout(self.tab_power_over_time)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.VLayout_power_plot = QVBoxLayout()
+        self.VLayout_power_plot.setObjectName(u"VLayout_power_plot")
 
-        self.DashboardBotLayout.addWidget(self.HistoricalGraphHolder)
+        self.gridLayout_3.addLayout(self.VLayout_power_plot, 0, 0, 1, 1)
 
-        self.DashboardBotLayout.setStretch(0, 70)
-        self.DashboardBotLayout.setStretch(1, 30)
+        self.tabWidget_power.addTab(self.tab_power_over_time, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.tabWidget_power.addTab(self.tab_2, "")
+
+        self.verticalLayout_7.addWidget(self.tabWidget_power)
+
+
+        self.DashboardBotLayout.addLayout(self.verticalLayout_7)
+
+        self.DashboardBotLayout.setStretch(0, 60)
+        self.DashboardBotLayout.setStretch(1, 40)
 
         self.DashboardMainVLayout.addLayout(self.DashboardBotLayout)
 
@@ -1438,6 +1452,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(3)
         self.stackedWidget_cells_plot.setCurrentIndex(1)
         self.stackedWidget_MeasurementTriggers.setCurrentIndex(0)
+        self.tabWidget_power.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1542,5 +1557,7 @@ class Ui_MainWindow(object):
         self.label_3.setText("")
         self.label_4.setText("")
         self.label_5.setText("")
+        self.tabWidget_power.setTabText(self.tabWidget_power.indexOf(self.tab_power_over_time), QCoreApplication.translate("MainWindow", u"Power over time", None))
+        self.tabWidget_power.setTabText(self.tabWidget_power.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Energy per day", None))
     # retranslateUi
 

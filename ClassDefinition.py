@@ -119,7 +119,6 @@ class Load(classHardware_):
     def sweep_measurement(self, res_min, res_max, resistance_nb_step):
         voltage_list = []
         current_list = []
-        print(self.mpp_resistance)
         self.list_resistance = self.custom_resistance_list(res_min, res_max, resistance_nb_step)
         #self.list_resistance = np.logspace(math.log10(res_max), math.log10(res_min), num=resistance_nb_step, base=10)
         for res in self.list_resistance:
@@ -166,11 +165,11 @@ class Cell():
 
     # Get the point of lowest resistance that corresponds to Isc and the first in the current array.
     def get_isc(self):
-        self.isc = self.df_iv['Current (A)'][self.df_iv.index[-1]]
+        self.isc = self.df_iv['Current (A)'][self.df_iv.index[0]]
 
     # Get the point of highest resistance that corresponds to Voc and the last in the voltage array.
     def get_voc(self):
-        self.voc = self.df_iv['Voltage (V)'][self.df_iv.index[0]]
+        self.voc = self.df_iv['Voltage (V)'][self.df_iv.index[-1]]
 
     # Calculate the fill factor by finding Vmpp and Impp and dividing it by Voc * Isc
     def get_fill_factor(self):
@@ -191,7 +190,6 @@ class Cell():
     # Set the resistance of the load to the mpp equivalent resistance
     def mpp_tracking(self, oload):
         oload.mpp_resistance = oload.list_resistance[self.idx_mpp]
-        print(oload.mpp_resistance)
         oload.send_resistance_to_load(oload.mpp_resistance)
         
 
@@ -227,15 +225,15 @@ class Data_file():
             return pd.DataFrame()
 
     # Get all the relevant parameters and save them to the specified path
-    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp):
-        self.get_data(df_iv, isc, voc, ff, pce, mpp)
+    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
+        self.get_data(df_iv, isc, voc, ff, pce, mpp, mpp_power)
         self.save_dfs_to_files()
 
     # Round the numbers to 3 decimal places and add a timestamp to the data before formatting it all to fit into the df
-    def get_data(self, df_iv, isc, voc, ff, pce, mpp):
+    def get_data(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
         self.df_iv = df_iv.round(3)
         self.get_timestamp()
-        self.df_params = pd.DataFrame({'Date_Timestamp':self.date, 'UNIX_Timestamp(s)':self.timestamp, 'Isc':[isc], 'Voc':[voc], 'FF':[ff], 'PCE':[pce], 'MPP voltage': mpp}).round(3)
+        self.df_params = pd.DataFrame({'Date_Timestamp':self.date, 'UNIX_Timestamp(s)':self.timestamp, 'Isc':[isc], 'Voc':[voc], 'FF':[ff], 'PCE':[pce], 'MPP voltage': mpp, 'Power': mpp_power}).round(3)
 
     # Format the timestamp into something that makes sense (most likely I will add kronos to this :3
     def get_timestamp(self):
@@ -319,8 +317,7 @@ class Main():
             data_file = self.cells_package[port]['data_file']
             cell.measure_cell(load, 0.05, 500, 40)
             cell.mpp_tracking(load)
-            print(cell.df_iv)
-            data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
+            data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power)
 
 
     # Same as measure_all_cells but for a single cell
@@ -330,7 +327,7 @@ class Main():
         data_file = self.cells_package[port]['data_file']
         cell.measure_cell(load, 0.05, 500, 40)
         cell.mpp_tracking(load)
-        data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp)
+        data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power)
 
     # Measure the total power for all the strings
     def get_power(self):
@@ -391,16 +388,82 @@ class GUI(QMainWindow):
                 wid = self.ui.stackedWidget_cells_plot.widget(w)
                 self.ui.stackedWidget_materials_plot.removeWidget(wid)
                 wid.deleteLater()
+            self.build_fig_ivs()
+            i = 1
             for k in self.main.cells_package.keys():
-                self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.ui.stackedWidget_cells_plot)
+                if i < 5:
+                    fig_iv = self.ui.fig_iv_1
+                else:
+                    fig_iv = self.ui.fig_iv_2
+                self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.ui.stackedWidget_cells_plot, fig_iv)
                 self.gui_cell[k].build_all()
                 comboBox.addItem(k)
+            self.build_fig_power()
             self.switch_cell()
         else:
             self.gui_cell[cell].update_all()
             self.update_cell_parameters(cell)
             self.update_dashboard()
+            self.update_fig_power()
             self.switch_cell()
+
+    def build_fig_ivs(self):
+        self.ui.fig_iv_1 = MplCanvas(self.ui.JVCurvesStack)
+        self.ui.fig_iv_2 = MplCanvas(self.ui.JVCurvesStack)
+        self.ui.HLayout_iv_plot.addWidget(self.ui.fig_iv_1)
+        self.ui.HLayout_iv_plot.addWidget(self.ui.fig_iv_2)
+        for fig in [self.ui.fig_iv_1, self.ui.fig_iv_2]:
+            fig.axes.cla()
+            fig.axes.set_ylabel('Current (A)', fontsize=20)
+            fig.axes.set_xlabel('Voltage (V)', fontsize=20)
+            fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.tick_params(which='both', top=True, right=True, width=2)
+            fig.axes.tick_params(which='both', direction="in")
+            fig.axes.tick_params(which='major', length=5, labelsize=16)
+            fig.axes.tick_params(which='minor', length=3)
+            fig.draw_idle()
+
+    def build_fig_power(self):
+        self.ui.fig_power = MplCanvas(self.ui.tab_power_over_time)
+        self.ui.toolbar_fig_power = NavigationToolbar(self.ui.fig_power, self.ui.tab_power_over_time)
+        self.ui.VLayout_power_plot.addWidget(self.ui.toolbar_fig_power)
+        self.ui.VLayout_power_plot.addWidget(self.ui.fig_power)
+        for fig in [self.ui.fig_power]:
+            fig.axes.cla()
+            fig.axes.set_ylabel('Power (W)', fontsize=20)
+            fig.axes.set_xlabel('Time', fontsize=20)
+            fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
+            fig.axes.tick_params(which='both', top=True, right=True, width=2)
+            fig.axes.tick_params(which='both', direction="in")
+            fig.axes.tick_params(which='major', length=5, labelsize=16)
+            fig.axes.tick_params(which='minor', length=3)
+            fig.draw_idle()
+        self.ui.line_power, = self.ui.fig_power.axes.plot(1, 1, linewidth=2)
+        self.update_fig_power()
+
+    def update_fig_power(self):
+        df_power = pd.DataFrame()
+        for k in self.main.cells_package.keys():
+            if not self.main.cells_package[k]['data_file'].df_full_params.empty:
+                if df_power.empty:
+                    df_power['UNIX_Timestamp(s)'] = self.main.cells_package[k]['data_file'].df_full_params['UNIX_Timestamp(s)']
+                    df_power['Date_Timestamp'] = self.main.cells_package[k]['data_file'].df_full_params['Date_Timestamp']
+                    df_power['Power'] = self.main.cells_package[k]['data_file'].df_full_params['Power']
+                else:
+                    df_instance = pd.merge(df_power, self.main.cells_package[k]['data_file'].df_full_params[['UNIX_Timestamp(s)', 'Date_Timestamp', 'Power']], on='UNIX_Timestamp(s)', how='inner')
+                    df_power['UNIX_Timestamp(s)'] = df_instance['UNIX_Timestamp(s)']
+                    df_power['Date_Timestamp'] = df_instance['Date_Timestamp_x']
+                    df_power['Power'] = df_instance['Power_x'] + df_instance['Power_y']
+        self.ui.line_power.set_ydata(df_power['Power'])
+        self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
+        print(pd.to_datetime(df_power['Date_Timestamp']))
+        self.ui.fig_power.axes.relim()
+        self.ui.fig_power.axes.autoscale()
+        self.ui.fig_power.fig.canvas.draw()
+        self.ui.fig_power.fig.canvas.flush_events()
+        
 
     def measurement(self, cell):
         self.main.measure_cell(cell)
@@ -520,13 +583,13 @@ class GUI(QMainWindow):
         if self.worker != None:
             for work in self.worker:
                 work.checkstop = True
-                #work.terminate()
 
 
 class GUI_Cell():
-    def __init__(self, cell_package, stackedWidget_materials_plot):
+    def __init__(self, cell_package, stackedWidget_cells_plot, fig_iv):
         self.cell_package = cell_package
-        self.stackedWidget_cells_plot = stackedWidget_materials_plot
+        self.stackedWidget_cells_plot = stackedWidget_cells_plot
+        self.fig_iv = fig_iv
         self.tabs = {}
         self.init_widget_plot_creation()
 
@@ -538,9 +601,11 @@ class GUI_Cell():
 
     def build_all(self):
         self.build_tab_stability()
+        self.build_tab_iv()
 
     def update_all(self):
         self.update_tab_stability()
+        self.update_tab_iv()
 
     def build_tab_stability(self):
         self.gridLayout_plot_stability = QGridLayout()
@@ -602,126 +667,24 @@ class GUI_Cell():
             if not self.cell_package['data_file'].df_full_params.empty:
                 fig.axes.plot_date(pd.to_datetime(self.cell_package['data_file'].df_full_params['Date_Timestamp']), self.cell_package['data_file'].df_full_params[df_full_params_column], xdate = True, linestyle ='-', linewidth=2)
 
-    #  def build_tabs(self):
-    #     self.tabs = GUI_Cell_tabs(self.cell_package, self.tabWidget_plot)
-    #     self.tabs.build_all()
-
-
-class GUI_Cell_tabs():
-    def __init__(self, cell_package, tabWidget_plot):
-        self.init_tabs(tabWidget_plot)
-        self.cell_package = cell_package
-
-    def init_tabs(self, tabWidget_plot):
-        self.tab_stability = QWidget()
-        self.tab_iv = QWidget()
-        tabWidget_plot.addTab(self.tab_stability, 'Stability')
-        tabWidget_plot.addTab(self.tab_iv, 'IV')
-
-    def build_all(self):
-        #self.build_tab_iv()
-        self.build_tab_stability()
-
-    def update_all(self):
-        self.update_tab_stability()
-        #self.update_tab_iv()
-
-    def build_tab_stability(self):
-        self.Vlayout_plot_stability = QVBoxLayout(self.tab_stability)
-        self.gridLayout_plot_stability = QGridLayout()
-
-        self.Vlayout_stability_isc = QVBoxLayout()
-        self.Vlayout_stability_voc = QVBoxLayout()
-        self.Vlayout_stability_ff = QVBoxLayout()
-        self.Vlayout_stability_pce = QVBoxLayout()
-        self.fig_stability_isc = MplCanvas(self.tab_stability)
-        self.fig_stability_voc = MplCanvas(self.tab_stability)
-        self.fig_stability_ff = MplCanvas(self.tab_stability)
-        self.fig_stability_pce = MplCanvas(self.tab_stability)
-        self.toolbar_fig_stability_isc = NavigationToolbar(self.fig_stability_isc, self.tab_stability)
-        self.toolbar_fig_stability_voc = NavigationToolbar(self.fig_stability_voc, self.tab_stability)
-        self.toolbar_fig_stability_ff = NavigationToolbar(self.fig_stability_ff, self.tab_stability)
-        self.toolbar_fig_stability_pce = NavigationToolbar(self.fig_stability_pce, self.tab_stability)
-
-        self.update_tab_stability()
-
-        self.Vlayout_stability_isc.addWidget(self.toolbar_fig_stability_isc)
-        self.Vlayout_stability_isc.addWidget(self.fig_stability_isc)
-        self.Vlayout_stability_voc.addWidget(self.toolbar_fig_stability_voc)
-        self.Vlayout_stability_voc.addWidget(self.fig_stability_voc)
-        self.Vlayout_stability_ff.addWidget(self.toolbar_fig_stability_ff)
-        self.Vlayout_stability_ff.addWidget(self.fig_stability_ff)
-        self.Vlayout_stability_pce.addWidget(self.toolbar_fig_stability_pce)
-        self.Vlayout_stability_pce.addWidget(self.fig_stability_pce)
-        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_isc, 0, 0)
-        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_voc, 0, 1)
-        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_ff, 1, 0)
-        self.gridLayout_plot_stability.addLayout(self.Vlayout_stability_pce, 1, 1)
-        self.Vlayout_plot_stability.addLayout(self.gridLayout_plot_stability)
-
-    def update_tab_stability(self):
-        for param in ['isc', 'voc', 'ff', 'pce']:
-            fig = getattr(self, f'fig_stability_{param}')
-            fig.axes.cla()
-            if param == 'isc':
-                ylabel = 'Isc (A)'
-                df_full_params_column = 'Isc'
-            if param == 'voc':
-                ylabel = 'Voc (V)'
-                df_full_params_column = 'Voc'
-            if param == 'ff':
-                ylabel = 'Fill Factor'
-                df_full_params_column = 'FF'
-            if param == 'pce':
-                ylabel = 'PCE'
-                df_full_params_column = 'PCE'
-            fig.axes.set_ylabel(ylabel, fontsize=20)
-            fig.axes.set_xlabel('Time', fontsize=20)
-            fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
-            fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
-            fig.axes.tick_params(which='both', top=True, right=True, width=2)
-            fig.axes.tick_params(which='both', direction="in")
-            fig.axes.tick_params(which='major', length=5, labelsize=16)
-            fig.axes.tick_params(which='minor', length=3)
-            fig.draw_idle()
-            if not self.cell_package['data_file'].df_full_params.empty:
-                fig.axes.plot_date(pd.to_datetime(self.cell_package['data_file'].df_full_params['Date_Timestamp']), self.cell_package['data_file'].df_full_params[df_full_params_column], xdate = True, linestyle ='-', linewidth=2)
-
     def build_tab_iv(self):
-        self.Vlayout_plot_iv = QVBoxLayout(self.tab_iv)
-        self.Vlayout_fig_iv = QVBoxLayout()
-        self.fig_iv = MplCanvas(self.tab_iv)
-
+        if not self.cell_package['data_file'].df_iv.empty:
+            x = self.cell_package['data_file'].df_iv['Voltage (V)']
+            y = self.cell_package['data_file'].df_iv['Current (A)']
+        else:
+            x = 1
+            y = 1
+        self.line, = self.fig_iv.axes.plot(x, y, linewidth=2)
         self.update_tab_iv()
 
-        self.Vlayout_fig_iv.addWidget(self.fig_iv)
-        self.Vlayout_plot_iv.addLayout(self.Vlayout_fig_iv)
-
     def update_tab_iv(self):
-        for fig in [self.fig_iv]:
-            fig.axes.cla()
-            fig.axes.set_ylabel('Current (A)', fontsize=20)
-            fig.axes.set_xlabel('Voltage (V)', fontsize=20)
-            fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
-            fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
-            fig.axes.tick_params(which='both', top=True, right=True, width=2)
-            fig.axes.tick_params(which='both', direction="in")
-            fig.axes.tick_params(which='major', length=5, labelsize=16)
-            fig.axes.tick_params(which='minor', length=3)
-            fig.draw_idle()
         if not self.cell_package['data_file'].df_iv.empty:
-            self.fig_iv.axes.plot(self.cell_package['data_file'].df_iv['Voltage (V)'], self.cell_package['data_file'].df_iv['Current (A)'], linewidth=2)
-
-    # def deleteLayout(self, cur_lay):
-    #     if cur_lay is not None:
-    #         while cur_lay.count():
-    #             item = cur_lay.takeAt(0)
-    #             widget = item.widget()
-    #             if widget is not None:
-    #                 widget.deleteLater()
-    #             else:
-    #                 self.deleteLayout(item.layout())
-    #         shiboken.delete(cur_lay)
+            self.line.set_ydata(self.cell_package['data_file'].df_iv['Current (A)'])
+            self.line.set_xdata(self.cell_package['data_file'].df_iv['Voltage (V)'])
+            self.fig_iv.axes.relim()
+            self.fig_iv.axes.autoscale()
+            self.fig_iv.fig.canvas.draw()
+            self.fig_iv.fig.canvas.flush_events()
 
 class MplCanvas(FigureCanvasQTAgg):
     def __init__(self, parent=None):

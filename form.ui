@@ -227,12 +227,12 @@ QPushButton:pressed {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="JVCurvesStack">
        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,1">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+         <layout class="QHBoxLayout" name="HLayout_iv_plot"/>
         </item>
         <item>
          <widget class="QFrame" name="JVParametersFrame">
@@ -2830,7 +2830,7 @@ font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="DashboardBotLayout" stretch="70,30">
+           <layout class="QHBoxLayout" name="DashboardBotLayout" stretch="60,40">
             <item>
              <layout class="QGridLayout" name="StringPowerWidgetLayout" rowstretch="5,90,5" columnstretch="5,95">
               <property name="spacing">
@@ -3303,14 +3303,63 @@ font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
              </layout>
             </item>
             <item>
-             <widget class="QFrame" name="HistoricalGraphHolder">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-             </widget>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QTabWidget" name="tabWidget_power">
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
+                </property>
+                <property name="tabPosition">
+                 <enum>QTabWidget::North</enum>
+                </property>
+                <property name="tabShape">
+                 <enum>QTabWidget::Rounded</enum>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="elideMode">
+                 <enum>Qt::ElideNone</enum>
+                </property>
+                <widget class="QWidget" name="tab_power_over_time">
+                 <attribute name="title">
+                  <string>Power over time</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="VLayout_power_plot"/>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_2">
+                 <attribute name="title">
+                  <string>Energy per day</string>
+                 </attribute>
+                </widget>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </item>
