@@ -31,6 +31,10 @@ def custom_resistance_list(min,max,point_number,mid_value):
 
     return resistance_list
 
+def debugging(message,DFLAG):
+    if DFLAG:
+        print(message)
+
 
 
 

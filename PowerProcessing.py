@@ -8,18 +8,10 @@ def get_last_day_data(param_summary_file):
     '''
     param_summary_df = pd.read_csv(param_summary_file, sep='\t')
 
-    remove_index_list = list()
     today, last_meas_time = param_summary_df['Date_Timestamp'].iloc[-1].split(' ')
+    today_data = param_summary_df[param_summary_df['Date_Timestamp'].str.contains(today)]
 
-    for index, row in param_summary_df.iterrows():
-        row_date = row['Date_Timestamp'].split(' ')[0]
-        if row_date != today: remove_index_list.append(index)
-
-    df = df[df['Date_Timestamp'].isin
-
-    today_data = param_summary_df.drop(remove_index_list)
-
-    # print(today_data.to_string())
+    print(today_data.to_string())
 
     return today_data
 
@@ -104,7 +96,7 @@ def multi_day_power_integrate(param_summary_file):
 
 if __name__ == '__main__':
     today_data = get_last_day_data('test/Summary/Cell1_param.txt')
-    total_energy_data = multi_day_power_integrate('test/Summary/Cell1_param.txt')
+    # total_energy_data = multi_day_power_integrate('test/Summary/Cell1_param.txt')
 
     # print(today_data.to_string())
     # print(last_day_power_integrate(today_data))

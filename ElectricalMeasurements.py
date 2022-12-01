@@ -5,11 +5,15 @@ import serial
 import os
 import time
 import datetime
+import SmallFunctions as sf
+
+D_ELECTR = True # Flag for debugging this entire script
 
 class Main():
     def __init__(self, path):
         self.path = path
         self.list_port = self.serial_ports()
+        self.arduino_sensor = Arduino(self.arduino_scan())
         print('go')
         self.cells_package = self.get_cells_package()
 
@@ -36,6 +40,18 @@ class Main():
             except (OSError, serial.SerialException):
                 pass
         return result
+
+    # Scan all serial connections and pop the arduino from the port list to prevent the software to treat it as a load
+    def arduino_scan(self):
+        for i, port in enumerate(self.list_port):
+            sf.debugging('Detecting arduino, Scanning port ' + str(port), D_ELECTR)
+            if self.detect_arduino(port):
+                self.list_port.pop(i)
+                sf.debugging('Arduino Sensor Detected',D_ELECTR)
+                return port
+
+        sf.debugging('Arduino Sensor NOT Detected', D_ELECTR)
+        return None
 
     # Create a dictionary that links the oload with the oCell and the oData_file
     def get_cells_package(self):
@@ -73,18 +89,31 @@ class Main():
             power += round(self.cells_package[port]['cell'].power, 1)
         return power
 
+    # Read the data from a port and decide if it is an arduino or not
+    def detect_arduino(self,port):
+        try:
+            door = serial.Serial(port, 9600, timeout=5)
+            readout = door.readline().decode('utf-8').rstrip('A\n')
+            sf.debugging('Data Readout: '+str(readout), D_ELECTR)
+            door.close()
+            if 'Arduino' in readout: return True
+            else: return False
+        except serial.serialutil.SerialException:
+            sf.debugging('No arduino found at port' + str(port), D_ELECTR)
+            return False
+
 
 class classHardware_():
-    def __init__(self, port):
+    def __init__(self, port, baudrate = 115200):
         self.port = port
         self.status = "close"
-        self.door = self.assign_port()
+        self.door = self.assign_port(baudrate)
 
     # Try to open serial coms with the given port and raise an exception if not possible. If possible
     # return the serial object
-    def assign_port(self):
+    def assign_port(self, baudrate):
         try:
-            door = serial.Serial(self.port, 115200, timeout=5)
+            door = serial.Serial(self.port, baudrate, timeout=5)
             door.close()
             return door
         except serial.serialutil.SerialException:
@@ -163,7 +192,6 @@ class Load(classHardware_):
 
         return resistance_list
 
-
     # Create a logarithmic numspace within two limit resistance values. Measure voltage and current for each of
     # the resistance values and return it as two lists, in the shape of an IV Curve.
     def sweep_measurement(self, res_min, res_max, resistance_nb_step):
@@ -178,7 +206,46 @@ class Load(classHardware_):
             voltage_list.append(result[1])
         return voltage_list, current_list
 
+class Arduino(classHardware_):
+    def __init__(self, port):
+        super().__init__(port, baudrate=9600)
 
+        self.delay = 0.2                            # Add a delay for fluid communications
+
+    # Read the desired variables and store them into a list for further processing
+    def get_readings(self):
+
+        self.open_door()
+        foo = self.door.readline().decode('utf-8').rstrip('A\n')            # Empty the first recognition line
+        time.sleep(self.delay)
+
+        time.sleep(self.delay)
+        self.door.write(b'T\n')                                            # Write the command to extract temperature
+        time.sleep(self.delay)
+        foo, temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
+
+        time.sleep(self.delay)
+        self.door.write(b'H\n')
+        time.sleep(self.delay)
+        foo, humidity = self.door.readline().decode('utf-8').rstrip().split(':')
+
+        time.sleep(self.delay)
+        self.door.write(b'E\n')
+        time.sleep(self.delay)
+        foo, east_light = self.door.readline().decode('utf-8').rstrip().split(':')
+
+        time.sleep(self.delay)
+        self.door.write(b'W\n')
+        time.sleep(self.delay)
+        foo, west_light = self.door.readline().decode('utf-8').rstrip().split(':')
+
+        self.close_door()
+
+        # Save all data in a dictionary for further processing and return
+        sensor_dict = {'Temperature (ºC): ': float(temperature), 'Humidity (%):': float(humidity),
+                       'Light Intensity East (W m-2): ': float(east_light), 'Light Intensity West (W m-2): ': float(west_light)}
+
+        return sensor_dict
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
@@ -320,4 +387,5 @@ class Data_file():
 
 if __name__ == '__main__':
     measurement1 = Main('test/MartiTest')
-    measurement1.measure_all_cells()
+    print(measurement1.arduino_sensor.get_readings())
+    # measurement1.measure_all_cells()
