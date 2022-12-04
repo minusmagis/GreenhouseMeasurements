@@ -1012,9 +1012,15 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.SunPowerLabel.sizePolicy().hasHeightForWidth())
         self.SunPowerLabel.setSizePolicy(sizePolicy)
         self.SunPowerLabel.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel.setFont(font)
-        self.SunPowerLabel.setStyleSheet(u"  color: rgb(254, 249, 193);\n"
-"background: transparent;")
+        font4 = QFont()
+        font4.setFamilies([u"MS Shell Dlg 2"])
+        font4.setPointSize(28)
+        font4.setBold(False)
+        font4.setItalic(False)
+        self.SunPowerLabel.setFont(font4)
+        self.SunPowerLabel.setStyleSheet(u"color: rgb(254, 249, 193);\n"
+"background: transparent;\n"
+"font: 28pt \"MS Shell Dlg 2\";")
         self.SunPowerLabel.setAlignment(Qt.AlignCenter)
         self.SunPowerLabel.setWordWrap(True)
 
@@ -1094,16 +1100,23 @@ class Ui_MainWindow(object):
 
         self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_4)
 
-        self.SunPowerLabel_5 = QLabel(self.DashBoardStack)
-        self.SunPowerLabel_5.setObjectName(u"SunPowerLabel_5")
-        sizePolicy.setHeightForWidth(self.SunPowerLabel_5.sizePolicy().hasHeightForWidth())
-        self.SunPowerLabel_5.setSizePolicy(sizePolicy)
-        self.SunPowerLabel_5.setMinimumSize(QSize(10, 2))
-        self.SunPowerLabel_5.setFont(font)
-        self.SunPowerLabel_5.setStyleSheet(u"  color: rgb(195, 255, 17);")
-        self.SunPowerLabel_5.setWordWrap(True)
+        self.TodayEnergyLabel = QLabel(self.DashBoardStack)
+        self.TodayEnergyLabel.setObjectName(u"TodayEnergyLabel")
+        sizePolicy.setHeightForWidth(self.TodayEnergyLabel.sizePolicy().hasHeightForWidth())
+        self.TodayEnergyLabel.setSizePolicy(sizePolicy)
+        self.TodayEnergyLabel.setMinimumSize(QSize(10, 2))
+        font5 = QFont()
+        font5.setFamilies([u"MS Shell Dlg 2"])
+        font5.setPointSize(36)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.TodayEnergyLabel.setFont(font5)
+        self.TodayEnergyLabel.setStyleSheet(u"  color: rgb(195, 255, 17);\n"
+"font: 36pt \"MS Shell Dlg 2\";")
+        self.TodayEnergyLabel.setAlignment(Qt.AlignCenter)
+        self.TodayEnergyLabel.setWordWrap(True)
 
-        self.TodaysEnergyVlayout.addWidget(self.SunPowerLabel_5)
+        self.TodaysEnergyVlayout.addWidget(self.TodayEnergyLabel)
 
 
         self.EnergyDashboardLayout.addLayout(self.TodaysEnergyVlayout, 0, 1, 1, 1)
@@ -1112,12 +1125,12 @@ class Ui_MainWindow(object):
         self.NextMeasTimeVlayout.setObjectName(u"NextMeasTimeVlayout")
         self.NextMeasurementInLabel = QLabel(self.DashBoardStack)
         self.NextMeasurementInLabel.setObjectName(u"NextMeasurementInLabel")
-        font4 = QFont()
-        font4.setFamilies([u"MS Shell Dlg 2"])
-        font4.setPointSize(18)
-        font4.setBold(False)
-        font4.setItalic(False)
-        self.NextMeasurementInLabel.setFont(font4)
+        font6 = QFont()
+        font6.setFamilies([u"MS Shell Dlg 2"])
+        font6.setPointSize(18)
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.NextMeasurementInLabel.setFont(font6)
         self.NextMeasurementInLabel.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
         self.NextMeasurementInLabel.setAlignment(Qt.AlignCenter)
 
@@ -1157,11 +1170,6 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.CurrentPowerLabel.sizePolicy().hasHeightForWidth())
         self.CurrentPowerLabel.setSizePolicy(sizePolicy)
         self.CurrentPowerLabel.setMinimumSize(QSize(10, 2))
-        font5 = QFont()
-        font5.setFamilies([u"MS Shell Dlg 2"])
-        font5.setPointSize(36)
-        font5.setBold(False)
-        font5.setItalic(False)
         self.CurrentPowerLabel.setFont(font5)
         self.CurrentPowerLabel.setStyleSheet(u"  color: rgb(255, 152, 30);\n"
 "font: 36pt \"MS Shell Dlg 2\";")
@@ -1218,9 +1226,9 @@ class Ui_MainWindow(object):
 
         self.MinPowerLabel = QLabel(self.DashBoardStack)
         self.MinPowerLabel.setObjectName(u"MinPowerLabel")
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
-        self.MinPowerLabel.setFont(font6)
+        font7 = QFont()
+        font7.setFamilies([u"Segoe UI"])
+        self.MinPowerLabel.setFont(font7)
         self.MinPowerLabel.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.PowerMeterYaxisLayout.addWidget(self.MinPowerLabel)
@@ -1236,7 +1244,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String1Label.sizePolicy().hasHeightForWidth())
         self.String1Label.setSizePolicy(sizePolicy)
         self.String1Label.setMinimumSize(QSize(10, 2))
-        self.String1Label.setFont(font6)
+        self.String1Label.setFont(font7)
         self.String1Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String1Label.setAlignment(Qt.AlignCenter)
 
@@ -1247,7 +1255,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String2Label.sizePolicy().hasHeightForWidth())
         self.String2Label.setSizePolicy(sizePolicy)
         self.String2Label.setMinimumSize(QSize(10, 2))
-        self.String2Label.setFont(font6)
+        self.String2Label.setFont(font7)
         self.String2Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String2Label.setAlignment(Qt.AlignCenter)
 
@@ -1258,7 +1266,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String3Label.sizePolicy().hasHeightForWidth())
         self.String3Label.setSizePolicy(sizePolicy)
         self.String3Label.setMinimumSize(QSize(10, 2))
-        self.String3Label.setFont(font6)
+        self.String3Label.setFont(font7)
         self.String3Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String3Label.setAlignment(Qt.AlignCenter)
 
@@ -1269,7 +1277,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String4Label.sizePolicy().hasHeightForWidth())
         self.String4Label.setSizePolicy(sizePolicy)
         self.String4Label.setMinimumSize(QSize(10, 2))
-        self.String4Label.setFont(font6)
+        self.String4Label.setFont(font7)
         self.String4Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String4Label.setAlignment(Qt.AlignCenter)
 
@@ -1283,7 +1291,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.StringNumberString.sizePolicy().hasHeightForWidth())
         self.StringNumberString.setSizePolicy(sizePolicy)
         self.StringNumberString.setMinimumSize(QSize(10, 2))
-        self.StringNumberString.setFont(font6)
+        self.StringNumberString.setFont(font7)
         self.StringNumberString.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.StringNumberLabelLayout.addWidget(self.StringNumberString)
@@ -1293,7 +1301,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.StringNumberNumber.sizePolicy().hasHeightForWidth())
         self.StringNumberNumber.setSizePolicy(sizePolicy)
         self.StringNumberNumber.setMinimumSize(QSize(10, 2))
-        self.StringNumberNumber.setFont(font6)
+        self.StringNumberNumber.setFont(font7)
         self.StringNumberNumber.setStyleSheet(u"  color: rgb(211, 213, 211);")
 
         self.StringNumberLabelLayout.addWidget(self.StringNumberNumber)
@@ -1306,7 +1314,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String5Label.sizePolicy().hasHeightForWidth())
         self.String5Label.setSizePolicy(sizePolicy)
         self.String5Label.setMinimumSize(QSize(10, 2))
-        self.String5Label.setFont(font6)
+        self.String5Label.setFont(font7)
         self.String5Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String5Label.setScaledContents(False)
         self.String5Label.setAlignment(Qt.AlignCenter)
@@ -1319,7 +1327,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String6Label.sizePolicy().hasHeightForWidth())
         self.String6Label.setSizePolicy(sizePolicy)
         self.String6Label.setMinimumSize(QSize(10, 2))
-        self.String6Label.setFont(font6)
+        self.String6Label.setFont(font7)
         self.String6Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String6Label.setAlignment(Qt.AlignCenter)
 
@@ -1330,7 +1338,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String7Label.sizePolicy().hasHeightForWidth())
         self.String7Label.setSizePolicy(sizePolicy)
         self.String7Label.setMinimumSize(QSize(10, 2))
-        self.String7Label.setFont(font6)
+        self.String7Label.setFont(font7)
         self.String7Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String7Label.setAlignment(Qt.AlignCenter)
 
@@ -1341,7 +1349,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.String8Label.sizePolicy().hasHeightForWidth())
         self.String8Label.setSizePolicy(sizePolicy)
         self.String8Label.setMinimumSize(QSize(10, 2))
-        self.String8Label.setFont(font6)
+        self.String8Label.setFont(font7)
         self.String8Label.setStyleSheet(u"  color: rgb(211, 213, 211);")
         self.String8Label.setAlignment(Qt.AlignCenter)
 
@@ -1422,9 +1430,17 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addLayout(self.VLayout_power_plot, 0, 0, 1, 1)
 
         self.tabWidget_power.addTab(self.tab_power_over_time, "")
-        self.tab_2 = QWidget()
-        self.tab_2.setObjectName(u"tab_2")
-        self.tabWidget_power.addTab(self.tab_2, "")
+        self.tab_energy_per_day = QWidget()
+        self.tab_energy_per_day.setObjectName(u"tab_energy_per_day")
+        self.gridLayout_2 = QGridLayout(self.tab_energy_per_day)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.VLayout_energy_per_day = QVBoxLayout()
+        self.VLayout_energy_per_day.setObjectName(u"VLayout_energy_per_day")
+
+        self.gridLayout_2.addLayout(self.VLayout_energy_per_day, 0, 0, 1, 1)
+
+        self.tabWidget_power.addTab(self.tab_energy_per_day, "")
 
         self.verticalLayout_7.addWidget(self.tabWidget_power)
 
@@ -1452,7 +1468,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.setCurrentIndex(3)
         self.stackedWidget_cells_plot.setCurrentIndex(1)
         self.stackedWidget_MeasurementTriggers.setCurrentIndex(0)
-        self.tabWidget_power.setCurrentIndex(0)
+        self.tabWidget_power.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1524,13 +1540,13 @@ class Ui_MainWindow(object):
         self.StartMeasurementsButton.setText(QCoreApplication.translate("MainWindow", u"Start Measurements", None))
         self.PauseMeasurementsButton.setText(QCoreApplication.translate("MainWindow", u"Pause Measurements", None))
         self.label.setText("")
-        self.SunPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:30pt;\">864</span></p></body></html>", None))
+        self.SunPowerLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.SunPowerUnitsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">W m</span><span style=\" font-size:11pt; vertical-align:super;\">-2</span></p></body></html>", None))
         self.SunPowerLabel_8.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:25pt;\">Generated</span></p></body></html>", None))
         self.SunPowerLabel_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">15%</span></p></body></html>", None))
         self.SunPowerLabel_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">of today's greenhouse energy needs</span></p></body></html>", None))
         self.SunPowerLabel_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt;\">Today's Solar Energy</span></p></body></html>", None))
-        self.SunPowerLabel_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:60pt;\">2547 kWh</span></p></body></html>", None))
+        self.TodayEnergyLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.NextMeasurementInLabel.setText(QCoreApplication.translate("MainWindow", u"Next Measurement in:", None))
         self.NextMeasurementTimeIntervalLabel.setText(QCoreApplication.translate("MainWindow", u"Not Measuring", None))
         self.CurrentSolarPowerLabel.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -1558,6 +1574,6 @@ class Ui_MainWindow(object):
         self.label_4.setText("")
         self.label_5.setText("")
         self.tabWidget_power.setTabText(self.tabWidget_power.indexOf(self.tab_power_over_time), QCoreApplication.translate("MainWindow", u"Power over time", None))
-        self.tabWidget_power.setTabText(self.tabWidget_power.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Energy per day", None))
+        self.tabWidget_power.setTabText(self.tabWidget_power.indexOf(self.tab_energy_per_day), QCoreApplication.translate("MainWindow", u"Energy per day", None))
     # retranslateUi
 

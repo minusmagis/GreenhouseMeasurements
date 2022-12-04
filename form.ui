@@ -2670,7 +2670,7 @@ background: transparent;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="SunPowerLabel_5">
+                 <widget class="QLabel" name="TodayEnergyLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                     <horstretch>0</horstretch>
@@ -2685,14 +2685,22 @@ background: transparent;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Bahnschrift</family>
+                    <family>MS Shell Dlg 2</family>
+                    <pointsize>36</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">  color: rgb(195, 255, 17);</string>
+                   <string notr="true">  color: rgb(195, 255, 17);
+font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:60pt;&quot;&gt;2547 kWh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>None</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                   <property name="wordWrap">
                    <bool>true</bool>
@@ -3324,7 +3332,7 @@ font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
                  <enum>QTabWidget::Rounded</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3357,10 +3365,27 @@ font: 36pt &quot;MS Shell Dlg 2&quot;;</string>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="tab_2">
+                <widget class="QWidget" name="tab_energy_per_day">
                  <attribute name="title">
                   <string>Energy per day</string>
                  </attribute>
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="VLayout_energy_per_day"/>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>
