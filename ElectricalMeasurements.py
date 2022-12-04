@@ -1,51 +1,24 @@
-import sys
-import glob
 import pandas as pd
 import serial
-import os
 import time
-import datetime
 import SmallFunctions as sf
+import CommunicationFunctions as CF
 
 D_ELECTR = True # Flag for debugging this entire script
 
 class Main():
     def __init__(self, path):
         self.path = path
-        self.list_port = self.serial_ports()
+        self.list_port = CF.serial_ports()
         self.arduino_sensor = Arduino(self.arduino_scan())
         print('go')
         self.cells_package = self.get_cells_package()
-
-    # Serial port lister that returns a list of ports or an error when in an unsupported platform
-    def serial_ports(self):
-
-        if sys.platform.startswith('win'):
-            ports = ['COM%s' % (i + 1) for i in range(256)]
-        elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
-            # this excludes your current terminal "/dev/tty"
-            ports = glob.glob('/dev/tty[A-Za-z]*')
-        elif sys.platform.startswith('darwin'):
-            ports = glob.glob('/dev/tty.*')
-        else:
-            raise EnvironmentError('Unsupported platform')
-
-        result = []
-        for port in ports:
-            try:
-                s = serial.Serial(port)
-                s.close()
-                if port != 'COM5':
-                    result.append(port)
-            except (OSError, serial.SerialException):
-                pass
-        return result
 
     # Scan all serial connections and pop the arduino from the port list to prevent the software to treat it as a load
     def arduino_scan(self):
         for i, port in enumerate(self.list_port):
             sf.debugging('Detecting arduino, Scanning port ' + str(port), D_ELECTR)
-            if self.detect_arduino(port):
+            if CF.detect_arduino(port):
                 self.list_port.pop(i)
                 sf.debugging('Arduino Sensor Detected',D_ELECTR)
                 return port
@@ -53,12 +26,12 @@ class Main():
         sf.debugging('Arduino Sensor NOT Detected', D_ELECTR)
         return None
 
-    # Create a dictionary that links the oload with the oCell and the oData_file
+    # Create a dictionary that links the oload with the oCell and the oDataFile
     def get_cells_package(self):
         cells_package = {}
         i = 1
         for port in self.list_port:
-            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':Data_file(self.path, i)}
+            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':DataFile(self.path, i)}
             i += 1
         return cells_package
 
@@ -88,19 +61,6 @@ class Main():
         for port in self.cells_package:
             power += round(self.cells_package[port]['cell'].power, 1)
         return power
-
-    # Read the data from a port and decide if it is an arduino or not
-    def detect_arduino(self,port):
-        try:
-            door = serial.Serial(port, 9600, timeout=5)
-            readout = door.readline().decode('utf-8').rstrip('A\n')
-            sf.debugging('Data Readout: '+str(readout), D_ELECTR)
-            door.close()
-            if 'Arduino' in readout: return True
-            else: return False
-        except serial.serialutil.SerialException:
-            sf.debugging('No arduino found at port' + str(port), D_ELECTR)
-            return False
 
 
 class classHardware_():
@@ -310,82 +270,13 @@ class Cell():
         oload.mpp_resistance = oload.list_resistance[self.idx_mpp]
         oload.send_resistance_to_load(oload.mpp_resistance)
 
-
-# Classes should be CamelCased? i propose to change to DataFile :D------------------------------------------------------------------------------- Read this :D
-# Data File class to store all the timestamps, the calculated parameters and the IV curves.
-class Data_file():
-    def __init__(self, path, ref):
-        self.path = path
-        self.ref = ref
-        self.timestamp = None
-        self.date = None
-        self.df_params = None
-        self.df_iv = self.get_last_iv()
-        self.df_full_params = self.get_df_full_params()
-
-    # Read the summary dataframe from the project path. If it does not exist create an emtpy dataframe
-    def get_df_full_params(self):
-        path_summary = f'{self.path}/Summary'
-        filename = f'Cell{self.ref}_param.txt'
-        if os.path.exists(path_summary) and os.path.exists(path_summary + '/' + filename):
-            return pd.read_csv(path_summary + '/' + filename, delimiter="\t")
-        else:
-            return pd.DataFrame()
-
-    # Get the last IV curve dataframe from the cell folder, and if it does not exist create an empty dataframe
-    def get_last_iv(self):
-        path_cell = f'{self.path}/Cell{self.ref}'
-        if os.path.exists(path_cell):
-            file = [f for f in os.listdir(path_cell) if os.path.isfile(os.path.join(path_cell, f))][-2]
-            return pd.read_csv(path_cell + '/' + file, delimiter="\t")
-        else:
-            return pd.DataFrame()
-
-    # Get all the relevant parameters and save them to the specified path
-    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
-        self.get_data(df_iv, isc, voc, ff, pce, mpp, mpp_power)
-        self.save_dfs_to_files()
-
-    # Round the numbers to 3 decimal places and add a timestamp to the data before formatting it all to fit into the df
-    def get_data(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
-        self.df_iv = df_iv.round(3)
-        self.get_timestamp()
-        self.df_params = pd.DataFrame(
-            {'Date_Timestamp': self.date, 'UNIX_Timestamp(s)': self.timestamp, 'Isc': [isc], 'Voc': [voc], 'FF': [ff],
-             'PCE': [pce], 'MPP voltage': mpp, 'Power': mpp_power}).round(3)
-
-    # Format the timestamp into something that makes sense (most likely I will add kronos to this :3
-    def get_timestamp(self):
-        self.timestamp = round(time.time())
-        self.date = datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y-%m-%d %H:%M:%S')
-
-    # Create paths for the cell and the summary with the correct formatting, convert the iv to a csv.
-    # If the file already exists, update the parameters and if not create the cell and summary files
-    def save_dfs_to_files(self):
-        path_cell = f'{self.path}/Cell{self.ref}'
-        self.create_save_directory(path_cell)
-        path_summary = f'{self.path}/Summary'
-        self.create_save_directory(path_summary)
-        date = self.date.replace(" ", "_")
-        date = date.replace(":", "-")
-        filename = 'Cell' + str(self.ref)
-        self.df_iv.to_csv(path_cell + '/' + filename + '_IV_' + date + '.txt', index=None, sep='\t')
-        self.update_params_file(path_summary, path_cell, filename)
-
-    # Concatenate the files in case the file already exists to prevent data loss or duplication
-    def update_params_file(self, path_summary, path_cell, filename):
-        self.df_full_params = pd.concat([self.df_full_params, self.df_params])
-        self.df_full_params.to_csv(path_cell + '/' + filename + '_param.txt', index=None, sep='\t')
-        self.df_full_params.to_csv(path_summary + '/' + filename + '_param.txt', index=None, sep='\t')
-
-    # Create save directory
-    def create_save_directory(self, path):
-        try:
-            os.makedirs(path)
-        except FileExistsError:
-            pass
-
 if __name__ == '__main__':
     measurement1 = Main('test/MartiTest')
     print(measurement1.arduino_sensor.get_readings())
-    # measurement1.measure_all_cells()
+    # # measurement1.measure_all_cells()
+
+    # -------------------Load test---------------------------------
+
+
+
+    # -------------------Electrical Test ---------------------------------
