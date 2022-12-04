@@ -1,6 +1,7 @@
 import pandas as pd
 import serial
 import time
+import datetime
 
 import SmallFunctions as sf
 import CommunicationFunctions as CF
@@ -186,37 +187,41 @@ class Arduino(classHardware_):
     # Read the desired variables and store them into a list for further processing
     def get_readings(self):
 
-        self.open_door()
-        foo = self.door.readline().decode('utf-8').rstrip('A\n')            # Empty the first recognition line
-        time.sleep(self.delay)
+        try:
+            self.open_door()
+            foo = self.door.readline().decode('utf-8').rstrip('A\n')            # Empty the first recognition line
+            time.sleep(self.delay)
 
-        time.sleep(self.delay)
-        self.door.write(b'T\n')                                            # Write the command to extract temperature
-        time.sleep(self.delay)
-        print(self.door.readline().decode('utf-8').rstrip().split(':'))
-        foo, self.temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
+            time.sleep(self.delay)
+            self.door.write(b'T\n')                                            # Write the command to extract temperature
+            time.sleep(self.delay)
+            foo, self.temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
 
-        time.sleep(self.delay)
-        self.door.write(b'H\n')
-        time.sleep(self.delay)
-        print(self.door.readline().decode('utf-8').rstrip().split(':'))
-        foo, self.humidity = self.door.readline().decode('utf-8').rstrip().split(':')
+            time.sleep(self.delay)
+            self.door.write(b'H\n')
+            time.sleep(self.delay)
+            foo, self.humidity = self.door.readline().decode('utf-8').rstrip().split(':')
 
-        time.sleep(self.delay)
-        self.door.write(b'E\n')
-        time.sleep(self.delay)
-        foo, self.light_intensity_east = self.door.readline().decode('utf-8').rstrip().split(':')
+            time.sleep(self.delay)
+            self.door.write(b'E\n')
+            time.sleep(self.delay)
+            foo, self.light_intensity_east = self.door.readline().decode('utf-8').rstrip().split(':')
 
-        time.sleep(self.delay)
-        self.door.write(b'W\n')
-        time.sleep(self.delay)
-        foo, self.light_intensity_west = self.door.readline().decode('utf-8').rstrip().split(':')
+            time.sleep(self.delay)
+            self.door.write(b'W\n')
+            time.sleep(self.delay)
+            foo, self.light_intensity_west = self.door.readline().decode('utf-8').rstrip().split(':')
 
-        self.close_door()
+            self.close_door()
+
+        except:
+            Warning('No data received from the arduino at '+str(datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y-%m-%d %H:%M:%S')))
 
         # Save all data in a dictionary for further processing and return
         self.sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
                        'Light Intensity East (W m-2): ': float(self.light_intensity_east), 'Light Intensity West (W m-2): ': float(self.light_intensity_west)}
+
+        sf.debugging(self.sensor_dict,D_ELECTR)
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
