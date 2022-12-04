@@ -4,6 +4,7 @@ import time
 
 import SmallFunctions as sf
 import CommunicationFunctions as CF
+import DataHandling as DH
 
 
 D_ELECTR = True # Flag for debugging this entire script
@@ -38,7 +39,7 @@ class Main():
         cells_package = {}
         i = 1
         for port in self.list_port:
-            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':DataFile(self.path, i)}
+            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':DH.DataFile(self.path, i)}
             i += 1
         return cells_package
 
