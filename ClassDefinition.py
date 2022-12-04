@@ -195,7 +195,7 @@ class Cell():
 
 # Classes should be CamelCased? i propose to change to DataFile :D------------------------------------------------------------------------------- Read this :D
 # Data File class to store all the timestamps, the calculated parameters and the IV curves.
-class Data_file():
+class DataFile():
     def __init__(self, path, ref):
         self.path = path
         self.ref = ref
@@ -299,12 +299,12 @@ class Main():
                 pass
         return result
 
-    # Create a dictionary that links the oload with the oCell and the oData_file
+    # Create a dictionary that links the oload with the oCell and the oDataFile
     def get_cells_package(self):
         cells_package = {}
         i = 1
         for port in self.list_port:
-            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':Data_file(self.path, i)}
+            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':DataFile(self.path, i)}
             i += 1
         return cells_package
 
