@@ -5,16 +5,21 @@ import serial
 import os
 import time
 import datetime
-import SmallFunctions as sf
 
 D_ELECTR = True # Flag for debugging this entire script
+
+class Util():
+    @staticmethod
+    def debugging(message, DFLAG):
+        if DFLAG:
+            print(message)
 
 class Main():
     def __init__(self, path):
         self.path = path
+        print('go')
         self.list_port = self.serial_ports()
         self.arduino_sensor = Arduino(self.arduino_scan())
-        print('go')
         self.cells_package = self.get_cells_package()
 
     # Serial port lister that returns a list of ports or an error when in an unsupported platform
@@ -44,13 +49,13 @@ class Main():
     # Scan all serial connections and pop the arduino from the port list to prevent the software to treat it as a load
     def arduino_scan(self):
         for i, port in enumerate(self.list_port):
-            sf.debugging('Detecting arduino, Scanning port ' + str(port), D_ELECTR)
+            Util.debugging('Detecting arduino, Scanning port ' + str(port), D_ELECTR)
             if self.detect_arduino(port):
                 self.list_port.pop(i)
-                sf.debugging('Arduino Sensor Detected',D_ELECTR)
+                Util.debugging('Arduino Sensor Detected',D_ELECTR)
                 return port
 
-        sf.debugging('Arduino Sensor NOT Detected', D_ELECTR)
+        Util.debugging('Arduino Sensor NOT Detected', D_ELECTR)
         return None
 
     # Create a dictionary that links the oload with the oCell and the oData_file
@@ -94,12 +99,12 @@ class Main():
         try:
             door = serial.Serial(port, 9600, timeout=5)
             readout = door.readline().decode('utf-8').rstrip('A\n')
-            sf.debugging('Data Readout: '+str(readout), D_ELECTR)
+            Util.debugging('Data Readout: '+str(readout), D_ELECTR)
             door.close()
             if 'Arduino' in readout: return True
             else: return False
         except serial.serialutil.SerialException:
-            sf.debugging('No arduino found at port' + str(port), D_ELECTR)
+            Util.debugging('No arduino found at port' + str(port), D_ELECTR)
             return False
 
 
@@ -209,7 +214,10 @@ class Load(classHardware_):
 class Arduino(classHardware_):
     def __init__(self, port):
         super().__init__(port, baudrate=9600)
-
+        self.temperature = None
+        self.humidity = None
+        self.light_intensity_east = None
+        self.light_intensity_west = None
         self.delay = 0.2                            # Add a delay for fluid communications
 
     # Read the desired variables and store them into a list for further processing
@@ -222,28 +230,30 @@ class Arduino(classHardware_):
         time.sleep(self.delay)
         self.door.write(b'T\n')                                            # Write the command to extract temperature
         time.sleep(self.delay)
-        foo, temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
+        print(self.door.readline().decode('utf-8').rstrip().split(':'))
+        foo, self.temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
 
         time.sleep(self.delay)
         self.door.write(b'H\n')
         time.sleep(self.delay)
-        foo, humidity = self.door.readline().decode('utf-8').rstrip().split(':')
+        print(self.door.readline().decode('utf-8').rstrip().split(':'))
+        foo, self.humidity = self.door.readline().decode('utf-8').rstrip().split(':')
 
         time.sleep(self.delay)
         self.door.write(b'E\n')
         time.sleep(self.delay)
-        foo, east_light = self.door.readline().decode('utf-8').rstrip().split(':')
+        foo, self.light_intensity_east = self.door.readline().decode('utf-8').rstrip().split(':')
 
         time.sleep(self.delay)
         self.door.write(b'W\n')
         time.sleep(self.delay)
-        foo, west_light = self.door.readline().decode('utf-8').rstrip().split(':')
+        foo, self.light_intensity_west = self.door.readline().decode('utf-8').rstrip().split(':')
 
         self.close_door()
 
         # Save all data in a dictionary for further processing and return
-        sensor_dict = {'Temperature (ºC): ': float(temperature), 'Humidity (%):': float(humidity),
-                       'Light Intensity East (W m-2): ': float(east_light), 'Light Intensity West (W m-2): ': float(west_light)}
+        sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
+                       'Light Intensity East (W m-2): ': float(self.light_intensity_east), 'Light Intensity West (W m-2): ': float(self.light_intensity_west)}
 
         return sensor_dict
 

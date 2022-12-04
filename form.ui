@@ -2476,15 +2476,20 @@ color: rgb(100, 79, 79);
                   </property>
                   <property name="font">
                    <font>
-                    <family>Bahnschrift</family>
+                    <family>MS Shell Dlg 2</family>
+                    <pointsize>28</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">  color: rgb(254, 249, 193);
-background: transparent;</string>
+                   <string notr="true">color: rgb(254, 249, 193);
+background: transparent;
+font: 28pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:30pt;&quot;&gt;864&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>None</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
