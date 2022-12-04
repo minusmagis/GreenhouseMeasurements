@@ -218,6 +218,7 @@ class Arduino(classHardware_):
         self.humidity = None
         self.light_intensity_east = None
         self.light_intensity_west = None
+        self.sensor_dict = None
         self.delay = 0.2                            # Add a delay for fluid communications
 
     # Read the desired variables and store them into a list for further processing
@@ -252,10 +253,8 @@ class Arduino(classHardware_):
         self.close_door()
 
         # Save all data in a dictionary for further processing and return
-        sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
+        self.sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
                        'Light Intensity East (W m-2): ': float(self.light_intensity_east), 'Light Intensity West (W m-2): ': float(self.light_intensity_west)}
-
-        return sensor_dict
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
@@ -352,17 +351,18 @@ class Data_file():
             return pd.DataFrame()
 
     # Get all the relevant parameters and save them to the specified path
-    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
-        self.get_data(df_iv, isc, voc, ff, pce, mpp, mpp_power)
+    def save_dfs(self, df_iv, isc, voc, ff, pce, mpp, mpp_power, temperature, humidity, li_east, li_west):
+        self.get_data(df_iv, isc, voc, ff, pce, mpp, mpp_power, temperature, humidity, li_east, li_west)
         self.save_dfs_to_files()
 
     # Round the numbers to 3 decimal places and add a timestamp to the data before formatting it all to fit into the df
-    def get_data(self, df_iv, isc, voc, ff, pce, mpp, mpp_power):
+    def get_data(self, df_iv, isc, voc, ff, pce, mpp, mpp_power, temperature, humidity, li_east, li_west):
         self.df_iv = df_iv.round(3)
         self.get_timestamp()
         self.df_params = pd.DataFrame(
             {'Date_Timestamp': self.date, 'UNIX_Timestamp(s)': self.timestamp, 'Isc': [isc], 'Voc': [voc], 'FF': [ff],
-             'PCE': [pce], 'MPP voltage': mpp, 'Power': mpp_power}).round(3)
+             'PCE': [pce], 'MPP voltage': mpp, 'Power': mpp_power, 'Temperature (ºC): ': float(temperature), 'Humidity (%):': float(humidity), 
+             'Light Intensity East (W m-2): ': float(li_east), 'Light Intensity West (W m-2): ': float(li_west)}).round(3)
 
     # Format the timestamp into something that makes sense (most likely I will add kronos to this :3
     def get_timestamp(self):

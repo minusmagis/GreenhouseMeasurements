@@ -158,7 +158,7 @@ class GUI(QMainWindow):
     def update_dashboard(self):
         power = self.main.get_power()
         self.ui.CurrentPowerLabel.setText(f'{power} W')
-        self.ui.SunPowerLabel.setText(f'{self.main.arduino_sensor.light_intensity_east}')
+        self.ui.SunPowerLabel.setText(f'{(self.main.arduino_sensor.light_intensity_east + self.main.arduino_sensor.light_intensity_west) / 2}')
 
     def trigger_measure_all_cells(self):
         check = True
