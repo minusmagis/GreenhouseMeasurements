@@ -1,17 +1,24 @@
 import pandas as pd
 import serial
 import time
+
 import SmallFunctions as sf
 import CommunicationFunctions as CF
 
+
 D_ELECTR = True # Flag for debugging this entire script
+
+class Util():
+    @staticmethod
+    def debugging(message, DFLAG):
+        if DFLAG:
+            print(message)
 
 class Main():
     def __init__(self, path):
         self.path = path
         self.list_port = CF.serial_ports()
         self.arduino_sensor = Arduino(self.arduino_scan())
-        print('go')
         self.cells_package = self.get_cells_package()
 
     # Scan all serial connections and pop the arduino from the port list to prevent the software to treat it as a load
@@ -20,10 +27,10 @@ class Main():
             sf.debugging('Detecting arduino, Scanning port ' + str(port), D_ELECTR)
             if CF.detect_arduino(port):
                 self.list_port.pop(i)
-                sf.debugging('Arduino Sensor Detected',D_ELECTR)
+                Util.debugging('Arduino Sensor Detected',D_ELECTR)
                 return port
 
-        sf.debugging('Arduino Sensor NOT Detected', D_ELECTR)
+        Util.debugging('Arduino Sensor NOT Detected', D_ELECTR)
         return None
 
     # Create a dictionary that links the oload with the oCell and the oDataFile
@@ -61,7 +68,6 @@ class Main():
         for port in self.cells_package:
             power += round(self.cells_package[port]['cell'].power, 1)
         return power
-
 
 class classHardware_():
     def __init__(self, port, baudrate = 115200):
@@ -169,7 +175,11 @@ class Load(classHardware_):
 class Arduino(classHardware_):
     def __init__(self, port):
         super().__init__(port, baudrate=9600)
-
+        self.temperature = None
+        self.humidity = None
+        self.light_intensity_east = None
+        self.light_intensity_west = None
+        self.sensor_dict = None
         self.delay = 0.2                            # Add a delay for fluid communications
 
     # Read the desired variables and store them into a list for further processing
@@ -182,30 +192,30 @@ class Arduino(classHardware_):
         time.sleep(self.delay)
         self.door.write(b'T\n')                                            # Write the command to extract temperature
         time.sleep(self.delay)
-        foo, temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
+        print(self.door.readline().decode('utf-8').rstrip().split(':'))
+        foo, self.temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
 
         time.sleep(self.delay)
         self.door.write(b'H\n')
         time.sleep(self.delay)
-        foo, humidity = self.door.readline().decode('utf-8').rstrip().split(':')
+        print(self.door.readline().decode('utf-8').rstrip().split(':'))
+        foo, self.humidity = self.door.readline().decode('utf-8').rstrip().split(':')
 
         time.sleep(self.delay)
         self.door.write(b'E\n')
         time.sleep(self.delay)
-        foo, east_light = self.door.readline().decode('utf-8').rstrip().split(':')
+        foo, self.light_intensity_east = self.door.readline().decode('utf-8').rstrip().split(':')
 
         time.sleep(self.delay)
         self.door.write(b'W\n')
         time.sleep(self.delay)
-        foo, west_light = self.door.readline().decode('utf-8').rstrip().split(':')
+        foo, self.light_intensity_west = self.door.readline().decode('utf-8').rstrip().split(':')
 
         self.close_door()
 
         # Save all data in a dictionary for further processing and return
-        sensor_dict = {'Temperature (ºC): ': float(temperature), 'Humidity (%):': float(humidity),
-                       'Light Intensity East (W m-2): ': float(east_light), 'Light Intensity West (W m-2): ': float(west_light)}
-
-        return sensor_dict
+        self.sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
+                       'Light Intensity East (W m-2): ': float(self.light_intensity_east), 'Light Intensity West (W m-2): ': float(self.light_intensity_west)}
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
