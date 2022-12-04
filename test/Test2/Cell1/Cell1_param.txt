@@ -1,0 +1,2 @@
+Date_Timestamp	UNIX_Timestamp(s)	Isc	Voc	FF	PCE	MPP voltage	Power
+2022-12-04 09:03:03	1670133783	10	20	30	40	50	60
