@@ -29,6 +29,21 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QFrame" name="MenuVLayout">
       <property name="styleSheet">
@@ -36,6 +51,18 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
@@ -249,7 +276,7 @@ QPushButton:pressed {
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_4" rowstretch="10,90" columnstretch="10,40,40,10" columnminimumwidth="0,0,0,0">
              <item row="0" column="1" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="10,10,5,10,10">
+              <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="10,10,10,10">
                <property name="leftMargin">
                 <number>5</number>
                </property>
@@ -287,19 +314,6 @@ QPushButton:pressed {
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
                <item>
                 <widget class="QLabel" name="String56image2">
@@ -467,117 +481,6 @@ QPushButton:pressed {
              </item>
              <item row="1" column="1">
               <layout class="QGridLayout" name="StringParametersLayout1">
-               <item row="0" column="0">
-                <widget class="QLabel" name="VocStr1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="VocStr2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="VocStr3">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="3">
                 <widget class="QLabel" name="VocStr4">
                  <property name="sizePolicy">
@@ -594,89 +497,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="JscStr1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="JscStr2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -705,237 +533,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLabel" name="JscStr4">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="FFStr1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="FFStr2">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="2">
-                <widget class="QLabel" name="FFStr3">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="3">
-                <widget class="QLabel" name="FFStr4">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
-                 </property>
-                 <property name="text">
-                  <string>None</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="PCEStr1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>2</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>MS Shell Dlg 2</family>
-                   <pointsize>24</pointsize>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -964,15 +569,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(139, 255, 119);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -985,8 +589,8 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="2">
-                <widget class="QLabel" name="PCEStr3">
+               <item row="2" column="2">
+                <widget class="QLabel" name="FFStr3">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                    <horstretch>0</horstretch>
@@ -1001,15 +605,86 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(255, 189, 74);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="JscStr2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="VocStr3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1038,15 +713,338 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(139, 255, 119);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="VocStr1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(85, 170, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="JscStr1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="VocStr2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(85, 170, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="JscStr4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="FFStr2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 189, 74);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="PCEStr1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(139, 255, 119);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="PCEStr3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(139, 255, 119);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QLabel" name="FFStr4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 189, 74);</string>
+                 </property>
+                 <property name="text">
+                  <string>None</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="FFStr1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>10</width>
+                   <height>2</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Bahnschrift</family>
+                   <pointsize>24</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 189, 74);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1079,15 +1077,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1116,15 +1113,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1153,15 +1149,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1190,15 +1185,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(85, 170, 255);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(85, 170, 255);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1227,15 +1221,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1264,15 +1257,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1301,15 +1293,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1338,15 +1329,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">  color: rgb(255, 100, 80);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">  color: rgb(255, 100, 80);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1375,15 +1365,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(255, 189, 74);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1412,15 +1401,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(255, 189, 74);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1449,15 +1437,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(255, 189, 74);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1486,15 +1473,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 189, 74);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(255, 189, 74);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1523,7 +1509,7 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
@@ -1531,7 +1517,7 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1560,15 +1546,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(139, 255, 119);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1597,15 +1582,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(139, 255, 119);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1634,15 +1618,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>MS Shell Dlg 2</family>
+                   <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">color: rgb(139, 255, 119);
-font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <string notr="true">color: rgb(139, 255, 119);</string>
                  </property>
                  <property name="text">
                   <string>None</string>
@@ -1804,9 +1787,14 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QComboBox" name="comboBox_cell_list">
+          <property name="font">
+           <font>
+            <family>Bahnschrift</family>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+           <string notr="true">color: rgb(255, 255, 255);</string>
           </property>
           <property name="editable">
            <bool>false</bool>
@@ -1843,12 +1831,39 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
         <property name="palette">
          <palette>
           <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -1867,17 +1882,53 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
           </active>
           <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -1896,17 +1947,53 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
           </inactive>
           <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -1925,6 +2012,15 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -1940,7 +2036,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 20pt &quot;Bahnschrift&quot;;</string>
+         <string notr="true">font: 20pt &quot;Bahnschrift&quot;;
+color: rgb(255, 255, 255);</string>
         </property>
         <property name="wrapping">
          <bool>true</bool>
@@ -2015,12 +2112,39 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
         <property name="palette">
          <palette>
           <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -2039,17 +2163,53 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
           </active>
           <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -2068,17 +2228,53 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
           </inactive>
           <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Button">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -2097,6 +2293,15 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
               <red>75</red>
               <green>81</green>
               <blue>72</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
              </color>
             </brush>
            </colorrole>
@@ -2112,7 +2317,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 20pt &quot;Bahnschrift&quot;;</string>
+         <string notr="true">font: 20pt &quot;Bahnschrift&quot;;
+color: rgb(255, 255, 255);</string>
         </property>
         <property name="wrapping">
          <bool>true</bool>
@@ -2261,14 +2467,20 @@ color: rgb(100, 79, 79);
        <widget class="QStackedWidget" name="stackedWidget_MeasurementTriggers">
         <property name="geometry">
          <rect>
-          <x>870</x>
-          <y>670</y>
-          <width>271</width>
-          <height>45</height>
+          <x>800</x>
+          <y>634</y>
+          <width>341</width>
+          <height>81</height>
          </rect>
         </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page_3">
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2310,6 +2522,12 @@ color: rgb(100, 79, 79);
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QPushButton" name="PauseMeasurementsButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
               <family>Bahnschrift</family>
@@ -2391,189 +2609,626 @@ color: rgb(100, 79, 79);
               <property name="lineWidth">
                <number>0</number>
               </property>
-              <widget class="QLabel" name="label">
-               <property name="geometry">
-                <rect>
-                 <x>40</x>
-                 <y>10</y>
-                 <width>291</width>
-                 <height>301</height>
-                </rect>
+              <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,99,1" columnstretch="1,99,1">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetDefaultConstraint</enum>
                </property>
-               <property name="text">
-                <string/>
+               <property name="leftMargin">
+                <number>0</number>
                </property>
-               <property name="pixmap">
-                <pixmap resource="resource/resource.qrc">:/icons/sun_full_png</pixmap>
+               <property name="topMargin">
+                <number>0</number>
                </property>
-               <property name="scaledContents">
-                <bool>true</bool>
+               <property name="rightMargin">
+                <number>0</number>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
+               <property name="bottomMargin">
+                <number>0</number>
                </property>
-              </widget>
-              <widget class="QWidget" name="verticalLayoutWidget_3">
-               <property name="geometry">
-                <rect>
-                 <x>140</x>
-                 <y>130</y>
-                 <width>91</width>
-                 <height>61</height>
-                </rect>
+               <property name="spacing">
+                <number>0</number>
                </property>
-               <layout class="QVBoxLayout" name="SunPowerLayout">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <item>
-                 <widget class="QLabel" name="SunPowerLabel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
+               <item row="2" column="1">
+                <spacer name="verticalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="1">
+                <widget class="QFrame" name="frame">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>100</horstretch>
+                   <verstretch>100</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>310</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <widget class="QWidget" name="verticalLayoutWidget_3">
+                  <property name="geometry">
+                   <rect>
+                    <x>110</x>
+                    <y>130</y>
+                    <width>91</width>
+                    <height>61</height>
+                   </rect>
                   </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>10</width>
-                    <height>2</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>MS Shell Dlg 2</family>
-                    <pointsize>28</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">color: rgb(254, 249, 193);
-background: transparent;
-font: 28pt &quot;MS Shell Dlg 2&quot;;</string>
+                  <layout class="QVBoxLayout" name="SunPowerLayout">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLabel" name="SunPowerLabel">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>10</width>
+                       <height>2</height>
+                      </size>
+                     </property>
+                     <property name="palette">
+                      <palette>
+                       <active>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </active>
+                       <inactive>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </inactive>
+                       <disabled>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </disabled>
+                      </palette>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Bahnschrift</family>
+                       <pointsize>28</pointsize>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(254, 249, 193);
+background: rgb(255, 223, 27);</string>
+                     </property>
+                     <property name="text">
+                      <string>None</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="SunPowerUnitsLabel">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>10</width>
+                       <height>2</height>
+                      </size>
+                     </property>
+                     <property name="palette">
+                      <palette>
+                       <active>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </active>
+                       <inactive>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </inactive>
+                       <disabled>
+                        <colorrole role="WindowText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Button">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Text">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="ButtonText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Base">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="Window">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>255</red>
+                           <green>223</green>
+                           <blue>27</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                        <colorrole role="PlaceholderText">
+                         <brush brushstyle="SolidPattern">
+                          <color alpha="255">
+                           <red>254</red>
+                           <green>249</green>
+                           <blue>193</blue>
+                          </color>
+                         </brush>
+                        </colorrole>
+                       </disabled>
+                      </palette>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Bahnschrift</family>
+                       <pointsize>10</pointsize>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(254, 249, 193);
+background: rgb(255, 223, 27);</string>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;W m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;-2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QLabel" name="label">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>10</y>
+                    <width>291</width>
+                    <height>301</height>
+                   </rect>
                   </property>
                   <property name="text">
-                   <string>None</string>
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="resource/resource.qrc">:/icons/sun_full_png</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
                   </property>
-                  <property name="wordWrap">
-                   <bool>true</bool>
-                  </property>
                  </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="SunPowerUnitsLabel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>10</width>
-                    <height>2</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Bahnschrift</family>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">  color: rgb(254, 249, 193);
-background: transparent;</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;W m&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;-2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="wordWrap">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                 <zorder>label</zorder>
+                 <zorder>verticalLayoutWidget_3</zorder>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="0">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="2">
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
-             <layout class="QGridLayout" name="EnergyDashboardLayout">
-              <property name="verticalSpacing">
+             <layout class="QGridLayout" name="EnergyDashboardLayout" rowstretch="10,80,80,80,80,70">
+              <property name="topMargin">
                <number>30</number>
               </property>
+              <property name="bottomMargin">
+               <number>30</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>20</number>
+              </property>
               <item row="2" column="1">
-               <layout class="QVBoxLayout" name="GeneratedNeedsVlayout">
+               <layout class="QVBoxLayout" name="TodaysEnergyVlayout">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout">
-                  <item>
-                   <widget class="QLabel" name="SunPowerLabel_8">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>10</width>
-                      <height>2</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Bahnschrift</family>
-                      <pointsize>22</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">  color: rgb(190, 255, 236);</string>
-                    </property>
-                    <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:25pt;&quot;&gt;Generated&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="SunPowerLabel_6">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>10</width>
-                      <height>2</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Bahnschrift</family>
-                      <pointsize>48</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">  color: rgb(13, 255, 180);</string>
-                    </property>
-                    <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:60pt;&quot;&gt;15%&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QLabel" name="SunPowerLabel_7">
+                 <widget class="QLabel" name="TodaysSolarEnergyLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                     <horstretch>0</horstretch>
@@ -2593,45 +3248,13 @@ background: transparent;</string>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">  color:rgb(190, 255, 236);</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;of today's greenhouse energy needs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="wordWrap">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="1">
-               <layout class="QVBoxLayout" name="TodaysEnergyVlayout">
-                <item>
-                 <widget class="QLabel" name="SunPowerLabel_4">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>10</width>
-                    <height>2</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Bahnschrift</family>
-                    <pointsize>28</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
                    <string notr="true">  color: rgb(231, 255, 158);</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Today's Solar Energy&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>Today's Solar Energy</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                   <property name="wordWrap">
                    <bool>true</bool>
@@ -2639,7 +3262,7 @@ background: transparent;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="SunPowerLabel_5">
+                 <widget class="QLabel" name="TodaysSolarEnergy">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                     <horstretch>0</horstretch>
@@ -2662,7 +3285,10 @@ background: transparent;</string>
                    <string notr="true">  color: rgb(195, 255, 17);</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:60pt;&quot;&gt;2547 kWh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>2547 kWh</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                   <property name="wordWrap">
                    <bool>true</bool>
@@ -2671,8 +3297,95 @@ background: transparent;</string>
                 </item>
                </layout>
               </item>
+              <item row="1" column="0" colspan="2">
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
               <item row="2" column="0">
-               <layout class="QVBoxLayout" name="NextMeasTimeVlayout" stretch="30,70,0">
+               <layout class="QVBoxLayout" name="CurrentSolarPowerVlayout">
+                <item>
+                 <widget class="QLabel" name="CurrentSolarPowerLabel">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Bahnschrift</family>
+                    <pointsize>24</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">  color: rgb(255, 200, 136);</string>
+                  </property>
+                  <property name="text">
+                   <string>Current Solar Power</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="CurrentPowerLabel">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>2</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Bahnschrift</family>
+                    <pointsize>48</pointsize>
+                    <italic>false</italic>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">  color: rgb(255, 152, 30);</string>
+                  </property>
+                  <property name="text">
+                   <string>None</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="4" column="0">
+               <layout class="QVBoxLayout" name="NextMeasTimeVlayout" stretch="30,70">
                 <item>
                  <widget class="QLabel" name="NextMeasurementInLabel">
                   <property name="palette">
@@ -2690,9 +3403,9 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>203</red>
-                        <green>202</green>
-                        <blue>201</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2746,9 +3459,9 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>240</red>
-                        <green>240</green>
-                        <blue>240</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2773,18 +3486,18 @@ background: transparent;</string>
                      <colorrole role="Base">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>255</red>
-                        <green>255</green>
-                        <blue>255</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
                      <colorrole role="Window">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>240</red>
-                        <green>240</green>
-                        <blue>240</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2802,9 +3515,9 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>203</red>
-                        <green>202</green>
-                        <blue>201</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2883,9 +3596,9 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>193</red>
-                        <green>193</green>
-                        <blue>193</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2921,27 +3634,27 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>240</red>
-                        <green>240</green>
-                        <blue>240</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
                      <colorrole role="Base">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>255</red>
-                        <green>255</green>
-                        <blue>255</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
                      <colorrole role="Window">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>240</red>
-                        <green>240</green>
-                        <blue>240</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2959,9 +3672,9 @@ background: transparent;</string>
                      <colorrole role="Button">
                       <brush brushstyle="SolidPattern">
                        <color alpha="255">
-                        <red>193</red>
-                        <green>193</green>
-                        <blue>193</blue>
+                        <red>75</red>
+                        <green>81</green>
+                        <blue>72</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -2989,7 +3702,7 @@ background: transparent;</string>
                   <property name="font">
                    <font>
                     <family>Bahnschrift</family>
-                    <pointsize>22</pointsize>
+                    <pointsize>36</pointsize>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -3004,61 +3717,84 @@ background: transparent;</string>
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <spacer name="verticalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                </layout>
               </item>
-              <item row="0" column="0">
-               <layout class="QVBoxLayout" name="CurrentSolarPowerVlayout">
+              <item row="4" column="1">
+               <layout class="QVBoxLayout" name="GeneratedNeedsVlayout">
                 <item>
-                 <widget class="QLabel" name="CurrentSolarPowerLabel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>10</width>
-                    <height>2</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Bahnschrift</family>
-                    <pointsize>28</pointsize>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">  color: rgb(255, 200, 136);</string>
-                  </property>
-                  <property name="text">
-                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Bahnschrift'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Current Solar Power&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-                  <property name="wordWrap">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QLabel" name="GeneratedLabel">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>10</width>
+                      <height>2</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Bahnschrift</family>
+                      <pointsize>22</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">  color: rgb(190, 255, 236);</string>
+                    </property>
+                    <property name="text">
+                     <string>Generated</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="GeneratedPercent">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>10</width>
+                      <height>2</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Bahnschrift</family>
+                      <pointsize>60</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">  color: rgb(13, 255, 180);</string>
+                    </property>
+                    <property name="text">
+                     <string>15%</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
-                 <widget class="QLabel" name="CurrentPowerLabel">
+                 <widget class="QLabel" name="OfTodaysGHNeedsLabel">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                     <horstretch>0</horstretch>
@@ -3074,16 +3810,14 @@ hr { height: 1px; border-width: 0; }
                   <property name="font">
                    <font>
                     <family>Bahnschrift</family>
-                    <pointsize>48</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
+                    <pointsize>16</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">  color: rgb(255, 152, 30);</string>
+                   <string notr="true">  color:rgb(190, 255, 236);</string>
                   </property>
                   <property name="text">
-                   <string>None</string>
+                   <string>of today's greenhouse energy needs</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -3094,6 +3828,19 @@ hr { height: 1px; border-width: 0; }
                  </widget>
                 </item>
                </layout>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
               </item>
              </layout>
             </item>
@@ -3573,23 +4320,472 @@ hr { height: 1px; border-width: 0; }
              </layout>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
+             <layout class="QVBoxLayout" name="HistoricalDashboardLayout">
               <item>
                <widget class="QTabWidget" name="tabWidget_power">
+                <property name="palette">
+                 <palette>
+                  <active>
+                   <colorrole role="WindowText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Light">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Midlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Dark">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Mid">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Text">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="BrightText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ButtonText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Highlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="HighlightedText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="AlternateBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ToolTipBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </active>
+                  <inactive>
+                   <colorrole role="WindowText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>0</red>
+                      <green>0</green>
+                      <blue>0</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Light">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>255</red>
+                      <green>255</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Midlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>227</red>
+                      <green>227</green>
+                      <blue>227</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Dark">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>160</red>
+                      <green>160</green>
+                      <blue>160</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Mid">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>160</red>
+                      <green>160</green>
+                      <blue>160</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Text">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>0</red>
+                      <green>0</green>
+                      <blue>0</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="BrightText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>255</red>
+                      <green>255</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ButtonText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>0</red>
+                      <green>0</green>
+                      <blue>0</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Highlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>240</red>
+                      <green>240</green>
+                      <blue>240</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="HighlightedText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>0</red>
+                      <green>0</green>
+                      <blue>0</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="AlternateBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>245</red>
+                      <green>245</green>
+                      <blue>245</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ToolTipBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>255</red>
+                      <green>255</green>
+                      <blue>220</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </inactive>
+                  <disabled>
+                   <colorrole role="WindowText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Button">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Light">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Midlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Dark">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Mid">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Text">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="BrightText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ButtonText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Base">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Window">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="Highlight">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>0</red>
+                      <green>120</green>
+                      <blue>215</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="HighlightedText">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>255</red>
+                      <green>255</green>
+                      <blue>255</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="AlternateBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>245</red>
+                      <green>245</green>
+                      <blue>245</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="ToolTipBase">
+                    <brush brushstyle="SolidPattern">
+                     <color alpha="255">
+                      <red>255</red>
+                      <green>255</green>
+                      <blue>220</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                  </disabled>
+                 </palette>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Bahnschrift</family>
+                  <pointsize>22</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>ArrowCursor</cursorShape>
+                </property>
                 <property name="autoFillBackground">
                  <bool>false</bool>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
+                 <string notr="true">QTabBar::tab 
+{
+    background: rgb(75, 81, 72); 
+    color: rgb(144, 159, 134);   
+    border-color: rgb(75, 81, 72);
+}
+
+QTabBar::tab:selected, 
+QTabBar::tab:hover 
+{
+    border-top-color: rgb(75, 81, 72);
+    border-color: rgb(75, 81, 72);
+    color: rgb(203, 216, 202);
+    background: rgb(113, 122, 109);
+
+}
+QTabBar
+{ 
+    border-color: rgb(75, 81, 72);
+	color: rgb(75, 81, 72);
+}
+QTabBar::tabRect
+{ 
+	color: rgb(75, 81, 72);
+    border-color: rgb(75, 81, 72);
+}</string>
                 </property>
                 <property name="tabPosition">
                  <enum>QTabWidget::North</enum>
                 </property>
                 <property name="tabShape">
-                 <enum>QTabWidget::Rounded</enum>
+                 <enum>QTabWidget::Triangular</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -3598,11 +4794,24 @@ hr { height: 1px; border-width: 0; }
                  </size>
                 </property>
                 <property name="elideMode">
-                 <enum>Qt::ElideNone</enum>
+                 <enum>Qt::ElideLeft</enum>
+                </property>
+                <property name="documentMode">
+                 <bool>true</bool>
+                </property>
+                <property name="tabsClosable">
+                 <bool>false</bool>
+                </property>
+                <property name="tabBarAutoHide">
+                 <bool>false</bool>
                 </property>
                 <widget class="QWidget" name="tab_power_over_time">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(75, 81, 72);
+border-color: rgb(75, 81, 72);</string>
+                 </property>
                  <attribute name="title">
-                  <string>Power over time</string>
+                  <string>  Power over time  </string>
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_3">
                   <property name="leftMargin">
@@ -3618,13 +4827,247 @@ hr { height: 1px; border-width: 0; }
                    <number>0</number>
                   </property>
                   <item row="0" column="0">
-                   <layout class="QVBoxLayout" name="VLayout_power_plot"/>
+                   <layout class="QVBoxLayout" name="VLayout_power_plot">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="tab_2">
+                 <property name="palette">
+                  <palette>
+                   <active>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Button">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Light">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Text">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="ButtonText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Base">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Window">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </active>
+                   <inactive>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Button">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Light">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>255</red>
+                       <green>255</green>
+                       <blue>255</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Text">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="ButtonText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Base">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Window">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </inactive>
+                   <disabled>
+                    <colorrole role="WindowText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Button">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Light">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Text">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="ButtonText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Base">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="Window">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                    <colorrole role="PlaceholderText">
+                     <brush brushstyle="SolidPattern">
+                      <color alpha="255">
+                       <red>75</red>
+                       <green>81</green>
+                       <blue>72</blue>
+                      </color>
+                     </brush>
+                    </colorrole>
+                   </disabled>
+                  </palette>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(75, 81, 72);
+background-color: rgb(75, 81, 72);</string>
+                 </property>
                  <attribute name="title">
-                  <string>Energy per day</string>
+                  <string>  Energy per Day  </string>
                  </attribute>
                 </widget>
                </widget>
@@ -3641,26 +5084,6 @@ hr { height: 1px; border-width: 0; }
     </item>
    </layout>
   </widget>
-  <action name="actionSomtheng">
-   <property name="text">
-    <string>Somtheng</string>
-   </property>
-  </action>
-  <action name="actionSomething_else">
-   <property name="text">
-    <string>Something else</string>
-   </property>
-  </action>
-  <action name="actionSomething_Dumb">
-   <property name="text">
-    <string>Something Dumb</string>
-   </property>
-  </action>
-  <action name="actionSomething_clever">
-   <property name="text">
-    <string>Something clever</string>
-   </property>
-  </action>
  </widget>
  <resources>
   <include location="resource/resource.qrc"/>

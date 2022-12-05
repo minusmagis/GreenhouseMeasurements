@@ -9,6 +9,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from ui_form import Ui_MainWindow
 import matplotlib
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 from matplotlib.ticker import AutoMinorLocator
@@ -93,15 +94,34 @@ class GUI(QMainWindow):
         self.ui.HLayout_iv_plot.addWidget(self.ui.fig_iv_2)
         for fig in [self.ui.fig_iv_1, self.ui.fig_iv_2]:
             fig.axes.cla()
-            fig.axes.set_ylabel('Current (A)', fontsize=20)
-            fig.axes.set_xlabel('Voltage (V)', fontsize=20)
+            fig.axes.set_ylabel('Current (A)', fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xlabel('Voltage (V)', fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.tick_params(which='both', top=True, right=True, width=2)
             fig.axes.tick_params(which='both', direction="in")
-            fig.axes.tick_params(which='major', length=5, labelsize=16)
-            fig.axes.tick_params(which='minor', length=3)
+            fig.axes.tick_params(which='major', length=7, labelsize=16)
+            fig.axes.tick_params(which='minor', length=5, color='white')
+
+
+            ticks = fig.axes.get_yticklabels()
+            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
+            fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
+            fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
+            fig.axes.spines['top'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['top'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['left'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.set_facecolor('#4b5148')
+
             fig.draw_idle()
+
+
 
     def build_fig_power(self):
         self.ui.fig_power = MplCanvas(self.ui.tab_power_over_time)
@@ -110,14 +130,30 @@ class GUI(QMainWindow):
         self.ui.VLayout_power_plot.addWidget(self.ui.fig_power)
         for fig in [self.ui.fig_power]:
             fig.axes.cla()
-            fig.axes.set_ylabel('Power (W)', fontsize=20)
-            fig.axes.set_xlabel('Time', fontsize=20)
+            fig.axes.set_ylabel('Power (W)', fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xlabel('Time', fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.tick_params(which='both', top=True, right=True, width=2)
             fig.axes.tick_params(which='both', direction="in")
             fig.axes.tick_params(which='major', length=5, labelsize=16)
-            fig.axes.tick_params(which='minor', length=3)
+            fig.axes.tick_params(which='minor', length=3, color='white')
+
+            ticks = fig.axes.get_yticklabels()
+            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
+            fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
+            fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
+            fig.axes.spines['top'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['top'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['left'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.set_facecolor('#4b5148')
+
             fig.draw_idle()
         self.ui.line_power, = self.ui.fig_power.axes.plot(1, 1, linewidth=2)
         self.update_fig_power()
@@ -135,9 +171,9 @@ class GUI(QMainWindow):
                     df_power['UNIX_Timestamp(s)'] = df_instance['UNIX_Timestamp(s)']
                     df_power['Date_Timestamp'] = df_instance['Date_Timestamp_x']
                     df_power['Power'] = df_instance['Power_x'] + df_instance['Power_y']
-        self.ui.line_power.set_ydata(df_power['Power'])
-        self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
-        print(pd.to_datetime(df_power['Date_Timestamp']))
+        #self.ui.line_power.set_ydata(df_power['Power'])
+        #self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
+        # print(pd.to_datetime(df_power['Date_Timestamp']))
         self.ui.fig_power.axes.relim()
         self.ui.fig_power.axes.autoscale()
         self.ui.fig_power.fig.canvas.draw()
@@ -159,6 +195,7 @@ class GUI(QMainWindow):
         power = self.main.get_power()
         self.ui.CurrentPowerLabel.setText(f'{power} W')
         self.ui.SunPowerLabel.setText(f'{(self.main.arduino_sensor.light_intensity_east + self.main.arduino_sensor.light_intensity_west) / 2}')
+        self.ui.SunPowerLabel.setStyleSheet(u"color: rgb(254, 249, 193);\n background: transparent;")
 
     def trigger_measure_all_cells(self):
         check = True
@@ -347,14 +384,30 @@ class GUI_Cell():
             if param == 'pce':
                 ylabel = 'PCE'
                 df_full_params_column = 'PCE'
-            fig.axes.set_ylabel(ylabel, fontsize=20)
-            fig.axes.set_xlabel('Time', fontsize=20)
+            fig.axes.set_ylabel(ylabel, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xlabel('Time', fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.tick_params(which='both', top=True, right=True, width=2)
             fig.axes.tick_params(which='both', direction="in")
             fig.axes.tick_params(which='major', length=5, labelsize=16)
-            fig.axes.tick_params(which='minor', length=3)
+            fig.axes.tick_params(which='minor', length=3,  color='white')
+
+            ticks = fig.axes.get_yticklabels()
+            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
+            fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
+            fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
+            fig.axes.spines['top'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_color('white')  # setting up above X-axis tick color to red
+            fig.axes.spines['bottom'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['right'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['top'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.spines['left'].set_linewidth(3)  # setting up above X-axis tick color to red
+            fig.axes.set_facecolor('#4b5148')
+
             fig.draw_idle()
             if not self.cell_package['data_file'].df_full_params.empty:
                 fig.axes.plot_date(pd.to_datetime(self.cell_package['data_file'].df_full_params['Date_Timestamp']), self.cell_package['data_file'].df_full_params[df_full_params_column], xdate = True, linestyle ='-', linewidth=2)
@@ -380,7 +433,7 @@ class GUI_Cell():
 
 class MplCanvas(FigureCanvasQTAgg):
     def __init__(self, parent=None):
-        self.fig = Figure()
+        self.fig = Figure(facecolor='#4b5148', tight_layout=True)
         self.axes = self.fig.add_subplot(111)
         super(MplCanvas, self).__init__(self.fig)
 
