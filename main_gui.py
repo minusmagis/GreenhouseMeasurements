@@ -9,7 +9,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from ui_form import Ui_MainWindow
 import matplotlib
-import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 from matplotlib.ticker import AutoMinorLocator
@@ -78,13 +77,14 @@ class GUI(QMainWindow):
                 self.gui_cell[k] = GUI_Cell(self.main.cells_package[k], self.ui.stackedWidget_cells_plot, fig_iv)
                 self.gui_cell[k].build_all()
                 comboBox.addItem(k)
-            self.build_fig_power()
+            self.build_figs_power()
             self.switch_cell()
         else:
             self.gui_cell[cell].update_all()
             self.update_cell_parameters(cell)
             self.update_dashboard()
             self.update_fig_power()
+            self.update_fig_energy()
             self.switch_cell()
 
     def build_fig_ivs(self):
@@ -121,16 +121,22 @@ class GUI(QMainWindow):
 
             fig.draw_idle()
 
-
-
-    def build_fig_power(self):
+    def build_figs_power(self):
         self.ui.fig_power = MplCanvas(self.ui.tab_power_over_time)
+        self.ui.fig_energy = MplCanvas(self.ui.tab_energy_per_day)
         self.ui.toolbar_fig_power = NavigationToolbar(self.ui.fig_power, self.ui.tab_power_over_time)
+        self.ui.toolbar_fig_energy = NavigationToolbar(self.ui.fig_energy, self.ui.tab_energy_per_day)
         self.ui.VLayout_power_plot.addWidget(self.ui.toolbar_fig_power)
         self.ui.VLayout_power_plot.addWidget(self.ui.fig_power)
-        for fig in [self.ui.fig_power]:
+        self.ui.VLayout_energy_per_day.addWidget(self.ui.toolbar_fig_energy)
+        self.ui.VLayout_energy_per_day.addWidget(self.ui.fig_energy)
+        for fig in [self.ui.fig_power, self.ui.fig_energy]:
             fig.axes.cla()
-            fig.axes.set_ylabel('Power (W)', fontsize=20, fontname="Bahnschrift", color='white')
+            if fig == self.ui.fig_power:
+                y_axis = 'Power (W)'
+            else:
+                y_axis = 'Energy (kWh)'
+            fig.axes.set_ylabel(y_axis, fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.set_xlabel('Time', fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.xaxis.set_minor_locator(AutoMinorLocator())
             fig.axes.yaxis.set_minor_locator(AutoMinorLocator())
@@ -155,8 +161,10 @@ class GUI(QMainWindow):
             fig.axes.set_facecolor('#4b5148')
 
             fig.draw_idle()
-        self.ui.line_power, = self.ui.fig_power.axes.plot(1, 1, linewidth=2)
+        self.ui.line_power, = self.ui.fig_power.axes.plot(pd.to_datetime(1), 1, linewidth=2)
+        self.ui.line_energy, = self.ui.fig_energy.axes.plot(pd.to_datetime(1), 1, linewidth=2)
         self.update_fig_power()
+        self.update_fig_energy()
 
     def update_fig_power(self):
         df_power = pd.DataFrame()
@@ -171,13 +179,22 @@ class GUI(QMainWindow):
                     df_power['UNIX_Timestamp(s)'] = df_instance['UNIX_Timestamp(s)']
                     df_power['Date_Timestamp'] = df_instance['Date_Timestamp_x']
                     df_power['Power'] = df_instance['Power_x'] + df_instance['Power_y']
-        #self.ui.line_power.set_ydata(df_power['Power'])
-        #self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
-        # print(pd.to_datetime(df_power['Date_Timestamp']))
+        self.ui.line_power.set_ydata(df_power['Power'])
+        self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
         self.ui.fig_power.axes.relim()
         self.ui.fig_power.axes.autoscale()
         self.ui.fig_power.fig.canvas.draw()
         self.ui.fig_power.fig.canvas.flush_events()
+
+    def update_fig_energy(self):
+        df_energy = self.main.get_daily_power_df()
+        if not df_energy.empty:
+            self.ui.line_energy.set_ydata(df_energy['Energy (kWh)'])
+            self.ui.line_energy.set_xdata(pd.to_datetime(df_energy['Date_Timestamp']))
+            self.ui.fig_energy.axes.relim()
+            self.ui.fig_energy.axes.autoscale()
+            self.ui.fig_energy.fig.canvas.draw()
+            self.ui.fig_energy.fig.canvas.flush_events()
 
     def measurement(self, cell):
         self.main.measure_cell(cell)
@@ -192,9 +209,10 @@ class GUI(QMainWindow):
             getattr(self.ui, f'PCEStr{index+1}').setText(f'{round(self.main.cells_package[cell]["cell"].pce*100, 1)}')
 
     def update_dashboard(self):
-        power = self.main.get_power()
+        power = self.main.get_current_power()
         self.ui.CurrentPowerLabel.setText(f'{power} W')
         self.ui.SunPowerLabel.setText(f'{(self.main.arduino_sensor.light_intensity_east + self.main.arduino_sensor.light_intensity_west) / 2}')
+        self.ui.TodayEnergyLabel.setText(f'{self.main.get_daily_power_df()["Energy (kWh)"].iloc[-1]} kWh')
         self.ui.SunPowerLabel.setStyleSheet(u"color: rgb(254, 249, 193);\n background: transparent;")
 
     def trigger_measure_all_cells(self):
@@ -237,8 +255,12 @@ class GUI(QMainWindow):
             i=i+1
             if i<cycle or loop_bool:
                 if remaining_time != None:
+                    if len(self.worker) == 1:
+                        self.main.update_today_power()
                     self.update_remaining_time(int(time_f-time_s), delay, remaining_time)
                 else:
+                    if worker_ref == len(self.worker)-1:
+                        self.main.update_today_power()
                     time.sleep(1)
                     while (self.ui.NextMeasurementTimeIntervalLabel.text() != 'Measuring...') and not self.worker[0].checkstop:
                         time.sleep(0.1)
@@ -249,9 +271,9 @@ class GUI(QMainWindow):
     def cycle_measurement_sensor(self):
         while not self.worker[0].checkstop:
             self.main.arduino_sensor.get_readings()
-            while self.ui.NextMeasurementTimeIntervalLabel.text() == 'Measuring...':
+            while self.ui.NextMeasurementTimeIntervalLabel.text() == 'Measuring...' and not self.worker[0].checkstop:
                 time.sleep(0.1)
-            while self.ui.NextMeasurementTimeIntervalLabel.text() != 'Measuring...':
+            while self.ui.NextMeasurementTimeIntervalLabel.text() != 'Measuring...' and not self.worker[0].checkstop:
                 time.sleep(0.1)
         self.worker_sensor.running = False
 

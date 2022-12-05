@@ -2,7 +2,7 @@ import pandas as pd
 import serial
 import time
 import datetime
-
+import os
 import SmallFunctions as sf
 import CommunicationFunctions as CF
 import DataHandling as DH
@@ -52,7 +52,7 @@ class Main():
             data_file = self.cells_package[port]['data_file']
             cell.measure_cell(load, 0.05, 500, 200)
             cell.mpp_tracking(load)
-            data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power)
+            data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power, self.arduino_sensor.temperature, self.arduino_sensor.humidity, self.arduino_sensor.light_intensity_east, self.arduino_sensor.light_intensity_west)
 
 
     # Same as measure_all_cells but for a single cell
@@ -62,14 +62,51 @@ class Main():
         data_file = self.cells_package[port]['data_file']
         cell.measure_cell(load, 0.05, 500, 40)
         cell.mpp_tracking(load)
-        data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power)
+        data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power, self.arduino_sensor.temperature, self.arduino_sensor.humidity, self.arduino_sensor.light_intensity_east, self.arduino_sensor.light_intensity_west)
 
     # Measure the total power for all the strings
-    def get_power(self):
+    def get_current_power(self):
         power = 0
         for port in self.cells_package:
             power += round(self.cells_package[port]['cell'].power, 1)
         return power
+
+    def get_daily_power_df(self):
+        path_summary = f'{self.path}/Summary'
+        filename = f'daily_power.txt'
+        if os.path.exists(path_summary) and os.path.exists(path_summary + '/' + filename):
+            daily_power_df = pd.read_csv(path_summary + '/' + filename, delimiter="\t")
+        else:
+            daily_power_df = pd.DataFrame()
+        return daily_power_df
+
+    def update_today_power(self):
+        path_summary = f'{self.path}/Summary'
+        filename = f'daily_power.txt'
+        daily_power_df = self.get_daily_power_df()
+        if daily_power_df.empty:
+            date_daily_power = datetime.datetime.now().strftime("%Y-%m-%d")
+        else:
+            date_daily_power = daily_power_df['Date_Timestamp'].iloc[-1]
+        date = date_daily_power
+        energy = 0
+        for port in self.cells_package:
+            if date == self.cells_package[port]['data_file'].date.split(' ')[0]:
+                energy += self.cells_package[port]['data_file'].day_power
+            else:
+                if time.strptime(date, "%Y-%m-%d") < time.strptime(self.cells_package[port]['data_file'].date.split(' ')[0], "%Y-%m-%d"):
+                    date = self.cells_package[port]['data_file'].date.split(' ')[0]
+                    energy = self.cells_package[port]['data_file'].day_power
+                else:
+                    pass
+        if not daily_power_df.empty and date in daily_power_df['Date_Timestamp'].iloc[-1]:
+            daily_power_df.iloc[-1, daily_power_df.columns.get_loc('Energy (kWh)')] = round(energy, 3)
+        else:
+            daily_power_df = pd.concat([daily_power_df, pd.DataFrame([{'Date_Timestamp': date, 'Energy (kWh)': energy}]).round(3)])
+        daily_power_df.to_csv(path_summary + '/' + filename, index=None, sep='\t')
+           
+
+        
 
 class classHardware_():
     def __init__(self, port, baudrate = 115200):
@@ -195,33 +232,41 @@ class Arduino(classHardware_):
             time.sleep(self.delay)
             self.door.write(b'T\n')                                            # Write the command to extract temperature
             time.sleep(self.delay)
-            foo, self.temperature = self.door.readline().decode('utf-8').rstrip().split(':') # Split incoming data to extract value
+            foo, self.temperature = float(self.door.readline().decode('utf-8').rstrip().split(':')) # Split incoming data to extract value
 
             time.sleep(self.delay)
             self.door.write(b'H\n')
             time.sleep(self.delay)
-            foo, self.humidity = self.door.readline().decode('utf-8').rstrip().split(':')
+            foo, self.humidity = float(self.door.readline().decode('utf-8').rstrip().split(':'))
 
             time.sleep(self.delay)
             self.door.write(b'E\n')
             time.sleep(self.delay)
-            foo, self.light_intensity_east = self.door.readline().decode('utf-8').rstrip().split(':')
+            foo, self.light_intensity_east = float(self.door.readline().decode('utf-8').rstrip().split(':'))
 
             time.sleep(self.delay)
             self.door.write(b'W\n')
             time.sleep(self.delay)
-            foo, self.light_intensity_west = self.door.readline().decode('utf-8').rstrip().split(':')
+            foo, self.light_intensity_west = float(self.door.readline().decode('utf-8').rstrip().split(':'))
 
             self.close_door()
 
         except:
-            Warning('No data received from the arduino at '+str(datetime.datetime.fromtimestamp(self.timestamp).strftime('%Y-%m-%d %H:%M:%S')))
+            Warning('No data received from the arduino')
+            if self.temperature == None:
+                self.temperature = 0
+            if self.humidity == None:
+                self.humidity = 0
+            if self.light_intensity_east == None:
+                self.light_intensity_east = 0
+            if self.light_intensity_west == None:
+                self.light_intensity_west = 0
 
         # Save all data in a dictionary for further processing and return
-        self.sensor_dict = {'Temperature (ºC): ': float(self.temperature), 'Humidity (%):': float(self.humidity),
-                       'Light Intensity East (W m-2): ': float(self.light_intensity_east), 'Light Intensity West (W m-2): ': float(self.light_intensity_west)}
+        self.sensor_dict = {'Temperature (ºC): ': self.temperature, 'Humidity (%):': self.humidity,
+                       'Light Intensity East (W m-2): ': self.light_intensity_east, 'Light Intensity West (W m-2): ': self.light_intensity_west}
 
-        sf.debugging(self.sensor_dict,D_ELECTR)
+        sf.debugging(self.sensor_dict, D_ELECTR)
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
