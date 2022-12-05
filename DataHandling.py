@@ -118,6 +118,21 @@ class DataFile():
         except FileExistsError:
             pass
 
+def load_SN_to_string_num(serial_number):
+    with open("resource/LoadAdresses.txt", 'r', encoding='utf-8') as f:
+        for line in f.readlines():
+            if serial_number in line: return int(line.replace(serial_number, ''))
+
+        Warning('No string number specified for load with SN: '+str(serial_number))
+        return None
+
+def string_num_to_load_SN(string_number, serial_number):
+    with open("resource/LoadAdresses.txt", 'a', encoding='utf-8') as f:
+        new_load = str(serial_number) + '\t' + str(string_number) + '\n'
+        f.write(new_load)
+
+        Warning('No string number specified for load with SN: '+str(serial_number))
+        return None
 
 if __name__ == '__main__':
 

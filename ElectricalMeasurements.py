@@ -38,10 +38,9 @@ class Main():
     # Create a dictionary that links the oload with the oCell and the oDataFile
     def get_cells_package(self):
         cells_package = {}
-        i = 1
         for port in self.list_port:
-            cells_package[port] = {'load':Load(port), 'cell':Cell(i), 'data_file':DH.DataFile(self.path, i)}
-            i += 1
+            oLoad = Load(port)
+            cells_package[port] = {'load':oLoad, 'cell':Cell(oLoad.string_number), 'data_file':DH.DataFile(self.path, oLoad.string_number)}
         return cells_package
 
     # Measure the cells and save the processed data. Leave the cells at mppt resistance afterwards.
@@ -142,6 +141,7 @@ class Load(classHardware_):
         super().__init__(port)
         self.list_resistance = None
         self.mpp_resistance = 10
+        self.serial_number, self.string_number = CF.load_string_assign_check(port)
 
     # Read the current and the voltage from the load and return it as a list
     def receive_result(self):
