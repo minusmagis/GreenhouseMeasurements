@@ -5,6 +5,8 @@ import serial
 import glob
 import SmallFunctions as sf
 import DataHandling as DH
+import warnings
+
 
 D_COMS = True
 
@@ -50,8 +52,8 @@ def detect_load(port):
         sf.debugging('No KORAD load found at port ' + str(port), D_COMS)
         return False
 
-# identify loads by emiting a beeping sound
-def self_id_load(port,visual_identification = False):
+# identify loads by their serial number
+def self_id_load(port):
     try:
         door = serial.Serial(port, 115200, timeout=5)
         time.sleep(0.2)
@@ -59,26 +61,6 @@ def self_id_load(port,visual_identification = False):
         time.sleep(0.2)
         foo, serial_number = door.readline().decode('utf-8').rstrip('\n').split('SN:')
         sf.debugging('Data Readout: '+str(serial_number), D_COMS)
-
-        # Id Routine with lights
-        while visual_identification:
-            try:
-                time_delay = 0.2
-                set_V = f':VOLT 0V\n'
-                door.write(set_V.encode('utf-8'))
-                time.sleep(time_delay)
-                set_A = f':CURR 0A\n'
-                door.write(set_A.encode('utf-8'))
-                time.sleep(time_delay)
-                set_R = f':RES 1OHM\n'
-                door.write(set_R.encode('utf-8'))
-                time.sleep(time_delay)
-                set_P = f':POW 0W\n'
-                door.write(set_P.encode('utf-8'))
-                time.sleep(time_delay)
-
-            except KeyboardInterrupt:
-                break
 
         door.close()
         return serial_number
@@ -88,10 +70,40 @@ def self_id_load(port,visual_identification = False):
         return None
 
 
+# Run identification procedure to identify the active load for its correct cell string association
+def load_lights_identification(port, signaling_time = 30):
+    try:
+        door = serial.Serial(port, 115200, timeout=5)
+
+        # Id Routine with lights
+
+        for i in range(signaling_time):
+            time_delay = 0.2
+            set_V = f':VOLT 0V\n'
+            door.write(set_V.encode('utf-8'))
+            time.sleep(time_delay)
+            set_A = f':CURR 0A\n'
+            door.write(set_A.encode('utf-8'))
+            time.sleep(time_delay)
+            set_R = f':RES 1OHM\n'
+            door.write(set_R.encode('utf-8'))
+            time.sleep(time_delay)
+            set_P = f':POW 0W\n'
+            door.write(set_P.encode('utf-8'))
+            time.sleep(time_delay)
+            sf.debugging(str(i)+' Please Identify load to string relation', D_COMS)
+
+        door.close()
+
+    except serial.serialutil.SerialException as error:
+        sf.debugging(error, D_COMS)
+
+
 def load_string_assign_check(port):
     serial_number = self_id_load(port)
     if DH.load_SN_to_string_num(serial_number) is None:
-        Warning('This load has not been asigned to a string yet. Please proceed to assign it when prompted \n')
+        warnings.warn('This load has not been asigned to a string yet. Please proceed to assign it when prompted \n')
+        load_lights_identification(port)
         string_number = input('Please input the string number connected to the current load: ')
         DH.string_num_to_load_SN(string_number, serial_number)
     else:
@@ -123,11 +135,7 @@ if __name__ == '__main__':
     print(port_list)
     for port in port_list:
         detect_load(port)
-        load_SN = self_id_load(port)
-        if DH.load_SN_to_string_num(load_SN) is None:
-            string_number = input('Please input the string number connected to the current load: ')
-            DH.string_num_to_load_SN(string_number,load_SN)
-        else: print('String Number: '+ str(DH.load_SN_to_string_num(load_SN)))
+        load_SN, load_string_number = load_string_assign_check(port)
 
 
     print('---------------------------Load Detection and Assigning end------------------------')
