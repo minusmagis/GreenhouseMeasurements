@@ -28,8 +28,7 @@ def serial_ports():
         try:
             s = serial.Serial(port)
             s.close()
-            if port != 'COM5':
-                port_list.append(port)
+            port_list.append(port)
         except (OSError, serial.SerialException):
             pass
     return port_list

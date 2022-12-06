@@ -2,6 +2,7 @@ import ElectricalMeasurements as em
 import pandas as pd
 import time
 import math
+import os
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import *
@@ -21,7 +22,7 @@ class GUI(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.main = em.Main('C:/Users/jules/Documents/test')
+        self.main = em.Main(os.getcwd())
         self.worker = []
         self.worker_sensor = None
         self.threadpool = QThreadPool()
