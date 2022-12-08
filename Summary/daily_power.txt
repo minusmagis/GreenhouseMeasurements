@@ -1,2 +1,0 @@
-Date_Timestamp	Energy (kWh)
-2022-12-08	0
