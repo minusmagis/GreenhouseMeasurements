@@ -499,6 +499,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -535,6 +536,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -571,6 +573,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -607,6 +610,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -643,6 +647,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -679,6 +684,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -715,6 +721,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -751,6 +758,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -787,6 +795,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -823,6 +832,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -859,6 +869,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -895,6 +906,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -931,6 +943,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -967,6 +980,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1003,6 +1017,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1039,6 +1054,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1079,6 +1095,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1115,6 +1132,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1151,6 +1169,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1187,6 +1206,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1223,6 +1243,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1259,6 +1280,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1295,6 +1317,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1331,6 +1354,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1367,6 +1391,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1403,6 +1428,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1439,6 +1465,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1475,6 +1502,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1511,6 +1539,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1548,6 +1577,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1584,6 +1614,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -1620,6 +1651,7 @@ QPushButton:pressed {
                   <font>
                    <family>Bahnschrift</family>
                    <pointsize>24</pointsize>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -2031,6 +2063,7 @@ QPushButton:pressed {
          <font>
           <family>Bahnschrift</family>
           <pointsize>20</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -2312,6 +2345,7 @@ color: rgb(255, 255, 255);</string>
          <font>
           <family>Bahnschrift</family>
           <pointsize>20</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -2480,7 +2514,7 @@ color: rgb(100, 79, 79);
          </sizepolicy>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_3">
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2894,6 +2928,7 @@ color: rgb(100, 79, 79);
                       <font>
                        <family>Bahnschrift</family>
                        <pointsize>28</pointsize>
+                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3285,7 +3320,7 @@ background: rgb(255, 223, 27);</string>
                    <string notr="true">  color: rgb(195, 255, 17);</string>
                   </property>
                   <property name="text">
-                   <string>2547 kWh</string>
+                   <string>None</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -3364,6 +3399,7 @@ background: rgb(255, 223, 27);</string>
                    <font>
                     <family>Bahnschrift</family>
                     <pointsize>48</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -3445,6 +3481,15 @@ background: rgb(255, 223, 27);</string>
                        </color>
                       </brush>
                      </colorrole>
+                     <colorrole role="PlaceholderText">
+                      <brush brushstyle="NoBrush">
+                       <color alpha="128">
+                        <red>234</red>
+                        <green>234</green>
+                        <blue>234</blue>
+                       </color>
+                      </brush>
+                     </colorrole>
                     </active>
                     <inactive>
                      <colorrole role="WindowText">
@@ -3498,6 +3543,15 @@ background: rgb(255, 223, 27);</string>
                         <red>75</red>
                         <green>81</green>
                         <blue>72</blue>
+                       </color>
+                      </brush>
+                     </colorrole>
+                     <colorrole role="PlaceholderText">
+                      <brush brushstyle="NoBrush">
+                       <color alpha="128">
+                        <red>234</red>
+                        <green>234</green>
+                        <blue>234</blue>
                        </color>
                       </brush>
                      </colorrole>
@@ -3557,6 +3611,15 @@ background: rgb(255, 223, 27);</string>
                        </color>
                       </brush>
                      </colorrole>
+                     <colorrole role="PlaceholderText">
+                      <brush brushstyle="NoBrush">
+                       <color alpha="128">
+                        <red>234</red>
+                        <green>234</green>
+                        <blue>234</blue>
+                       </color>
+                      </brush>
+                     </colorrole>
                     </disabled>
                    </palette>
                   </property>
@@ -3564,6 +3627,7 @@ background: rgb(255, 223, 27);</string>
                    <font>
                     <family>Bahnschrift</family>
                     <pointsize>18</pointsize>
+                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -3703,6 +3767,7 @@ background: rgb(255, 223, 27);</string>
                    <font>
                     <family>Bahnschrift</family>
                     <pointsize>36</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -4461,6 +4526,15 @@ background: rgb(255, 223, 27);</string>
                      </color>
                     </brush>
                    </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
                   </active>
                   <inactive>
                    <colorrole role="WindowText">
@@ -4595,6 +4669,15 @@ background: rgb(255, 223, 27);</string>
                       <red>255</red>
                       <green>255</green>
                       <blue>220</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
                      </color>
                     </brush>
                    </colorrole>
@@ -4735,6 +4818,15 @@ background: rgb(255, 223, 27);</string>
                      </color>
                     </brush>
                    </colorrole>
+                   <colorrole role="PlaceholderText">
+                    <brush brushstyle="NoBrush">
+                     <color alpha="128">
+                      <red>75</red>
+                      <green>81</green>
+                      <blue>72</blue>
+                     </color>
+                    </brush>
+                   </colorrole>
                   </disabled>
                  </palette>
                 </property>
@@ -4785,7 +4877,7 @@ QTabBar::tabRect
                  <enum>QTabWidget::Triangular</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -4835,7 +4927,7 @@ border-color: rgb(75, 81, 72);</string>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="tab_2">
+                <widget class="QWidget" name="tab_energy_per_day">
                  <property name="palette">
                   <palette>
                    <active>
@@ -5069,6 +5161,23 @@ background-color: rgb(75, 81, 72);</string>
                  <attribute name="title">
                   <string>  Energy per Day  </string>
                  </attribute>
+                 <layout class="QGridLayout" name="gridLayout_6">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="VLayout_energy_per_day"/>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>

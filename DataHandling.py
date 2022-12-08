@@ -26,8 +26,11 @@ class DataFile():
         :return: pandas dataframe with all the columns that have the same date YYYY-MM-DD as the last row.
         '''
 
-        today, last_meas_time = self.df_full_params['Date_Timestamp'].iloc[-1].split(' ')
-        today_data = self.df_full_params[self.df_full_params['Date_Timestamp'].str.contains(today)]
+        try:
+            today, last_meas_time = self.df_full_params['Date_Timestamp'].iloc[-1].split(' ')
+            today_data = self.df_full_params[self.df_full_params['Date_Timestamp'].str.contains(today)]
+        except:
+            today_data = pd.DataFrame()
 
         return today_data
 

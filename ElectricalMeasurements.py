@@ -316,6 +316,7 @@ class Cell():
         self.idx_mpp = self.df_iv['Power (W)'].idxmax()
         self.voltage_mpp = self.df_iv['Voltage (V)'][self.idx_mpp]
         self.power = self.df_iv['Power (W)'][self.idx_mpp]
+        print(self.power)
         impp = self.df_iv['Current (A)'][self.idx_mpp]
         if self.isc * self.voc != 0:
             self.ff = (impp * self.voltage_mpp) / (self.isc * self.voc)

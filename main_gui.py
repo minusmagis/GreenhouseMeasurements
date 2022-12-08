@@ -106,8 +106,8 @@ class GUI(QMainWindow):
 
 
             ticks = fig.axes.get_yticklabels()
-            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
-            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
             fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
             fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
@@ -147,8 +147,8 @@ class GUI(QMainWindow):
             fig.axes.tick_params(which='minor', length=3, color='white')
 
             ticks = fig.axes.get_yticklabels()
-            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
-            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
             fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
             fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
@@ -180,12 +180,13 @@ class GUI(QMainWindow):
                     df_power['UNIX_Timestamp(s)'] = df_instance['UNIX_Timestamp(s)']
                     df_power['Date_Timestamp'] = df_instance['Date_Timestamp_x']
                     df_power['Power'] = df_instance['Power_x'] + df_instance['Power_y']
-        self.ui.line_power.set_ydata(df_power['Power'])
-        self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
-        self.ui.fig_power.axes.relim()
-        self.ui.fig_power.axes.autoscale()
-        self.ui.fig_power.fig.canvas.draw()
-        self.ui.fig_power.fig.canvas.flush_events()
+        if not df_power.empty:
+            self.ui.line_power.set_ydata(df_power['Power'])
+            self.ui.line_power.set_xdata(pd.to_datetime(df_power['Date_Timestamp']))
+            self.ui.fig_power.axes.relim()
+            self.ui.fig_power.axes.autoscale()
+            self.ui.fig_power.fig.canvas.draw()
+            self.ui.fig_power.fig.canvas.flush_events()
 
     def update_fig_energy(self):
         df_energy = self.main.get_daily_power_df()
@@ -213,7 +214,10 @@ class GUI(QMainWindow):
         power = self.main.get_current_power()
         self.ui.CurrentPowerLabel.setText(f'{power} W')
         self.ui.SunPowerLabel.setText(f'{(self.main.arduino_sensor.light_intensity_east + self.main.arduino_sensor.light_intensity_west) / 2}')
-        self.ui.TodayEnergyLabel.setText(f'{self.main.get_daily_power_df()["Energy (kWh)"].iloc[-1]} kWh')
+        try:
+            self.ui.TodaysSolarEnergy.setText(f'{self.main.get_daily_power_df()["Energy (kWh)"].iloc[-1]} kWh')
+        except:
+            pass
         self.ui.SunPowerLabel.setStyleSheet(u"color: rgb(254, 249, 193);\n background: transparent;")
 
     def trigger_measure_all_cells(self):
@@ -417,8 +421,8 @@ class GUI_Cell():
             fig.axes.tick_params(which='minor', length=3,  color='white')
 
             ticks = fig.axes.get_yticklabels()
-            fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
-            fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_yticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
+            #fig.axes.set_xticklabels(ticks, fontsize=20, fontname="Bahnschrift", color='white')
             fig.axes.tick_params(axis='x', colors='white')  # setting up X-axis tick color to red
             fig.axes.tick_params(axis='y', colors='white')  # setting up Y-axis tick color to black
             fig.axes.spines['left'].set_color('white')  # setting up Y-axis tick color to red
