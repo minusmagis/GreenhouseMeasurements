@@ -1,0 +1,2 @@
+Date_Timestamp	UNIX_Timestamp(s)	Isc	Voc	FF	PCE	MPP voltage	Power	Temperature (ºC)	Humidity (%)	Light Intensity East (W m-2)	Light Intensity West (W m-2)
+2022-12-08 16:06:31	1670504791	0.07	0.643	0.752	0.034	0.533	0.034	0	0	0	0

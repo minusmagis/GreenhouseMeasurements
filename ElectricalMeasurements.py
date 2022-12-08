@@ -188,12 +188,7 @@ class Load(classHardware_):
         resistance_list_bot.append(min)
         resistance_list_bot.reverse()
 
-        # print(resistance_list_top)
-        # print(resistance_list_bot)
-
         resistance_list = resistance_list_bot + resistance_list_top
-
-        # print(resistance_list)
 
         return resistance_list
 
@@ -266,7 +261,7 @@ class Arduino(classHardware_):
         self.sensor_dict = {'Temperature (ºC): ': self.temperature, 'Humidity (%):': self.humidity,
                        'Light Intensity East (W m-2): ': self.light_intensity_east, 'Light Intensity West (W m-2): ': self.light_intensity_west}
 
-        sf.debugging(self.sensor_dict, D_ELECTR)
+        #sf.debugging(self.sensor_dict, D_ELECTR)
 
 # Cell class to transform and store all the relevant figures of merit of each cell--------------------------------------------- What is the use of ref?
 class Cell():
@@ -316,7 +311,6 @@ class Cell():
         self.idx_mpp = self.df_iv['Power (W)'].idxmax()
         self.voltage_mpp = self.df_iv['Voltage (V)'][self.idx_mpp]
         self.power = self.df_iv['Power (W)'][self.idx_mpp]
-        print(self.power)
         impp = self.df_iv['Current (A)'][self.idx_mpp]
         if self.isc * self.voc != 0:
             self.ff = (impp * self.voltage_mpp) / (self.isc * self.voc)
