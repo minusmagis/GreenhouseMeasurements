@@ -40,6 +40,10 @@ class GUI(QMainWindow):
         self.ui.PauseMeasurementsButton.clicked.connect(self.stop_worker)
         self.ui.comboBox_cell_list.currentTextChanged.connect(self.switch_cell)
 
+        self.ui.stackedWidget_MeasurementTriggers.setCurrentIndex(0)
+        self.ui.stackedWidget.setCurrentIndex(3)
+
+
     # Function that evaluates the sender object to decide which button was clicked and sets the stack widget
     # for the main menu accordingly
     def switch_menu(self):
