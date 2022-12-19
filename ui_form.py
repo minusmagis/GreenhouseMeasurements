@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFrame,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QTabWidget, QVBoxLayout, QWidget)
 import resource.resource_rc
+#did it push?
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
