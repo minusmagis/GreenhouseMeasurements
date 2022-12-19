@@ -11,10 +11,10 @@ void setup()
   Serial.begin(9600);  
   Serial.println("Arduino Sensor");
 
-//  if (!driver.init())
-//    Serial.println("Receiver initialization failed");
-//  else
-//    Serial.println("Receiver is working");
+  if (!driver.init())
+    Serial.println("Receiver initialization failed");
+  else
+    Serial.println("Receiver is working");
 }
 
 void loop()
