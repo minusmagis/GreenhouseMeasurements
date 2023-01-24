@@ -5,8 +5,8 @@ import datetime
 import time
 
 # file_with_all_files = filedialog.askopenfilename(initialdir = "/",title = "Select the txt file with the list of files")
-folder_with_all_files = filedialog.askdirectory(initialdir = r'P:\Job Documents\Omegalab\Greenhouse\Data\Summary',mustexist = True,title = "Select the directory which you want to check")
-
+# folder_with_all_files = filedialog.askdirectory(initialdir = r'C:\Users\jules\OneDrive\Thèse\Travail\Macro\GreenhouseMeasurements\test\postpricessata',mustexist = True,title = "Select the directory which you want to check")
+folder_with_all_files = r'C:\Users\jules\OneDrive\Thèse\Travail\Macro\GreenhouseMeasurements\test\postpricessata'
 # Get folder with all the cells and the summary
 
 
@@ -21,9 +21,9 @@ cell_df_list = list()
 
 for i,file in enumerate(cell_file_list):
     cell_df_list.append(pd.read_csv(os.path.join(folder_with_all_files,file), delimiter="\t"))
-    cell_df_list[i]['Date_Timestamp'] = pd.to_datetime(cell_df_list[i]['Date_Timestamp'])
+    cell_df_list[i]['Date_Timestamp'] = pd.to_datetime(cell_df_list[i]['Date_Timestamp'], format= '%Y-%m-%d %H:%M:%S')
 
-irr_df['MPP_Time'] = pd.to_datetime(irr_df['MPP_Time'])
+irr_df['MPP_Time'] = pd.to_datetime(irr_df['MPP_Time'], format= '%d/%m/%Y %H:%M:%S')
 
 # irr_df['MPP_Time'] = (irr_df['MPP_Time'] - pd.Timestamp("1970-01-01")) // pd.Timedelta('1s')
 
@@ -31,7 +31,7 @@ irr_df['MPP_Time'] = pd.to_datetime(irr_df['MPP_Time'])
 
 datedumb = cell_df_list[0].iloc[-5000]['Date_Timestamp']
 
-result = irr_df.iloc[(irr_df['MPP_Time']-datedumb).abs().argsort()]
+result = irr_df.iloc[(irr_df['MPP_Time']-datedumb).abs().argsort()[:1]]
 
 print(datedumb)
 print(result['MPP_Time'])
