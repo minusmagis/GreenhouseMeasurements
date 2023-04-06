@@ -49,6 +49,7 @@ class Main():
             cell = self.cells_package[port]['cell']
             load = self.cells_package[port]['load']
             data_file = self.cells_package[port]['data_file']
+            sf.debugging('measuring cell: '+str(cell.ref)+'\n',D_ELECTR)
             cell.measure_cell(load, 0.05, 500, 200)
             cell.mpp_tracking(load)
             data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power, self.arduino_sensor.temperature, self.arduino_sensor.humidity, self.arduino_sensor.light_intensity_east, self.arduino_sensor.light_intensity_west)
@@ -59,6 +60,7 @@ class Main():
         cell = self.cells_package[port]['cell']
         load = self.cells_package[port]['load']
         data_file = self.cells_package[port]['data_file']
+        sf.debugging('measuring cell: ' + str(cell.ref) + '\n', D_ELECTR)
         cell.measure_cell(load, 0.05, 500, 40)
         cell.mpp_tracking(load)
         data_file.save_dfs(cell.df_iv, cell.isc, cell.voc, cell.ff, cell.pce, cell.voltage_mpp, cell.power, self.arduino_sensor.temperature, self.arduino_sensor.humidity, self.arduino_sensor.light_intensity_east, self.arduino_sensor.light_intensity_west)
@@ -67,7 +69,10 @@ class Main():
     def get_current_power(self):
         power = 0
         for port in self.cells_package:
-            power += round(self.cells_package[port]['cell'].power, 1)
+            if self.cells_package[port]['cell'].power is None:
+                pass
+            else:
+                power += round(self.cells_package[port]['cell'].power, 1)
         return power
 
     def get_daily_power_df(self):
@@ -209,10 +214,10 @@ class Load(classHardware_):
 class Arduino(classHardware_):
     def __init__(self, port):
         super().__init__(port, baudrate=9600)
-        self.temperature = None
-        self.humidity = None
-        self.light_intensity_east = None
-        self.light_intensity_west = None
+        self.temperature = -1
+        self.humidity = -1
+        self.light_intensity_east = -1
+        self.light_intensity_west = -1
         self.sensor_dict = None
         self.delay = 0.2                            # Add a delay for fluid communications
 

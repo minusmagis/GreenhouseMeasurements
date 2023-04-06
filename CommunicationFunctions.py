@@ -70,7 +70,7 @@ def self_id_load(port):
 
 
 # Run identification procedure to identify the active load for its correct cell string association
-def load_lights_identification(port, signaling_time = 30):
+def load_lights_identification(port, signaling_time = 15):
     try:
         door = serial.Serial(port, 115200, timeout=5)
 
@@ -114,7 +114,7 @@ def load_string_assign_check(port):
 
 # Read the data from a port and decide if it is an arduino or not
 def detect_arduino(port):
-    try:
+    '''try:
         door = serial.Serial(port, 9600, timeout=5)
         readout = door.readline().decode('utf-8').rstrip('A\n')
         sf.debugging('Data Readout: '+str(readout), D_COMS)
@@ -123,7 +123,8 @@ def detect_arduino(port):
         else: return False
     except serial.serialutil.SerialException:
         sf.debugging('No arduino found at port ' + str(port), D_COMS)
-        return False
+        return False'''
+    pass
 
 
 if __name__ == '__main__':

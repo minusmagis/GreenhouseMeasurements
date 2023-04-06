@@ -1,7 +1,3 @@
-import pandas as pd
+import matplotlib
 
-dataframe1 = pd.DataFrame()
-dataframe2 = pd.DataFrame()
-dataframe_list = [dataframe1,dataframe2]
-
-print(dataframe_list)
+print(matplotlib.get_cachedir())

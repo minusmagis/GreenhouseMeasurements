@@ -70,7 +70,11 @@ class DataFile():
         path_cell = f'{self.path}/Cell{self.ref}'
         if os.path.exists(path_cell):
             file = [f for f in os.listdir(path_cell) if os.path.isfile(os.path.join(path_cell, f))][-2]
-            return pd.read_csv(path_cell + '/' + file, delimiter="\t")
+            try:
+                df = pd.read_csv(path_cell + '/' + file, delimiter="\t")
+                return pd.read_csv(path_cell + '/' + file, delimiter="\t")
+            except:
+                return pd.DataFrame()
         else:
             return pd.DataFrame()
 

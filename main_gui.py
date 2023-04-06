@@ -22,10 +22,11 @@ class GUI(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.main = em.Main(os.getcwd())
+        self.main = em.Main(os.path.join(os.getcwd(), "Data"))
         self.worker = []
         self.worker_sensor = None
         self.threadpool = QThreadPool()
+        self.threadpool.setMaxThreadCount(9)
         self.gui_cell = {}
         self.init_triggers()
         self.update_gui()
