@@ -445,7 +445,9 @@ class GUI_Cell():
                 fig.axes.plot_date(pd.to_datetime(self.cell_package['data_file'].df_full_params['Date_Timestamp']), self.cell_package['data_file'].df_full_params[df_full_params_column], xdate = True, linestyle ='-', linewidth=2)
 
     def build_tab_iv(self):
-        if not self.cell_package['data_file'].df_iv.empty:
+        if (not self.cell_package['data_file'].df_iv.empty
+                and 'Voltage (V)' in self.cell_package['data_file'].df_iv.columns
+                and 'Current (A)' in self.cell_package['data_file'].df_iv.columns):
             x = self.cell_package['data_file'].df_iv['Voltage (V)']
             y = self.cell_package['data_file'].df_iv['Current (A)']
         else:
@@ -455,7 +457,9 @@ class GUI_Cell():
         self.update_tab_iv()
 
     def update_tab_iv(self):
-        if not self.cell_package['data_file'].df_iv.empty:
+        if (not self.cell_package['data_file'].df_iv.empty
+                and 'Voltage (V)' in self.cell_package['data_file'].df_iv.columns
+                and 'Current (A)' in self.cell_package['data_file'].df_iv.columns):
             self.line.set_ydata(self.cell_package['data_file'].df_iv['Current (A)'])
             self.line.set_xdata(self.cell_package['data_file'].df_iv['Voltage (V)'])
             self.fig_iv.axes.relim()
